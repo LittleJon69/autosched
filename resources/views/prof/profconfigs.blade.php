@@ -80,21 +80,33 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="relative border-gray-200 border rounded-md p-6 mt-5 input-cntnr">
+                                <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">UNITS</p>
+        
+                                <div class="w-full">
+                                    <div class="">
+                                        <x-splade-input class="input blue-inpt" id="loadUnit" type="text" name="loadUnit" :label="__('Units')" required />
+                                    </div>
+                                </div>
+                            </div>
         
                             <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                                 <p class="text-md bg-white absolute -top-3 left-3 px-1">DAYS AND ITS TIME</p>
+
+                                <Link href="{{ route('unset-prof-hours') }}">Unset</Link>
             
                                 <div class="flex flex-col flex-wrap gap-3">
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input blue-inpt leftlabel" id="fromtimeSun" name="prefTimeStartSun" label="Sunday" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="fromtimeSun" name="prefTimeStartSun" label="Sunday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeSun">
                                                 From
                                             </label>
                                         </div>
     
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input blue-inpt leftlabel" id="totimeSun" name="prefTimeEndSun" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="totimeSun" name="prefTimeEndSun" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeSun">
                                                 To
                                             </label>
@@ -103,14 +115,14 @@
     
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input blue-inpt leftlabel" id="fromtimeMon" name="prefTimeStartMon" label="Monday" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="fromtimeMon" name="prefTimeStartMon" label="Monday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeMon">
                                                 From
                                             </label>
                                         </div>
     
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input blue-inpt leftlabel" id="totimeMon" name="prefTimeEndMon" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="totimeMon" name="prefTimeEndMon" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeMon">
                                                 To
                                             </label>
@@ -119,14 +131,14 @@
     
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input blue-inpt leftlabel" id="fromtimeTue" name="prefTimeStartTue" label="Tuesday" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="fromtimeTue" name="prefTimeStartTue" label="Tuesday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeTue">
                                                 From
                                             </label>
                                         </div>
     
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input blue-inpt leftlabel" id="totimeTue" name="prefTimeEndTue" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="totimeTue" name="prefTimeEndTue" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeTue">
                                                 To
                                             </label>
@@ -135,14 +147,14 @@
     
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input blue-inpt leftlabel" id="fromtimeWed" name="prefTimeStartWed" label="Wednesday" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="fromtimeWed" name="prefTimeStartWed" label="Wednesday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeWed">
                                                 From
                                             </label>
                                         </div>
     
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input blue-inpt leftlabel" id="totimeWed" name="prefTimeEndWed" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="totimeWed" name="prefTimeEndWed" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeWed">
                                                 To
                                             </label>
@@ -151,14 +163,14 @@
     
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input blue-inpt leftlabel" id="fromtimeThu" name="prefTimeStartThu" label="Thursday" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="fromtimeThu" name="prefTimeStartThu" label="Thursday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeThu">
                                                 From
                                             </label>
                                         </div>
     
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input blue-inpt leftlabel" id="totimeThu" name="prefTimeEndThu" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="totimeThu" name="prefTimeEndThu" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeThu">
                                                 To
                                             </label>
@@ -167,14 +179,14 @@
     
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input blue-inpt leftlabel" id="fromtimeFri" name="prefTimeStartFri" label="Friday" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="fromtimeFri" name="prefTimeStartFri" label="Friday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeFri">
                                                 From
                                             </label>
                                         </div>
     
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input blue-inpt leftlabel" id="totimeFri" name="prefTimeEndFri" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="totimeFri" name="prefTimeEndFri" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeFri">
                                                 To
                                             </label>
@@ -183,28 +195,18 @@
     
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input blue-inpt leftlabel" id="fromtimeSat" name="prefTimeStartSat" label="Saturday" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="fromtimeSat" name="prefTimeStartSat" label="Saturday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeSat">
                                                 From
                                             </label>
                                         </div>
     
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input blue-inpt leftlabel" id="totimeSat" name="prefTimeEndSat" time />
+                                            <x-splade-input  class="input blue-inpt leftlabel" id="totimeSat" name="prefTimeEndSat" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeSat">
                                                 To
                                             </label>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="relative border-gray-200 border rounded-md p-6 mt-5 input-cntnr">
-                                <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">OTHER DETAILS</p>
-        
-                                <div class="w-full">
-                                    <div class="">
-                                        <x-splade-input class="input blue-inpt" id="loadUnit" type="text" name="loadUnit" :label="__('Units')" required />
                                     </div>
                                 </div>
                             </div>

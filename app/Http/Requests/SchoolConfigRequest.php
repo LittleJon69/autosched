@@ -19,6 +19,9 @@ class SchoolConfigRequest extends FormRequest
     public function rules(): array
     {
         return [
+            // 'autoRoom' => ['required'],
+            'allocationWay' => 'required',
+            'sem' => 'required',
             // 'mode' => ['required'],
             // 'schTimeStartSun' => ['required'],
             // 'schTimeEndSun' => ['required'],

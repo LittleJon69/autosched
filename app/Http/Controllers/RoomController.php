@@ -20,6 +20,15 @@ class RoomController extends Controller
     public function index()
     {
 
+        //getting coordinator Id
+        $coordinatorId = Auth::user()->id;
+
+        //finding administrator id using coordinator id
+        $administratorId = DB::table('coor_infos')->where('id', $coordinatorId)->value('coorAdminId');
+
+        // getting school name
+        $schoolInfo = DB::table('school_infos')->where('coordinatorId', $administratorId)->value('schName');
+
         $globalSearch = AllowedFilter::callback('global', function ($query, $value) {
             $query->where(function ($query) use ($value) {
                 Collection::wrap($value)->each(function ($value) use ($query) {
@@ -29,9 +38,6 @@ class RoomController extends Controller
                 });
             });
         });
-
-         // getting school name
-         $schoolInfo = DB::table('school_infos')->where('coordinatorId', Auth::user()->id)->value('schName');
 
         $room = QueryBuilder::for(Room::class)
             ->defaultSort('-id')
@@ -83,19 +89,33 @@ class RoomController extends Controller
 
         // getting school name
         $roomSchool = DB::table('school_infos')->where('coordinatorId', $administratorId)->value('schName');
+
+        $roomNumber = $request->roomNumber;
+
+        if(DB::table('rooms')->where('roomSchool', $roomSchool)->where('roomNumber',$roomNumber)->exists()){
+
+            Toast::title('Already Exist.')
+            ->success()
+            ->rightTop()
+            ->warning()
+            ->autoDismiss(1.5); 
+
+        }else{
+
+            Room::create([
+                'roomNumber' => $request->roomNumber,
+                'roomDepartment' => $request->roomDepartment,
+                'roomSchool' => $roomSchool,
+            ]);
+    
+            Toast::title('Room Added Successfully.')
+            ->success()
+            ->rightTop()
+            ->backdrop()
+            ->autoDismiss(1.5);
+
+        }
    
-        Room::create([
-            'roomNumber' => $request->roomNumber,
-            'roomDepartment' => $request->roomDepartment,
-            'roomSchool' => $roomSchool,
-        ]);
-
-        Toast::title('Room Added Successfully.')
-        ->success()
-        ->rightTop()
-        ->backdrop()
-        ->autoDismiss(1.5);
-
         return to_route('rooms.index');
 
     }

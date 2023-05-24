@@ -33,7 +33,7 @@
                 <p class="text-white sm:text-lg text-sm font-normal text-center">VERIFYING YOUR EMAIL</p>
             </div>
 
-            <div class="px-3 py-1 border-l-4 border-l-b6 hidden sm:block m-7 mb-0">
+            <div class="px-3 border-l-4 border-l-b6 hidden sm:block m-7 mb-0">
                 <p class="sm:text-lg text-sm text-b6">
                     VERIFYING YOUR EMAIL
                 </p>

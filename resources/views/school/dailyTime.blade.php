@@ -33,7 +33,7 @@
                     </div>
                 </div>
         
-                <div class="hidden sm:block px-3 py-1 border-l-4 border-l-green-500 m-7 mb-0">
+                <div class="hidden sm:block px-3 border-l-4 border-l-green-500 m-7 mb-0">
                     <p class="text-lg text-green-500">
                         UPDATE SCHOOL HOURS
                     </p>
@@ -81,12 +81,15 @@
             
                                         <div class="flex flex-col flex-wrap gap-3">
                                             <div class="relative">
-                                                <x-splade-radio class="green-chck" name="allocationWay" value=0 label="All Rooms for all Department" />
+                                                <x-splade-group name="allocationWay" checked>
+                                                    <x-splade-radio class="green-chck" name="allocationWay" value=0 label="All Rooms for all Department"  />
+                                                    <x-splade-radio class="green-chck" name="allocationWay" value=1 label="Room by Deparment"  />
+                                                </x-splade-group>
                                             </div>
             
-                                            <div class="relative">
+                                            {{-- <div class="relative">
                                                 <x-splade-radio class="green-chck" name="allocationWay" value=1 label="Room by Deparment" />
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </x-splade-toggle>
@@ -111,12 +114,15 @@
             
                                         <div class="flex flex-col flex-wrap gap-3">
                                             <div class="relative">
-                                                <x-splade-radio class="green-chck" name="allocationWay" value=0 label="All Rooms for all Department" />
+                                                <x-splade-group name="allocationWay">
+                                                    <x-splade-radio class="green-chck" name="allocationWay" value=0 label="All Rooms for all Department" />
+                                                    <x-splade-radio class="green-chck" name="allocationWay" value=1 label="Room by Deparment" />
+                                                </x-splade-group>
                                             </div>
             
-                                            <div class="relative">
+                                            {{-- <div class="relative">
                                                 <x-splade-radio class="green-chck" name="allocationWay" value=1 label="Room by Deparment" />
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </x-splade-toggle>
@@ -126,7 +132,13 @@
                                 <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">SEM</p>
 
                                 <div class="flex flex-col flex-wrap gap-3">
-                                    <div class="relative">
+                                    <x-splade-group name="sem">
+                                        <x-splade-radio  class="green-chck" name="sem" value=1 label="First Sem" />
+                                        <x-splade-radio  class="green-chck" name="sem" value=2 label="Second Sem" />
+                                        <x-splade-radio  class="green-chck" name="sem" value=3 label="Third Sem" />
+                                    </x-splade-group>
+
+                                    {{-- <div class="relative">
                                         <x-splade-radio  class="green-chck" name="sem" value=1 label="First Sem" />
                                     </div>
 
@@ -136,24 +148,26 @@
 
                                     <div class="relative">
                                         <x-splade-radio  class="green-chck" name="sem" value=3 label="Third Sem" />
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
         
                             <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                                 <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">DAYS AND ITS TIME</p>
+                                
+                                <Link href="{{ route('unset-school-hours') }}">Unset</Link>
             
                                 <div class="flex flex-col flex-wrap gap-3">
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input green-inpt leftlabel" id="fromtimeSun" name="schTimeStartSun" label="Sunday" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="fromtimeSun" name="schTimeStartSun" label="Sunday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeSun">
                                                 From
                                             </label>
                                         </div>
 
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input green-inpt leftlabel" id="totimeSun" name="schTimeEndSun" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="totimeSun" name="schTimeEndSun" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeSun">
                                                 To
                                             </label>
@@ -162,14 +176,14 @@
 
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input green-inpt leftlabel" id="fromtimeMon" name="schTimeStartMon" label="Monday" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="fromtimeMon" name="schTimeStartMon" label="Monday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeMon">
                                                 From
                                             </label>
                                         </div>
 
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input green-inpt leftlabel" id="totimeMon" name="schTimeEndMon" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="totimeMon" name="schTimeEndMon" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeMon">
                                                 To
                                             </label>
@@ -178,14 +192,14 @@
 
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input green-inpt leftlabel" id="fromtimeTue" name="schTimeStartTue" label="Tuesday" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="fromtimeTue" name="schTimeStartTue" label="Tuesday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeTue">
                                                 From
                                             </label>
                                         </div>
 
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input green-inpt leftlabel" id="totimeTue" name="schTimeEndTue" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="totimeTue" name="schTimeEndTue" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeTue">
                                                 To
                                             </label>
@@ -194,14 +208,14 @@
 
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input green-inpt leftlabel" id="fromtimeWed" name="schTimeStartWed" label="Wednesday" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="fromtimeWed" name="schTimeStartWed" label="Wednesday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeWed">
                                                 From
                                             </label>
                                         </div>
 
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input green-inpt leftlabel" id="totimeWed" name="schTimeEndWed" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="totimeWed" name="schTimeEndWed" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeWed">
                                                 To
                                             </label>
@@ -210,14 +224,14 @@
 
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input green-inpt leftlabel" id="fromtimeThu" name="schTimeStartThu" label="Thursday" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="fromtimeThu" name="schTimeStartThu" label="Thursday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeThu">
                                                 From
                                             </label>
                                         </div>
 
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input green-inpt leftlabel" id="totimeThu" name="schTimeEndThu" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="totimeThu" name="schTimeEndThu" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeThu">
                                                 To
                                             </label>
@@ -226,14 +240,14 @@
 
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input green-inpt leftlabel" id="fromtimeFri" name="schTimeStartFri" label="Friday" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="fromtimeFri" name="schTimeStartFri" label="Friday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeFri">
                                                 From
                                             </label>
                                         </div>
 
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input green-inpt leftlabel" id="totimeFri" name="schTimeEndFri" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="totimeFri" name="schTimeEndFri" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeFri">
                                                 To
                                             </label>
@@ -242,14 +256,14 @@
 
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="07:00" class="input green-inpt leftlabel" id="fromtimeSat" name="schTimeStartSat" label="Saturday" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="fromtimeSat" name="schTimeStartSat" label="Saturday" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-5 p-3 left-0 top-0 border border-gray-300" for="fromtimeSat">
                                                 From
                                             </label>
                                         </div>
 
                                         <div class="relative w-full">
-                                            <x-splade-input placeholder="13:00" class="input green-inpt leftlabel" id="totimeSat" name="schTimeEndSat" time />
+                                            <x-splade-input  class="input green-inpt leftlabel" id="totimeSat" name="schTimeEndSat" time />
                                             <label class="cursor-pointer text-xs w-14 flex items-center justify-center bg-white rounded-l-md absolute mt-0 p-3 left-0 top-0 border border-gray-300" for="totimeSat">
                                                 To
                                             </label>

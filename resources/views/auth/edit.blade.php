@@ -32,13 +32,13 @@
                 </div>
             </div>
     
-            <div class="hidden sm:block px-3 py-1 border-l-4 border-l-b6 m-7 mb-0">
+            <div class="hidden sm:block px-3 border-l-4 border-l-b6 m-7 mb-0">
                 <p class="sm:text-lg text-sm text-b6">
                     UPDATE YOUR PROFILE
                 </p>
             </div>
     
-            <x-splade-form method="POST" :default="$user" action="profileUpdateCoor" class="space-y-4">
+            <x-splade-form confirm="UPDATE PROFILE" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" method="POST" :default="$user" action="profileUpdateCoor" class="space-y-4">
                 <div class="m-7 mt-2">
                     <p class="mt-4 mb-8 text-xs0 flex items-center justify-center sm:justify-start">Note: " <i class="fa-solid fa-circle text-xs3 text-red-500"></i> " Means that the Field is Required.</p>
     
@@ -111,7 +111,7 @@
     
                     <div class="flex items-center w-full justify-center sm:justify-end">
                         <div class="squared-btn-i blue-btn-i w-full sm:w-fit flex flex-col sm:p-0">
-                            <x-splade-submit onclick="start()" :label="__('UPDATE PROFILE')" />
+                            <x-splade-submit onclick="start()" :label="__('SAVE CHANGES')" />
                         </div>
                     </div>
                 </div>

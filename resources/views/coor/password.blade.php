@@ -32,7 +32,7 @@
                 </div>
             </div>
     
-            <div class="hidden sm:block px-3 py-1 border-l-4 border-l-red-500 m-7 mb-0">
+            <div class="hidden sm:block px-3 border-l-4 border-l-red-500 m-7 mb-0">
                 <p class="sm:text-lg text-sm text-red-500">
                     CHANGE YOUR PASSWORD
                 </p>
@@ -43,8 +43,14 @@
                     <div class="relative border-gray-200 border rounded-md p-6 mt-6 input-cntnr">
                         <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">CURRENT PASSWORD</p>
     
-                        <div class="w-full">
-                            <div class="">
+                        <div class="flex items-end w-full relative h-full">
+                            <div class="w-full">
+                                <div onclick="togglecurrpass()" class="z-10 group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
+                                    <span class="cursor-pointer text-base">
+                                        <i id="eyescurr" class="fa-solid fa-eye text-gray-400 group-hover:text-gray-500"></i>
+                                    </span>
+                                </div>
+
                                 <x-splade-input type="password" class="input red-inpt" id="currentPassword" name="current_password" label="Password" />
                             </div>
                         </div>
@@ -54,12 +60,26 @@
                         <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">NEW PASSWORD</p>
     
                         <div class="w-full">
-                            <div class="">
-                                <x-splade-input type="password" class="input red-inpt" id="password" name="password" label="Password" />
+                            <div class="flex items-end w-full relative h-full">
+                                <div class="w-full">
+                                    <div onclick="togglepass()" class="z-10 group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
+                                        <span class="cursor-pointer text-base">
+                                            <i id="eyes" class="fa-solid fa-eye text-gray-400 group-hover:text-gray-500"></i>
+                                        </span>
+                                    </div>
+    
+                                    <x-splade-input type="password" class="input red-inpt" id="password" name="password" label="Password" />
+                                </div>
                             </div>
     
                             <div class="flex items-end w-full relative h-full mt-4">
                                 <div class="w-full">
+                                    <div onclick="togglecnfrm()" class="z-10 group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
+                                        <span class="cursor-pointer text-base">
+                                            <i id="eyescnfrm" class="fa-solid fa-eye text-gray-400 group-hover:text-gray-500"></i>
+                                        </span>
+                                    </div>
+
                                     <x-splade-input type="password" class="input red-inpt" id="password_confirmation" name="password_confirmation" label="Confirm Password" />
                                 </div>
                             </div>

@@ -12,8 +12,7 @@
             </Link>
         
             <div class="flex text-xs items-center gap-4">
-                <Link modal href="{{ route('login') }}" class="text-blc1 transition-all ease-in-out hover:text-b7">LOG IN</Link>
-                <Link modal href="{{ route('register') }}"><button onclick="start()" class="squared-btn blue-btn border-2 trigger">REGISTER</button></Link>
+                <Link modal href="{{ route('login') }}" class="squared-btn blue-btn border-2 transition-all ease-in-out">LOG IN</Link>
             </div>
         </nav>
     </x-slot>
@@ -33,8 +32,7 @@
             </div>
 
             <div class="sm:hidden px-5 w-full flex text-xs items-center justify-center flex-wrap">
-                <Link href="{{ route('login') }}" class="text-center sm:text-blc1 text-b6 m-4 mx-6 transition-all ease-in-out hover:text-b6">LOG IN</Link>
-                <Link href="{{ route('register') }}" class="w-full"><button onclick="start()" class="w-full squared-btn blue-btn border-2 trigger">REGISTER</button></Link>
+                <Link href="{{ route('login') }}" class="rounded-btn blue-btn border-2 text-center text-b6 m-4 mx-6 transition-all ease-in-out">LOG IN</Link>
             </div>
         </div>
     </div>

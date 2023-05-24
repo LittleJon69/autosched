@@ -39,6 +39,18 @@
                 </div>
             </x-sidebar-link>
 
+            <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('class.index')" :active="request()->routeIs('class.index')">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group hover:bg-b5 w-full">
+                    <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
+                        <i class="fa-solid fa-graduation-cap text-sm group-hover:text-white"></i>
+                    </span>
+
+                    <p class="p-2 mr-3 my-2 h-8 whitespace-nowrap flex items-center text-xs group-hover:text-white">
+                        CLASSES
+                    </p>
+                </div>
+            </x-sidebar-link>
+
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('rooms.index')" :active="request()->routeIs('rooms.index')">
                 <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group hover:bg-b5 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
@@ -185,7 +197,7 @@
                 </div>
     
                 <div class="h-full">
-                    <x-splade-form method="POST" action="{{ route('coor.logout') }}">
+                    {{-- <x-splade-form method="POST" action="{{ route('coor.logout') }}">
                         @csrf
                         
                         <button type="submit" class="text-xs text-center flex items-center justify-center gap-3">
@@ -193,7 +205,13 @@
                                 <i class="fa-solid fa-arrow-right-from-bracket text-white text-sm"></i>
                             </div>
                         </button>
-                    </x-splade-form>
+                    </x-splade-form> --}}
+
+                    <Link class="text-xs text-center flex items-center justify-center gap-3" href="{{ route('coor.logout') }}" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                        <div class="prof h-full flex items-center justify-center bg-b4 p-6">
+                            <i class="fa-solid fa-arrow-right-from-bracket text-white text-sm"></i>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div> 

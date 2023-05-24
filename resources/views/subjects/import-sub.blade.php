@@ -33,7 +33,7 @@
                     </div>
                 </div>
         
-                <div class="hidden sm:block px-3 py-2 border-l-4 border-l-green-500 m-7 mb-0">
+                <div class="hidden sm:block px-3 border-l-4 border-l-green-500 m-7 mb-0">
                     <p class="sm:text-lg text-sm text-green-500">
                         IMPORT AN EXCEL FILE
                     </p>
@@ -51,6 +51,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- <a href="public/excel/sample.xlsx" download>sample file</a> --}}
                         </div>
             
                         <div class="rounded-btn-i green-btn-i mt-8 flex items-center justify-center">

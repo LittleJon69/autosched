@@ -18,54 +18,8 @@
         {{-- <Link href="profconfig">setup</Link> --}}
 
         <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
-            <div class="w-full h-fit flex flex-wrap justify-center xl:w-tabw">
-                {{-- <div class="bg-white shadow-md rounded-lg w-full">
-                    <div class="p-7 border-b border-gray-300">
-                        <p class="text-xl text-b6">
-                            Today's Class/es
-                        </p>
-                    </div>
-
-                    <div class="flex flex-warp items-center p-7">
-                        <div class="bg-white flex flex-col shadow-lg rounded-lg overflow-hidden w-52 h-fit border border-b6">
-                            <div class="flex flex-wrap items-center justify-between">
-                                <div class="group relative p-2 h-full w-full">
-                                    <p class="text-white text-xs bg-red-500 p-1 px-2 rounded-md w-fit">
-                                        CS 118
-                                    </p>
-        
-                                    <p class="text-lg whitespace-nowrap text-b6 w-full h-fit overflow-hidden text-ellipsis p-2 pt-4">
-                                        CS THESIS WRITING 1
-                                    </p>
-                                </div>
-
-                                <div class="bg-b6 flex flex-wrap gap-2 p-3">
-                                    <div class="flex justify-between w-full">
-                                        <p class="text-white text-xs">
-                                            BSCS 4B
-                                        </p>
-
-                                        <p class="text-white text-xs">
-                                            ROOM 301
-                                        </p>
-                                    </div>
-
-                                    <div class="flex justify-between w-full">
-                                        <p class="text-white text-xs">
-                                            MON
-                                        </p>
-
-                                        <p class="text-white text-xs">
-                                            07:00 - 13:00
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <div class="w-full flex flex-wrap justify-center gap-5 m-3 mt-7">
+            <div class="w-full h-fit flex justify-center xl:w-tabw">
+                <div class="w-full flex flex-wrap justify-center gap-5 m-5">
                     <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">
                         <div class="flex items-center justify-between p-4">
                             <div>
@@ -74,10 +28,11 @@
                                 </p>
     
                                 <p class="text-4xl text-b6">
-                                    5
+                                    {{ $subjects }}
                                 </p>
                             </div>
                             
+
                             <div class="rounded-50 p-4 bg-b6 bg-opacity-20 w-12 h-12 flex items-center justify-center">
                                 <i class="fa-solid fa-book text-xl text-b6"></i>
                             </div>
@@ -92,7 +47,7 @@
                                 </p>
     
                                 <p class="text-4xl text-green-500">
-                                    5
+                                    {{ $departments }}
                                 </p>
                             </div>
                             
@@ -111,7 +66,7 @@
                                 </p>
     
                                 <p class="text-4xl text-red-500">
-                                    5
+                                    {{ $courses }}
                                 </p>
                             </div>
                             
@@ -130,7 +85,7 @@
                                 </p>
     
                                 <p class="text-4xl text-yellow-500">
-                                    5
+                                    {{ $professors }}
                                 </p>
                             </div>
                             
@@ -149,7 +104,7 @@
                                 </p>
     
                                 <p class="text-4xl text-purple-500">
-                                    5
+                                    {{ $rooms }}
                                 </p>
                             </div>
                             

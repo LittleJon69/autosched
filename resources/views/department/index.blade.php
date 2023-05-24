@@ -8,8 +8,8 @@
     <!-- Content -->
     <div class="w-full h-full flex flex-col overflow-auto">
         <div class="title-btn flex w-full justify-between items-center border-b border-b-gray-300 overflow-x-auto overflow-y-hidden">
-            <div class="sm:flex hidden">
-                <div class="z-10 h-full w-fit rounded-br-3xl bg-b7 sm:flex hidden justify-center items-center shadow-md p-5">
+            <div class="sm:flex hidden h-full">
+                <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">DEPARTMENTS</p> 
                 </div>                
             </div>
@@ -60,7 +60,7 @@
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 opacity-0 w-0 group-hover:opacity-100 group-hover:w-fit">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-green-500 text-xs">
                                                 EDIT DEPARTMENT
                                             </p>
@@ -72,7 +72,7 @@
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 opacity-0 w-0 group-hover:opacity-100 group-hover:w-fit">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-green-500 text-xs">
                                                 EDIT DEPARTMENT
                                             </p>
@@ -84,7 +84,7 @@
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-trash text-white sm:group-hover:text-red-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 opacity-0 w-0 group-hover:opacity-100 group-hover:w-fit">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-xs text-red-500">
                                                 DELETE DEPARTMENT
                                             </p>

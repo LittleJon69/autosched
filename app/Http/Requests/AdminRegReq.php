@@ -30,7 +30,7 @@ class AdminRegReq extends FormRequest
             'regionCode' => ['required'],
             'cityCode' => ['required'],
             'barangayCode' => ['required'],
-            'street' => ['required', 'max:100', 'min:3'],
+            'street' => ['nullable', 'max:100', 'min:3'],
             'password' => ['required', 'confirmed', 'regex:/^(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*[0-9]{1,})(?=.*[~!@#$%^&*()\-_=+{};:,<.>]{1,}).{8,}$/'],
         ];
     }
@@ -38,40 +38,39 @@ class AdminRegReq extends FormRequest
     public function messages()
     {
         return [
-            'coorFName.required' => '',
-            'coorFName.max' => '',
-            'coorFName.min' => '',
-            'coorFName.regex' => '',
+            'coorFName.required' => 'This Field is Required.',
+            'coorFName.max' => 'This Field is Maximum of 40 Characters Only.',
+            'coorFName.min' => 'This Field Should have Atleast 2 Characters Long.',
+            'coorFName.regex' => 'This Field Should have Letters and Spaces Only.',
 
-            'coorMName.max' => '',
-            'coorMName.min' => '',
-            'coorMName.regex' => '',
+            'coorMName.max' => 'This Field is Maximum of 40 Characters Only.',
+            'coorMName.min' => 'This Field Should have Atleast 2 Characters Long.',
+            'coorMName.regex' => 'This Field Should have Letters and Spaces Only.',
 
-            'coorLName.required' => '',
-            'coorLName.max' => '',
-            'coorLName.min' => '',
-            'coorLName.regex' => '',
+            'coorLName.required' => 'This Field is Required.',
+            'coorLName.max' => 'This Field is Maximum of 40 Characters Only.',
+            'coorLName.min' => 'This Field Should have Atleast 2 Characters Long.',
+            'coorLName.regex' => 'This Field Should have Letters and Spaces Only.',
 
-            'email.required' => '',
-            'email.email' => '',
-            'email.max' => '',
+            'email.required' => 'This Field is Required.',
+            'email.email' => 'Invalid Email.',
+            'email.max' => 'This Field is Maximum of 40 Characters Only.',
             'email.unique' => 'This Email is Already Taken.',
 
-            'contactNumber.required' => '',
-            'contactNumber.unique' => 'This Mobile Number is Already Taken.',
-            'contactNumber.max' => '',
-            'contactNumber.min' => '',
-            'contactNumber.regex' => '',
+            'contactNumber.required' => 'This Field is Required.',
+            'contactNumber.unique' => 'This Contact Number is Already Taken.',
+            'contactNumber.max' => 'This Field is Maximum of 40 Characters Only.',
+            'contactNumber.min' => 'This Field Should have Atleast 2 Characters Long.',
+            'contactNumber.regex' => 'This Field Should have Numbers Only.',
 
             'regionCode.required' => 'This Field is Required.',
             'cityCode.required' => 'This Field is Required.',
             'barangayCode.required' => 'This Field is Required.',
 
-            'street.required' => '',
-            'street.max' => '',
-            'street.min' => '',
+            'street.max' => 'This Field is Maximum of 40 Characters Only.',
+            'street.min' => 'This Field Should have Atleast 2 Characters Long.',
 
-            'password.required' => '',
+            'password.required' => 'This Field is Required.',
             'password.confirmed' => '',
             'password.min' => '',
             'password.regex' => '',

@@ -16,7 +16,7 @@ use App\Models\School_config;
 use App\Models\Stud_sched;
 use ProtoneMedia\Splade\Facades\Toast;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\Request;
 
 class SchoolConfigController extends Controller
 {
@@ -60,92 +60,217 @@ class SchoolConfigController extends Controller
         $schTimeStartSat = $request -> schTimeStartSat;
         $schTimeEndSat = $request -> schTimeEndSat;
 
-        if($schTimeStartSun > $schTimeEndSun){
+        $validateAutoRoom = $request -> autoRoom;
 
-            Toast::title('Please Enter a Valid Time Schedule in Sunday')
+        $validateSem = $request -> sem;
+
+        if($validateSem != 1 && $validateSem != 2 && $validateSem != 3){
+
+            Toast::title('Please Check the Sem')
             ->warning()
             ->rightTop()
             ->backdrop()
             ->autoDismiss(1.5);
 
-        }elseif($schTimeStartMon > $schTimeEndMon){
+        }
 
-            Toast::title('Please Enter a Valid Time Schedule in Monday')
-            ->warning()
-            ->rightTop()
-            ->backdrop()
-            ->autoDismiss(1.5);
+        if($validateAutoRoom == 1){
 
-        }elseif($schTimeStartTue > $schTimeEndTue){
+            $validateAllocationWay = $request -> allocationWay;
 
-            Toast::title('Please Enter a Valid Time Schedule in Tuesday')
-            ->warning()
-            ->rightTop()
-            ->backdrop()
-            ->autoDismiss(1.5);
+            if($validateAllocationWay != 0 && $validateAllocationWay != 1){
 
-        }elseif($schTimeStartWed > $schTimeEndWed){
+                Toast::title('Please Check the Allocation Way')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
 
-            Toast::title('Please Enter a Valid Time Schedule in Wednesday')
-            ->warning()
-            ->rightTop()
-            ->backdrop()
-            ->autoDismiss(1.5);
+            }else{
 
-        }elseif($schTimeStartThu > $schTimeEndThu){
+                if($schTimeStartSun > $schTimeEndSun){
 
-            Toast::title('Please Enter a Valid Time Schedule in Thursday')
-            ->warning()
-            ->rightTop()
-            ->backdrop()
-            ->autoDismiss(1.5);
+                    Toast::title('Please Enter a Valid Time Schedule in Sunday')
+                    ->warning()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }elseif($schTimeStartMon > $schTimeEndMon){
+        
+                    Toast::title('Please Enter a Valid Time Schedule in Monday')
+                    ->warning()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }elseif($schTimeStartTue > $schTimeEndTue){
+        
+                    Toast::title('Please Enter a Valid Time Schedule in Tuesday')
+                    ->warning()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }elseif($schTimeStartWed > $schTimeEndWed){
+        
+                    Toast::title('Please Enter a Valid Time Schedule in Wednesday')
+                    ->warning()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }elseif($schTimeStartThu > $schTimeEndThu){
+        
+                    Toast::title('Please Enter a Valid Time Schedule in Thursday')
+                    ->warning()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }elseif($schTimeStartFri > $schTimeEndFri){
+        
+                    Toast::title('Please Enter a Valid Time Schedule in Friday')
+                    ->warning()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }elseif($schTimeStartSat > $schTimeEndSat){
+        
+                    Toast::title('Please Enter a Valid Time Schedule in Saturday')
+                    ->warning()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }else{
+        
+                    $schoolSetuptime = School_config::find($coordinatorId);
+                    $schoolSetuptime -> schId = $id;
+                    $schoolSetuptime -> schName = $schName;
+                    $schoolSetuptime -> mode = $request -> mode;
+                    $schoolSetuptime -> sem = $request -> sem;
+                    $schoolSetuptime -> autoRoom = $request -> autoRoom;
+                    $schoolSetuptime -> allocationWay = $request -> allocationWay;
+                    $schoolSetuptime -> schTimeStartSun = $request -> schTimeStartSun;
+                    $schoolSetuptime -> schTimeEndSun = $request -> schTimeEndSun;
+                    $schoolSetuptime -> schTimeStartMon = $request -> schTimeStartMon;
+                    $schoolSetuptime -> schTimeEndMon = $request -> schTimeEndMon;
+                    $schoolSetuptime -> schTimeStartTue = $request -> schTimeStartTue;
+                    $schoolSetuptime -> schTimeEndTue = $request -> schTimeEndTue;
+                    $schoolSetuptime -> schTimeStartWed = $request -> schTimeStartWed;
+                    $schoolSetuptime -> schTimeEndWed = $request -> schTimeEndWed;
+                    $schoolSetuptime -> schTimeStartThu = $request -> schTimeStartThu;
+                    $schoolSetuptime -> schTimeEndThu = $request -> schTimeEndThu;
+                    $schoolSetuptime -> schTimeStartFri = $request -> schTimeStartFri;
+                    $schoolSetuptime -> schTimeEndFri = $request -> schTimeEndFri;
+                    $schoolSetuptime -> schTimeStartSat = $request -> schTimeStartSat;
+                    $schoolSetuptime -> schTimeEndSat = $request -> schTimeEndSat;
+                    $schoolSetuptime -> save();
+        
+                    Toast::title('School Hours Updated Successfully. ')
+                    ->success()
+                    ->rightTop()
+                    ->backdrop()
+                    ->autoDismiss(1.5);
+        
+                }
+    
+            }
 
-        }elseif($schTimeStartFri > $schTimeEndFri){
+        }
 
-            Toast::title('Please Enter a Valid Time Schedule in Friday')
-            ->warning()
-            ->rightTop()
-            ->backdrop()
-            ->autoDismiss(1.5);
+        if($validateAutoRoom == 0){
 
-        }elseif($schTimeStartSat > $schTimeEndSat){
+            if($schTimeStartSun > $schTimeEndSun){
 
-            Toast::title('Please Enter a Valid Time Schedule in Saturday')
-            ->warning()
-            ->rightTop()
-            ->backdrop()
-            ->autoDismiss(1.5);
-
-        }else{
-
-            $schoolSetuptime = School_config::find($coordinatorId);
-            $schoolSetuptime -> schId = $id;
-            $schoolSetuptime -> schName = $schName;
-            $schoolSetuptime -> mode = $request -> mode;
-            $schoolSetuptime -> sem = $request -> sem;
-            $schoolSetuptime -> autoRoom = $request -> autoRoom;
-            $schoolSetuptime -> allocationWay = $request -> allocationWay;
-            $schoolSetuptime -> schTimeStartSun = $request -> schTimeStartSun;
-            $schoolSetuptime -> schTimeEndSun = $request -> schTimeEndSun;
-            $schoolSetuptime -> schTimeStartMon = $request -> schTimeStartMon;
-            $schoolSetuptime -> schTimeEndMon = $request -> schTimeEndMon;
-            $schoolSetuptime -> schTimeStartTue = $request -> schTimeStartTue;
-            $schoolSetuptime -> schTimeEndTue = $request -> schTimeEndTue;
-            $schoolSetuptime -> schTimeStartWed = $request -> schTimeStartWed;
-            $schoolSetuptime -> schTimeEndWed = $request -> schTimeEndWed;
-            $schoolSetuptime -> schTimeStartThu = $request -> schTimeStartThu;
-            $schoolSetuptime -> schTimeEndThu = $request -> schTimeEndThu;
-            $schoolSetuptime -> schTimeStartFri = $request -> schTimeStartFri;
-            $schoolSetuptime -> schTimeEndFri = $request -> schTimeEndFri;
-            $schoolSetuptime -> schTimeStartSat = $request -> schTimeStartSat;
-            $schoolSetuptime -> schTimeEndSat = $request -> schTimeEndSat;
-            $schoolSetuptime -> save();
-
-            Toast::title('School Hours Updated Successfully. ')
-            ->success()
-            ->rightTop()
-            ->backdrop()
-            ->autoDismiss(1.5);
+                Toast::title('Please Enter a Valid Time Schedule in Sunday')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }elseif($schTimeStartMon > $schTimeEndMon){
+    
+                Toast::title('Please Enter a Valid Time Schedule in Monday')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }elseif($schTimeStartTue > $schTimeEndTue){
+    
+                Toast::title('Please Enter a Valid Time Schedule in Tuesday')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }elseif($schTimeStartWed > $schTimeEndWed){
+    
+                Toast::title('Please Enter a Valid Time Schedule in Wednesday')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }elseif($schTimeStartThu > $schTimeEndThu){
+    
+                Toast::title('Please Enter a Valid Time Schedule in Thursday')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }elseif($schTimeStartFri > $schTimeEndFri){
+    
+                Toast::title('Please Enter a Valid Time Schedule in Friday')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }elseif($schTimeStartSat > $schTimeEndSat){
+    
+                Toast::title('Please Enter a Valid Time Schedule in Saturday')
+                ->warning()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }else{
+    
+                $schoolSetuptime = School_config::find($coordinatorId);
+                $schoolSetuptime -> schId = $id;
+                $schoolSetuptime -> schName = $schName;
+                $schoolSetuptime -> mode = $request -> mode;
+                $schoolSetuptime -> sem = $request -> sem;
+                $schoolSetuptime -> autoRoom = $request -> autoRoom;
+                $schoolSetuptime -> allocationWay = $request -> allocationWay;
+                $schoolSetuptime -> schTimeStartSun = $request -> schTimeStartSun;
+                $schoolSetuptime -> schTimeEndSun = $request -> schTimeEndSun;
+                $schoolSetuptime -> schTimeStartMon = $request -> schTimeStartMon;
+                $schoolSetuptime -> schTimeEndMon = $request -> schTimeEndMon;
+                $schoolSetuptime -> schTimeStartTue = $request -> schTimeStartTue;
+                $schoolSetuptime -> schTimeEndTue = $request -> schTimeEndTue;
+                $schoolSetuptime -> schTimeStartWed = $request -> schTimeStartWed;
+                $schoolSetuptime -> schTimeEndWed = $request -> schTimeEndWed;
+                $schoolSetuptime -> schTimeStartThu = $request -> schTimeStartThu;
+                $schoolSetuptime -> schTimeEndThu = $request -> schTimeEndThu;
+                $schoolSetuptime -> schTimeStartFri = $request -> schTimeStartFri;
+                $schoolSetuptime -> schTimeEndFri = $request -> schTimeEndFri;
+                $schoolSetuptime -> schTimeStartSat = $request -> schTimeStartSat;
+                $schoolSetuptime -> schTimeEndSat = $request -> schTimeEndSat;
+                $schoolSetuptime -> save();
+    
+                Toast::title('School Hours Updated Successfully. ')
+                ->success()
+                ->rightTop()
+                ->backdrop()
+                ->autoDismiss(1.5);
+    
+            }
 
         }
 
@@ -922,4 +1047,38 @@ class SchoolConfigController extends Controller
         return to_route('school.index');
      
     }
+
+    public function unset(){
+
+            $administratorId = Auth::user()->id;
+
+            $schoolConfigId = School_config::where('coordinatorId', $administratorId)->value('id');
+
+            $unset = School_config::find($schoolConfigId);
+            $unset -> schTimeStartSun = null;
+            $unset -> schTimeEndSun = null;
+            $unset -> schTimeStartMon = null;
+            $unset -> schTimeEndMon = null;
+            $unset -> schTimeStartTue = null;
+            $unset -> schTimeEndTue = null;
+            $unset -> schTimeStartWed = null;
+            $unset -> schTimeEndWed = null;
+            $unset -> schTimeStartThu = null;
+            $unset -> schTimeEndThu = null;
+            $unset -> schTimeStartFri = null;
+            $unset -> schTimeEndFri = null;
+            $unset -> schTimeStartSat = null;
+            $unset -> schTimeEndSat = null;
+            $unset -> save();
+
+            Toast::title('School Hours Unset Sucessfully')
+            ->success()
+            ->rightTop()
+            ->backdrop()
+            ->autoDismiss(1.5);
+
+            return to_route('school.index');
+
+    }
+
 }

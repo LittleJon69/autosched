@@ -5,6 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- End -->
+
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Fredoka+One&family=Kanit&family=Poppins&family=Tilt+Neon&family=Varela+Round&display=swap');
 
@@ -7307,8 +7314,8 @@
         </style>
     </head>
 
-    <body class="bg-gray-100">
-        <div class="w-full h-full flex items-center justify-center flex-wrap sm:p-5 bg-gray-100">
+    <body class="bg-blue-100">
+        <div class="w-full h-full flex items-center justify-center flex-wrap sm:p-5 bg-blue-100">
             <div class="sm:w-96 w-full h-fit flex items-center justify-center flex-col">
                 <div class="shadow-md sm:rounded-xl relative w-full sm:w-96 h-fit bg-white">
                     <div class="flex gap-2 items-center justify-center pt-4 flex-wrap">

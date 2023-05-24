@@ -44,17 +44,20 @@ class CoorRoomSchedulesController extends Controller
                         ->orWhere('studCourse', 'LIKE', "%{$value}%")
                         ->orWhere('studYear', 'LIKE', "%{$value}%")
                         ->orWhere('studSection', 'LIKE', "%{$value}%")
+                        ->orWhere('profName', 'LIKE', "%{$value}%")
+                        ->orWhere('totalHours', 'LIKE', "%{$value}%")
                         ->orWhere('startTime', 'LIKE', "%{$value}%")
                         ->orWhere('endTime', 'LIKE', "%{$value}%")
+                        ->orWhere('sem', 'LIKE', "%{$value}%")
                         ->orWhere('schedDay', 'LIKE', "%{$value}%");
                 });
             });
         });
 
         $Room_sched = QueryBuilder::for(Room_sched::class)
-        ->defaultSort('-id')
-        ->allowedSorts(['roomNumber', 'subCode','studCourse','studSection','totalHours','schedDay','startTime','endTime'])
-        ->allowedFilters(['roomNumber','schedDay', $globalSearch,
+        ->defaultSort('startTime')
+        ->allowedSorts(['roomNumber','subCode','studCourse','studYear','studSection','profName','totalHours','schedDay','startTime','endTime','sem'])
+        ->allowedFilters(['roomNumber','subCode','studCourse','studYear','studSection','profName','totalHours','startTime','endTime','schedDay','sem', $globalSearch,
             AllowedFilter::exact('roomNumber'),
             AllowedFilter::exact('profSchool')->default($schoolInfo),
         ]);
@@ -69,10 +72,13 @@ class CoorRoomSchedulesController extends Controller
         ->column('studCourse', label: 'Course', searchable: true, sortable: true, canBeHidden: false)
         ->column('studYear', label: 'Year', searchable: true, sortable: true, canBeHidden: false)
         ->column('studSection', label: 'Section', searchable: true, sortable: true, canBeHidden: false)
+        ->column('profName', label: 'Professor Name', searchable: true, sortable: true, canBeHidden: false)
         ->column('totalHours', label: 'Units', searchable: true, sortable: true, canBeHidden: false)
         ->column('schedDay', label: 'Day', searchable: true, sortable: true, canBeHidden: false)
         ->column('startTime', label: 'Start Time', searchable: true, sortable: true, canBeHidden: false)
         ->column('endTime', label: 'End Time', searchable: true, sortable: true, canBeHidden: false)
+        ->column('sem', label: 'Semester', searchable: true, sortable: true, canBeHidden: false)
+        ->column('action', label: 'Action')
         ->selectFilter('roomNumber', $coordinatorDepartmentRoom)
         ->paginate(5),]);
 

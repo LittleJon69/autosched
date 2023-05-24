@@ -30,7 +30,7 @@
                 <p class="text-white sm:text-lg text-sm font-normal text-center">CONFIRM YOUR PASSWORD</p>
             </div>
 
-            <div class="px-3 py-1 border-l-4 border-l-b6 hidden sm:block m-7 mb-0">
+            <div class="px-3 border-l-4 border-l-b6 hidden sm:block m-7 mb-0">
                 <p class="sm:text-lg text-sm text-b6">
                     CONFIRM YOUR PASSWORD
                 </p>

@@ -33,7 +33,7 @@
                     </div>
                 </div>
         
-                <div class="hidden sm:block px-3 py-2 border-l-4 border-l-b6 m-7 mb-0">
+                <div class="hidden sm:block px-3 border-l-4 border-l-b6 m-7 mb-0">
                     <p class="sm:text-lg text-sm text-b6">
                         ADD PROFESSOR
                     </p>

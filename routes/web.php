@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\CoorDashboardController;
+use App\Http\Controllers\ProfDashboardController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\ClassListController;
 use App\Http\Controllers\ClassSchedulesController;
 use App\Http\Controllers\ClassWithSubsController;
 use App\Http\Controllers\CoorClassSchedulesController;
@@ -63,7 +67,7 @@ Route::middleware('splade')->group(function ()
     Route::get('editform', function () 
     {
         return view('editan');
-    });
+    })->name('editan');
 
     Route::middleware('auth')->group(function () 
     {
@@ -73,6 +77,8 @@ Route::middleware('splade')->group(function ()
             {
                 return view('dashboard');
             })->middleware(['verified'])->name('dashboard');
+
+            Route::get('dashboard', [AdminDashboardController::class, 'create'])->middleware(['verified'])->name('dashboard');
 
             Route::get('profile', [ProfileController::class, 'edit'])->middleware(['verified'])->name('profile.edit');
             Route::patch('profile', [ProfileController::class, 'update'])->middleware(['verified'])->name('profile.update');
@@ -105,31 +111,37 @@ Route::middleware('splade')->group(function ()
             Route::get('schoolConfig', [SchoolConfigController::class, 'index']);
             Route::post('storeSchooltime', [SchoolConfigController::class, 'store']);
 
-            // Route::get('addCourse/{subject}', [ClassWithSubsController::class, 'index'])->name('addCourses');
-            // Route::post('saveCourse', [ClassWithSubsController::class, 'create'])->name('save');
-
-            Route::get('administrator/update/password', [PasswordCoorController::class, 'show'])->name('update-pasword-administrator');
+            Route::get('administrator/update/password', [PasswordCoorController::class, 'show'])->name('update-password-administrator');
             Route::post('administrator/update/password', [PasswordCoorController::class, 'updatePassword'])->name('save-password-administrator');
         
             Route::resource('courselist', CourseListController::class)->middleware(['verified']);
-        
+
+            Route::get('generate-pdf/{Prof_sched}', [PDFController::class, 'generatePDF'])->name('prof-generate-pdf')->middleware(['verified']);
+
+            Route::get('room-generate-pdf/{Room_sched}', [PDFController::class, 'generatePdfRoomSched'])->name('room-generate-pdf')->middleware(['verified']);
+
+            Route::get('class-generate-pdf/{Stud_sched}/{Stud_year}/{Stud_Section}', [PDFController::class, 'generatePdfClassSched'])->name('class-generate-pdf')->middleware(['verified']);
+
+            Route::get('unset/school/config', [SchoolConfigController::class, 'unset'])->name('unset-school-hours')->middleware(['verified']);
+
         });
         
         Route::resource('school', SchoolController::class)->middleware(['verified']);
 
         Route::get('setup-school', [SchoolController::class, 'setupSchool'])->name('setupSchool')->middleware(['verified']);
 
-        Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->middleware(['verified']);
     });
 
     require __DIR__.'/auth.php';
 
     Route::middleware('auth:prof')->group(function () 
     {
-        Route::get('prof/dashboard', function () 
-        {
-            return view('prof.dashboard');
-        })->middleware(['verified'])->name('prof.dashboard');
+        // Route::get('prof/dashboard', function () 
+        // {
+        //     return view('prof.dashboard');
+        // })->name('prof.dashboard');
+
+        Route::get('prof/dashboard', [ProfDashboardController::class, 'create'])->name('prof.dashboard');
 
         Route::get('prof/profile', [AdminProfileController::class, 'edit'])->name('prof.profile.edit');
         Route::patch('prof/profile', [AdminProfileController::class, 'update'])->name('prof.profile.update');
@@ -151,14 +163,20 @@ Route::middleware('splade')->group(function ()
         Route::get('password', [PasswordProfController::class, 'show'])->name('update-password');
         Route::post('password', [PasswordProfController::class, 'updatePassword'])->name('save-password');
 
+        Route::get('professor-pdf', [PDFController::class, 'generatePdfProfSched'])->name('professor-pdf');
+
+        Route::get('unset/professor/hours', [ProfConfigController::class, 'unset'])->name('unset-prof-hours');
+
     });
 
     Route::middleware('auth:coor')->group(function () 
     {
-        Route::get('coor/dashboard', function () 
-        {
-            return view('coor.dashboard');
-        })->name('coor.dashboard');
+        // Route::get('coor/dashboard', function () 
+        // {
+        //     return view('coor.dashboard');
+        // })->name('coor.dashboard');
+
+        Route::get('coor/dashboard', [CoorDashboardController::class, 'create'])->name('coor.dashboard');
 
         Route::get('coor/profile', [AdminProfileController::class, 'edit'])->name('coor.profile.edit');
         Route::patch('coor/profile', [AdminProfileController::class, 'update'])->name('coor.profile.update');
@@ -168,6 +186,7 @@ Route::middleware('splade')->group(function ()
         Route::resource('courses', CourseController::class);
         Route::resource('professors', ProfessorController::class);
         Route::resource('rooms', RoomController::class);
+        Route::resource('class', ClassListController::class);
 
         Route::get('addCourse/{subject}', [ClassWithSubsController::class, 'index'])->name('addCourses');
         Route::post('saveCourse', [ClassWithSubsController::class, 'create'])->name('save');
@@ -181,6 +200,16 @@ Route::middleware('splade')->group(function ()
 
         Route::get('coordinator/update/profile', [CoordinatorProfileController::class, 'edit'])->name('coordinator-update-profile');
         Route::post('coordinator/update/profile', [CoordinatorProfileController::class, 'update'])->name('coordinator-save-profile');
+
+        Route::get('coor-prof-pdf/{Prof_Name}/{Prof_School}', [PDFController::class,'generateCoorProfPdf'])->name('coor-prof-pdf');
+
+        Route::get('coor-room-pdf/{Room_Number}/{Room_School}', [PDFController::class, 'generateCoorRoomPdf'])->name('coor-room-pdf');
+
+        Route::get('coor-class-pdf/{Course}/{Year}/{Section}/{School}', [PDFController::class, 'generateCoorClassPdf'])->name('coor-class-pdf');
+
+        Route::get('delete/class/course/{ClassCourseId}/{ClassCourse}/{ClassYear}/{ClassSection}/{ClassSem}/{ClassSchool}', [ClassWithSubsController::class, 'destroy'])->name('delete-addcourse-coor');
+        
+        Route::get('delete/class/list/{All_Class}', [ClassListController::class, 'destroy'])->name('class-list-delete');
 
     });
 

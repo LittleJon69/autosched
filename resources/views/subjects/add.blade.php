@@ -32,7 +32,7 @@
                 </div>
             </div>
     
-            <div class="hidden sm:block px-3 py-1 border-l-4 border-l-b6 m-7 mb-0">
+            <div class="hidden sm:block px-3 border-l-4 border-l-b6 m-7 mb-0">
                 <p class="sm:text-lg text-sm text-b6">
                     ADD COURSE TO THIS SUBJECT
                 </p>
@@ -92,7 +92,7 @@
         </div>
     
         <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full">
-            <div class="hidden sm:block px-3 py-1 border-l-4 border-l-red-500 m-7 mb-0">
+            <div class="hidden sm:block px-3 border-l-4 border-l-red-500 m-7 mb-0">
                 <p class="sm:text-lg text-sm text-red-500">
                     LISTS OF COURSE/S ADDED
                 </p>

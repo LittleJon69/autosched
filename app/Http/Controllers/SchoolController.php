@@ -52,10 +52,65 @@ class SchoolController extends Controller
     public function store(SchoolInfoRequest $request)
     {
 
+        //getting administratorId
         $coordinatorId = Auth::user()->id;
 
-        // $image_path = $request->file('schLogo')->store('image', 'public');
-        // $schoolInfo->schLogo = $image_path;
+        //getting school name
+        $schoolInfo = DB::table('school_infos')->where('coordinatorId', $coordinatorId)->value('schName');
+
+        //update subject info in all_class
+        DB::table('all_class') ->where('schName', $schoolInfo)->update(['schName' =>  $request->schName]);
+        
+        //update subject info in all_subjects
+        DB::table('all_subjects') ->where('subSchool', $schoolInfo)->update(['subSchool' =>  $request->schName]);
+        
+        //update subject info in class_with_subs
+        DB::table('class_with_subs') ->where('schName', $schoolInfo)->update(['schName' =>  $request->schName]);
+
+        //update subject info in coor_infos
+        DB::table('coor_infos') ->where('coorSchool', $schoolInfo)->update(['coorSchool' =>  $request->schName]);
+
+        //update subject info in course
+        DB::table('courses') ->where('courseSchool', $schoolInfo)->update(['courseSchool' =>  $request->schName]);
+
+        //update subject info in departments
+        DB::table('departments') ->where('schName', $schoolInfo)->update(['schName' =>  $request->schName]);
+
+        //update subject info in prof_infos
+        DB::table('prof_infos') ->where('profSchool', $schoolInfo)->update(['profSchool' =>  $request->schName]);
+
+        //update subject info in prof_infos
+        DB::table('rooms') ->where('roomSchool', $schoolInfo)->update(['roomSchool' =>  $request->schName ]);
+
+        //update subject info in prof_infos
+        DB::table('subjects') ->where('subSchool', $schoolInfo)->update(['subSchool' =>  $request->schName]);
+
+        //update subject info in prof_infos
+        DB::table('school_configs') ->where('schName', $schoolInfo)->update(['schName' =>  $request->schName]);
+        
+        //update subject info in ongoing_class_with_subs
+        DB::table('ongoing_class_with_subs') ->where('schName', $schoolInfo)->update(['schName' =>  $request->schName]);
+        
+        //update subject info in ongoing_subjects            
+        DB::table('ongoing_subjects') ->where('subSchool', $schoolInfo)->update(['subSchool' =>  $request->schName]);
+        
+        //update subject info in prof_scheds
+        DB::table('prof_scheds') ->where('profSchool', $schoolInfo)->update(['profSchool' => $request->schName]);
+
+        //update subject info in room_scheds
+        DB::table('room_scheds') ->where('roomSchool', $schoolInfo)->update(['roomSchool' => $request->schName, 'profSchool' => $request->schName]);
+        
+        //update subject info in stud_scheds
+        DB::table('stud_scheds') ->where('schName', $schoolInfo)->update(['schName' => $request->schName]);
+
+        //update subject info in prev_prof_scheds
+        DB::table('prev_prof_scheds') ->where('profSchool', $schoolInfo)->update(['profSchool' => $request->schName]);
+
+        //update subject info in prev_room_scheds
+        DB::table('prev_room_scheds') ->where('profSchool', $schoolInfo)->update(['profSchool' => $request->schName, 'roomSchool' => $request->schName]);
+
+        //update subject info in prev_stud_scheds
+        DB::table('prev_stud_scheds') ->where('schName', $schoolInfo)->update(['schName' => $request->schName]);
 
         $response = Http::get("https://psgc.gitlab.io/api/regions/".$request->regionCode);
         $region = $response->json('name');

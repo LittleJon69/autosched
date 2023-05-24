@@ -59,7 +59,7 @@
                                             <i class="fa-solid fa-graduation-cap sm:group-hover:text-b6 text-white"></i>
                                         </div>
 
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 opacity-0 w-0 group-hover:opacity-100 group-hover:w-fit">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-b6 text-xs">
                                                 ADD COURSE TO THIS SUBJECT
                                             </p>

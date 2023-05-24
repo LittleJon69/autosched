@@ -16,7 +16,7 @@ createApp({
     "transform_anchors": false,
     "progress_bar": {
         delay: 250,
-        color: "linear-gradient(90deg, rgb(193, 126, 255), rgb(124, 222, 255), rgb(128, 255, 174), rgb(255, 224, 131), rgb(255, 133, 133))",
+        color: "linear-gradient(90deg, rgba(0,215,255,1) 0%, rgba(0,186,221,1) 25%, rgba(0,164,194,1) 50%, rgba(0,125,148,1) 75%, rgba(0,79,94,1) 100%)",
         css: true,
         spinner: false,
     }

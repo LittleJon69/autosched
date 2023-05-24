@@ -46,7 +46,7 @@ class SubjectListController extends Controller
         return view('coor.index', [
             'subjects' => SpladeTable::for($subject)
             ->withGlobalSearch('Search in all fields...', ['subTitle', 'subCode'])
-            ->column('subTitle', label: 'Subject Description', searchable: true, sortable: true, canBeHidden: false)
+            ->column('subTitle', label: 'subTitle', searchable: true, sortable: true, canBeHidden: false)
             ->column('subCode', label: 'Subject Code', searchable: true, sortable: true, canBeHidden: false)
             ->column('subUnits', label: 'Units',)
             ->column('subField', label: 'Field',)

@@ -43,8 +43,17 @@ class CoorProfSchedulesController extends Controller
             $query->where(function ($query) use ($value) {
                 Collection::wrap($value)->each(function ($value) use ($query) {
                     $query
-                        ->orWhere('profSchool', 'LIKE', "%{$value}%")
-                        ->orWhere('subCode', 'LIKE', "%{$value}%");
+                        ->orWhere('subCode', 'LIKE', "%{$value}%")
+                        ->orWhere('studCourse', 'LIKE', "%{$value}%")
+                        ->orWhere('studYear', 'LIKE', "%{$value}%")
+                        ->orWhere('studSection', 'LIKE', "%{$value}%")
+                        ->orWhere('profName', 'LIKE', "%{$value}%")
+                        ->orWhere('totalHours', 'LIKE', "%{$value}%")
+                        ->orWhere('schedDay', 'LIKE', "%{$value}%")
+                        ->orWhere('startTime', 'LIKE', "%{$value}%")
+                        ->orWhere('endTime', 'LIKE', "%{$value}%")
+                        ->orWhere('sem', 'LIKE', "%{$value}%")
+                        ->orWhere('classroom', 'LIKE', "%{$value}%");
                 });
             });
         });
@@ -52,9 +61,9 @@ class CoorProfSchedulesController extends Controller
         // $profList = Prof_info::where('profSchool',$schoolInfo)->pluck('profFname','id')->toArray();
 
         $Prof_sched = QueryBuilder::for(Prof_sched::class)
-        ->defaultSort('-id')
-        ->allowedSorts(['subCode','studCourse','studYear','studSection','totalHours','schedDay','startTime','endTime','classroom'])
-        ->allowedFilters(['profId', $globalSearch,
+        ->defaultSort('startTime')
+        ->allowedSorts(['subCode','studCourse','studYear','studSection','profName','totalHours','schedDay','startTime','endTime','sem','classroom'])
+        ->allowedFilters(['subCode','studCourse','studYear','studSection','profName','totalHours','schedDay','startTime','endTime','sem','classroom','profId', $globalSearch,
             AllowedFilter::exact('profId'),
             AllowedFilter::exact('profSchool')->default($schoolInfo),
         ]);
@@ -65,11 +74,14 @@ class CoorProfSchedulesController extends Controller
         ->column('studCourse', label: 'Course', searchable: true, sortable: true, canBeHidden: false)
         ->column('studYear', label: 'Year', searchable: true, sortable: true, canBeHidden: false)
         ->column('studSection', label: 'Section', searchable: true, sortable: true, canBeHidden: false)
+        ->column('profName', label: 'Professor Name', searchable: true, sortable: true, canBeHidden: false)
         ->column('totalHours', label: 'Units', searchable: true, sortable: true, canBeHidden: false)
         ->column('schedDay', label: 'Day', searchable: true, sortable: true, canBeHidden: false)
         ->column('startTime', label: 'Start Time', searchable: true, sortable: true, canBeHidden: false)
         ->column('endTime', label: 'End Time', searchable: true, sortable: true, canBeHidden: false)
+        ->column('sem', label: 'Semester', searchable: true, sortable: true, canBeHidden: false)
         ->column('classroom', label: 'Room No.', searchable: true, sortable: true, canBeHidden: false)
+        ->column('action', label: 'Action')
         ->selectFilter('profId', $coordinatorDepartmentRoom)
         ->paginate(5),]);
 

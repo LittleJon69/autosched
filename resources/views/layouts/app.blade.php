@@ -1,4 +1,4 @@
-<div class="flex text-blc1 bg-gray-100 relative h-full w-full overflow-hidden">
+<div class="flex text-blc1 bg-white sm:bg-blue-100 relative h-full w-full overflow-hidden">
     <!-- Header -->
     <nav class="bg-b6 p-3 flex justify-between items-center shadow-md absolute top-0 z-10 w-full h-16">
         <div class="sm:hidden flex gap-3 items-center">
@@ -50,9 +50,15 @@
                             </div>
                         </x-dropdown-link>
 
-                        <x-dropdown-link onclick="start()" :href="route('update-pasword-administrator')">
+                        <x-dropdown-link onclick="start()" :href="route('update-password-administrator')">
                             <div class="flex items-center gap-2 uppercase whitespace-nowrap">
                                 <i class="fa-solid fa-lock text-xs"></i> Change Your Password
+                            </div>
+                        </x-dropdown-link>
+
+                        <x-dropdown-link onclick="start()" :href="route('logout')" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                            <div class="flex items-center gap-2 uppercase whitespace-nowrap">
+                                <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i> Log Out
                             </div>
                         </x-dropdown-link>
                     </x-slot>

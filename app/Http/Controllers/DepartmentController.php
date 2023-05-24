@@ -60,16 +60,17 @@ class DepartmentController extends Controller
 
        if(
             DB::table('departments')
-            ->where('deptCode', $deptCode)
-            ->where('deptName', $deptName)
-            ->where('coordinatorId', $adminId)
+            ->where('schName', $deptSchool)
+            ->where(function($query) use ($deptCode, $deptName) {
+                $query->where('deptCode', $deptCode)
+                    ->orWhere('deptName',  $deptName);
+            })
             ->exists()
        ){
 
             Toast::title('Already Exist.')
             ->success()
             ->rightTop()
-            ->backdrop()
             ->warning()
             ->autoDismiss(1.5); 
 

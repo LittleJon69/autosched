@@ -8,8 +8,8 @@
     <!-- Content -->
     <div class="w-full h-full flex flex-col overflow-auto">
         <div class="title-btn flex w-full justify-between items-center border-b border-b-gray-300 overflow-x-auto overflow-y-hidden">
-            <div class="sm:flex hidden">
-                <div class="z-10 h-full w-fit rounded-br-3xl bg-b7 sm:flex hidden justify-center items-center shadow-md p-5">
+            <div class="sm:flex hidden h-full">
+                <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">SUBJECTS</p> 
                 </div>                
             </div>
@@ -98,11 +98,11 @@
                         @cell('action', $subject)
                         <div class="td" data-title="Action">
                             <div class="flex gap-2">
-                                <Link confirm="Edit this Subject" confirm-text="Are You Sure?" onclick="start()" href="{{ route('subjects.edit', $subject->id) }}" class="flex sm:hidden group squared-btn green-btn border">
+                                <Link confirm="EDIT SUBJECT" confirm-text="Are You Sure?" onclick="start()" href="{{ route('subjects.edit', $subject->id) }}" class="flex sm:hidden group squared-btn green-btn border">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 opacity-0 w-0 group-hover:opacity-100 group-hover:w-fit">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-green-500 text-xs">
                                                 EDIT SUBJECT
                                             </p>
@@ -110,11 +110,11 @@
                                     </div>
                                 </Link>
                 
-                                <Link modal confirm="Edit this Subject" confirm-text="Are You Sure?" onclick="start()" href="{{ route('subjects.edit', $subject->id) }}" class="sm:flex hidden group squared-btn green-btn border">
+                                <Link modal confirm="EDIT SUBJECT" confirm-text="Are You Sure?" onclick="start()" href="{{ route('subjects.edit', $subject->id) }}" class="sm:flex hidden group squared-btn green-btn border">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 opacity-0 w-0 group-hover:opacity-100 group-hover:w-fit">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-green-500 text-xs">
                                                 EDIT SUBJECT
                                             </p>
@@ -122,11 +122,11 @@
                                     </div>
                                 </Link>
                                 
-                                <Link class="group squared-btn red-btn border" confirm="DELETE SUBJECT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" href="{{ route('subjects.destroy', $subject->id) }}" method="DELETE">
+                                <Link class="group squared-btn red-btn border" confirm="DELETE SUBJECT" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" href="{{ route('subjects.destroy', $subject->id) }}" method="DELETE">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-trash text-white sm:group-hover:text-red-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 opacity-0 w-0 group-hover:opacity-100 group-hover:w-fit">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-red-500 text-xs">
                                                 DELETE SUBJECT
                                             </p>

@@ -94,24 +94,16 @@ class CourseController extends Controller
         $id = DB::table('school_infos')->where('coordinatorId', $administratorId)->value('id');
 
         $courseName = $request -> courseName;
-
-        if(
-
-            DB::table('courses')
-            ->where('courseName', $courseName)
-            ->where('courseSchool', $schoolInfo)
-            ->exists()
-
-       ){
+      
+        if(DB::table('courses')->where('courseSchool', $schoolInfo)->where('courseName',$courseName)->exists()){
 
             Toast::title('Already Exist.')
             ->success()
             ->rightTop()
-            ->backdrop()
             ->warning()
             ->autoDismiss(1.5); 
 
-       }else{
+        }else{
 
         Course::create([
             'courseName' => $request->courseName,

@@ -33,7 +33,7 @@
                     </div>
                 </div>
     
-                <div class="hidden sm:block px-3 py-1 border-l-4 border-l-b6 m-7 mb-0">
+                <div class="hidden sm:block px-3 border-l-4 border-l-b6 m-7 mb-0">
                     <p class="sm:text-lg text-sm text-b6">
                         ADMINISTRATOR'S REGISTRATION FORM
                     </p>
@@ -115,13 +115,13 @@
         
                             <div class="lg:grid grid-cols-2 flex flex-wrap gap-3 items-center">
                                 <div class="relative h-full w-full">
-                                    <div onclick="togglepass()" class="group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
+                                    <div onclick="togglepass()" class="z-10 group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
                                         <span class="cursor-pointer text-base">
                                             <i id="eyes" class="fa-solid fa-eye text-gray-400 group-hover:text-gray-500"></i>
                                         </span>
                                     </div>
     
-                                    <span class="group cursor-pointer rounded-full bg-gray-400 w-4 h-4 right-0 flex items-center justify-center absolute">
+                                    <span class="z-10 group cursor-pointer rounded-full bg-gray-400 w-4 h-4 right-0 flex items-center justify-center absolute">
                                         <i class="fa-solid fa-question text-xs2 text-white relative flex justify-center">
                                             <div class="rounded-md opacity-0 invisible absolute -top-32 -right-3 sm:-right-1 transition-all ease-in-out bg-white group-hover:opacity-100 group-hover:visible">
                                                 <div class="relative flex justify-center items-center rounded-md shadow-md bg-white border border-gray-600">
@@ -138,7 +138,7 @@
                                 </div>
                     
                                 <div class="relative h-full w-full">
-                                    <div onclick="togglecnfrm()" class="group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
+                                    <div onclick="togglecnfrm()" class="z-10 group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
                                         <span class="cursor-pointer text-base">
                                             <i id="eyescnfrm" class="fa-solid fa-eye text-gray-400 group-hover:text-gray-500"></i>
                                         </span>
@@ -154,13 +154,13 @@
                             <div class="hidden sm:flex flex-wrap items-center text-xs0 mr-4">
                                 <p class="text-xs mr-2">Already Have An Account?</p>
         
-                                <Link class="sm:text-blc1 text-b6 text-xs mr-2 transition-all ease-in-out hover:text-b6" href="{{ route('login') }}">
+                                <Link class="text-b6 text-xs mr-2 transition-all ease-in-out sm:hover:text-b4" href="{{ route('login') }}">
                                     Log In Here.
                                 </Link>
                             </div>
                             
                             <div class="squared-btn-i blue-btn-i w-full sm:w-fit flex flex-col sm:p-0">
-                                <x-splade-submit :label="__('REGISTER')" />
+                                <x-splade-submit id="reg-btn" onclick="removeMessage()" :label="__('REGISTER')" />
                             </div>
                         </div>
                     </div>

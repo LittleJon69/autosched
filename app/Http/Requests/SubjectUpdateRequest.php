@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Subject;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SubjectUpdateRequest extends FormRequest
 {
@@ -21,9 +23,12 @@ class SubjectUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+
+        // Rule::unique('subjects')->ignore($this->route('subject'))]
+
         return [
-            'subTitle' => 'required|max:255',
-            'subCode' => 'required|max:255',
+            'subTitle' => ['required','max:255'],
+            'subCode' => ['required','max:255'],
             'subUnits' => 'required|numeric|digits_between:1,2',
             'subField' => 'required|max:255',
         ];

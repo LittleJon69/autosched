@@ -165,8 +165,8 @@ class GenerateController extends Controller
                             $unitsToday = Prof_sched::where('profId',$profId)->where('schedDay',$day)->sum('totalHours');
                             $unitsToday = $unitsToday + $subUnits;
 
-                            // making sure that this prof dont exceed 8 hours of duty in one day
-                            if($unitsToday > 8){
+                            // making sure that this prof dont exceed 6 hours of duty in one day
+                            if($unitsToday > 6){
                                 continue;
                             }
 
@@ -292,6 +292,62 @@ class GenerateController extends Controller
                                         continue;
                                     }
                                     // end
+
+                                    // ///////////////////////////////////////////////////////////////////////////
+                                    // making sure that this professor has proper lunch time either 12-1 or 1-2
+
+                                    $twelve = strtotime("12:00:00");
+                                    $finalTwelve = date("H:i:s",$twelve);
+
+                                    $one = strtotime("13:00:00");
+                                    $finalOne = date("H:i:s",$one);
+
+                                    if( ($finalTimeStart <= $finalTwelve) && ($finalTimeEnd > $finalOne) ){
+                                        continue;
+                                    }
+
+                                    // if($finalTimeStart >= $prefTimeEnd){
+                                    //     continue;
+                                    // }
+
+                                    $hasSchedEndsOnTwelve = Prof_sched::select("*")
+                                    ->where("profId", $profId)
+                                    ->where("profSchool", $subSchool)
+                                    // ->where("subCode", $subCode)
+                                    ->where("schedDay", $day)
+                                    ->whereTime('endTime', '=', $finalTwelve)
+                                    ->exists();
+
+                                    if( ($hasSchedEndsOnTwelve) && ($finalTimeStart == $finalTwelve) ){
+                                        continue;
+                                    }
+
+                                    $hasSchedEndsOnOne = Prof_sched::select("*")
+                                    ->where("profId", $profId)
+                                    ->where("profSchool", $subSchool)
+                                    // ->where("subCode", $subCode)
+                                    ->where("schedDay", $day)
+                                    ->whereTime('endTime', '=', $finalOne)
+                                    ->exists();
+
+                                    if( ($hasSchedEndsOnOne) && ($finalTimeStart == $finalOne) ){
+                                        continue;
+                                    }
+
+                                    $hasSchedStartsOnOne = Prof_sched::select("*")
+                                    ->where("profId", $profId)
+                                    ->where("profSchool", $subSchool)
+                                    // ->where("subCode", $subCode)
+                                    ->where("schedDay", $day)
+                                    ->whereTime('startTime', '=', $finalOne)
+                                    ->exists();
+
+                                    if( ($hasSchedStartsOnOne) && ($finalTimeEnd == $finalOne) ){
+                                        continue;
+                                    }
+
+                                    // end
+                                    // ///////////////////////////////////////////////////////////////////////////
 
                                     // finding available room
                                     $rooms = Room::where('roomSchool',$profSchool)
@@ -427,8 +483,8 @@ class GenerateController extends Controller
                                                 $unitsToday = Prof_sched::where('profId',$profId)->where('schedDay',$day)->sum('totalHours');
                                                 $unitsToday = $unitsToday + $superFinalHalfSubUnits;
 
-                                                // making sure that this prof dont exceed 8 hours of duty in one day
-                                                if($unitsToday > 8){
+                                                // making sure that this prof dont exceed 6 hours of duty in one day
+                                                if($unitsToday > 6){
                                                     continue;
                                                 }
 
@@ -530,6 +586,62 @@ class GenerateController extends Controller
                                                         continue;
                                                     }
                                                     // end
+
+                                                    // ///////////////////////////////////////////////////////////////////////////
+                                                    // making sure that this professor has proper lunch time either 12-1 or 1-2
+
+                                                    $twelve = strtotime("12:00:00");
+                                                    $finalTwelve = date("H:i:s",$twelve);
+
+                                                    $one = strtotime("13:00:00");
+                                                    $finalOne = date("H:i:s",$one);
+
+                                                    if( ($finalTimeStart <= $finalTwelve) && ($finalTimeEnd > $finalOne) ){
+                                                        continue;
+                                                    }
+
+                                                    // if($finalTimeStart >= $prefTimeEnd){
+                                                    //     continue;
+                                                    // }
+
+                                                    $hasSchedEndsOnTwelve = Prof_sched::select("*")
+                                                    ->where("profId", $profId)
+                                                    ->where("profSchool", $subSchool)
+                                                    // ->where("subCode", $subCode)
+                                                    ->where("schedDay", $day)
+                                                    ->whereTime('endTime', '=', $finalTwelve)
+                                                    ->exists();
+
+                                                    if( ($hasSchedEndsOnTwelve) && ($finalTimeStart == $finalTwelve) ){
+                                                        continue;
+                                                    }
+
+                                                    $hasSchedEndsOnOne = Prof_sched::select("*")
+                                                    ->where("profId", $profId)
+                                                    ->where("profSchool", $subSchool)
+                                                    // ->where("subCode", $subCode)
+                                                    ->where("schedDay", $day)
+                                                    ->whereTime('endTime', '=', $finalOne)
+                                                    ->exists();
+
+                                                    if( ($hasSchedEndsOnOne) && ($finalTimeStart == $finalOne) ){
+                                                        continue;
+                                                    }
+
+                                                    $hasSchedStartsOnOne = Prof_sched::select("*")
+                                                    ->where("profId", $profId)
+                                                    ->where("profSchool", $subSchool)
+                                                    // ->where("subCode", $subCode)
+                                                    ->where("schedDay", $day)
+                                                    ->whereTime('startTime', '=', $finalOne)
+                                                    ->exists();
+
+                                                    if( ($hasSchedStartsOnOne) && ($finalTimeEnd == $finalOne) ){
+                                                        continue;
+                                                    }
+
+                                                    // end
+                                                    // ///////////////////////////////////////////////////////////////////////////
 
                                                     // finding available room
                                                     $rooms = Room::where('roomSchool',$profSchool)
@@ -707,6 +819,62 @@ class GenerateController extends Controller
                                     }
                                     // end
 
+                                    // ///////////////////////////////////////////////////////////////////////////
+                                    // making sure that this professor has proper lunch time either 12-1 or 1-2
+
+                                    $twelve = strtotime("12:00:00");
+                                    $finalTwelve = date("H:i:s",$twelve);
+
+                                    $one = strtotime("13:00:00");
+                                    $finalOne = date("H:i:s",$one);
+
+                                    if( ($finalTimeStart <= $finalTwelve) && ($finalTimeEnd > $finalOne) ){
+                                        continue;
+                                    }
+
+                                    // if($finalTimeStart >= $prefTimeEnd){
+                                    //     continue;
+                                    // }
+
+                                    $hasSchedEndsOnTwelve = Prof_sched::select("*")
+                                    ->where("profId", $profId)
+                                    ->where("profSchool", $subSchool)
+                                    // ->where("subCode", $subCode)
+                                    ->where("schedDay", $day)
+                                    ->whereTime('endTime', '=', $finalTwelve)
+                                    ->exists();
+
+                                    if( ($hasSchedEndsOnTwelve) && ($finalTimeStart == $finalTwelve) ){
+                                        continue;
+                                    }
+
+                                    $hasSchedEndsOnOne = Prof_sched::select("*")
+                                    ->where("profId", $profId)
+                                    ->where("profSchool", $subSchool)
+                                    // ->where("subCode", $subCode)
+                                    ->where("schedDay", $day)
+                                    ->whereTime('endTime', '=', $finalOne)
+                                    ->exists();
+
+                                    if( ($hasSchedEndsOnOne) && ($finalTimeStart == $finalOne) ){
+                                        continue;
+                                    }
+
+                                    $hasSchedStartsOnOne = Prof_sched::select("*")
+                                    ->where("profId", $profId)
+                                    ->where("profSchool", $subSchool)
+                                    // ->where("subCode", $subCode)
+                                    ->where("schedDay", $day)
+                                    ->whereTime('startTime', '=', $finalOne)
+                                    ->exists();
+
+                                    if( ($hasSchedStartsOnOne) && ($finalTimeEnd == $finalOne) ){
+                                        continue;
+                                    }
+
+                                    // end
+                                    // ///////////////////////////////////////////////////////////////////////////
+
                                     // finding available room
                                     $rooms = Room::where('roomSchool',$profSchool)
                                                 ->where('roomDepartment',$profDept)
@@ -881,8 +1049,8 @@ class GenerateController extends Controller
                                         $unitsToday = Prof_sched::where('profId',$profId)->where('schedDay',$day)->sum('totalHours');
                                         $unitsToday = $unitsToday + $firstHalfUnits;
 
-                                        // making sure that this prof dont exceed 8 hours of duty in one day
-                                        if($unitsToday > 8){
+                                        // making sure that this prof dont exceed 6 hours of duty in one day
+                                        if($unitsToday > 6){
                                             continue;
                                         }
 
@@ -984,6 +1152,62 @@ class GenerateController extends Controller
                                                 continue;
                                             }
                                             // end
+
+                                            // ///////////////////////////////////////////////////////////////////////////
+                                            // making sure that this professor has proper lunch time either 12-1 or 1-2
+
+                                            $twelve = strtotime("12:00:00");
+                                            $finalTwelve = date("H:i:s",$twelve);
+
+                                            $one = strtotime("13:00:00");
+                                            $finalOne = date("H:i:s",$one);
+
+                                            if( ($finalTimeStart <= $finalTwelve) && ($finalTimeEnd > $finalOne) ){
+                                                continue;
+                                            }
+
+                                            // if($finalTimeStart >= $prefTimeEnd){
+                                            //     continue;
+                                            // }
+
+                                            $hasSchedEndsOnTwelve = Prof_sched::select("*")
+                                            ->where("profId", $profId)
+                                            ->where("profSchool", $subSchool)
+                                            // ->where("subCode", $subCode)
+                                            ->where("schedDay", $day)
+                                            ->whereTime('endTime', '=', $finalTwelve)
+                                            ->exists();
+
+                                            if( ($hasSchedEndsOnTwelve) && ($finalTimeStart == $finalTwelve) ){
+                                                continue;
+                                            }
+
+                                            $hasSchedEndsOnOne = Prof_sched::select("*")
+                                            ->where("profId", $profId)
+                                            ->where("profSchool", $subSchool)
+                                            // ->where("subCode", $subCode)
+                                            ->where("schedDay", $day)
+                                            ->whereTime('endTime', '=', $finalOne)
+                                            ->exists();
+
+                                            if( ($hasSchedEndsOnOne) && ($finalTimeStart == $finalOne) ){
+                                                continue;
+                                            }
+
+                                            $hasSchedStartsOnOne = Prof_sched::select("*")
+                                            ->where("profId", $profId)
+                                            ->where("profSchool", $subSchool)
+                                            // ->where("subCode", $subCode)
+                                            ->where("schedDay", $day)
+                                            ->whereTime('startTime', '=', $finalOne)
+                                            ->exists();
+
+                                            if( ($hasSchedStartsOnOne) && ($finalTimeEnd == $finalOne) ){
+                                                continue;
+                                            }
+
+                                            // end
+                                            // ///////////////////////////////////////////////////////////////////////////
 
                                             // finding available room
                                             $rooms = Room::where('roomSchool',$profSchool)
@@ -1122,8 +1346,8 @@ class GenerateController extends Controller
                                                         $unitsToday = Prof_sched::where('profId',$profId)->where('schedDay',$day)->sum('totalHours');
                                                         $unitsToday = $unitsToday + $secondHalfUnits;
 
-                                                        // making sure that this prof dont exceed 8 hours of duty in one day
-                                                        if($unitsToday > 8){
+                                                        // making sure that this prof dont exceed 6 hours of duty in one day
+                                                        if($unitsToday > 6){
                                                             continue;
                                                         }
 
@@ -1225,6 +1449,62 @@ class GenerateController extends Controller
                                                                 continue;
                                                             }
                                                             // end
+
+                                                            // ///////////////////////////////////////////////////////////////////////////
+                                                            // making sure that this professor has proper lunch time either 12-1 or 1-2
+
+                                                            $twelve = strtotime("12:00:00");
+                                                            $finalTwelve = date("H:i:s",$twelve);
+
+                                                            $one = strtotime("13:00:00");
+                                                            $finalOne = date("H:i:s",$one);
+
+                                                            if( ($finalTimeStart <= $finalTwelve) && ($finalTimeEnd > $finalOne) ){
+                                                                continue;
+                                                            }
+
+                                                            // if($finalTimeStart >= $prefTimeEnd){
+                                                            //     continue;
+                                                            // }
+
+                                                            $hasSchedEndsOnTwelve = Prof_sched::select("*")
+                                                            ->where("profId", $profId)
+                                                            ->where("profSchool", $subSchool)
+                                                            // ->where("subCode", $subCode)
+                                                            ->where("schedDay", $day)
+                                                            ->whereTime('endTime', '=', $finalTwelve)
+                                                            ->exists();
+
+                                                            if( ($hasSchedEndsOnTwelve) && ($finalTimeStart == $finalTwelve) ){
+                                                                continue;
+                                                            }
+
+                                                            $hasSchedEndsOnOne = Prof_sched::select("*")
+                                                            ->where("profId", $profId)
+                                                            ->where("profSchool", $subSchool)
+                                                            // ->where("subCode", $subCode)
+                                                            ->where("schedDay", $day)
+                                                            ->whereTime('endTime', '=', $finalOne)
+                                                            ->exists();
+
+                                                            if( ($hasSchedEndsOnOne) && ($finalTimeStart == $finalOne) ){
+                                                                continue;
+                                                            }
+
+                                                            $hasSchedStartsOnOne = Prof_sched::select("*")
+                                                            ->where("profId", $profId)
+                                                            ->where("profSchool", $subSchool)
+                                                            // ->where("subCode", $subCode)
+                                                            ->where("schedDay", $day)
+                                                            ->whereTime('startTime', '=', $finalOne)
+                                                            ->exists();
+
+                                                            if( ($hasSchedStartsOnOne) && ($finalTimeEnd == $finalOne) ){
+                                                                continue;
+                                                            }
+
+                                                            // end
+                                                            // ///////////////////////////////////////////////////////////////////////////
 
                                                             // finding available room
                                                             $rooms = Room::where('roomSchool',$profSchool)

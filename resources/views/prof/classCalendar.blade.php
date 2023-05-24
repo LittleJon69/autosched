@@ -43,7 +43,12 @@
             <div class="w-full h-full flex justify-center xl:w-tabw">
                 <div class="w-full">
                     <x-splade-table class="w-full mobtable" :for="$Prof_sched" striped>
+                        {{-- @cell('action', $Prof_sched)
+                            <a href="{{ route('prof-generate-pdf', $Prof_sched->profId ) }}">Generate PDF</a>
+                        @endcell --}}
                     </x-splade-table>
+
+                    <a href="{{ route('professor-pdf') }}">Generate PDF</a>
                 </div>
             </div>
         </div>

@@ -82,16 +82,17 @@ class SubjectController extends Controller
 
         if(
             DB::table('subjects')
-            ->where('subTitle', $subTitle)
-            ->where('subCode', $subCode)
             ->where('subSchool', $schoolInfo)
+            ->where(function($query) use ($subTitle, $subCode) {
+                $query->where('subTitle', $subTitle)
+                      ->orWhere('subCode',  $subCode);
+            })
             ->exists()
        ){
 
             Toast::title($subTitle." ".$subCode." ".' is Already Exist.')
             ->success()
             ->rightTop()
-            ->backdrop()
             ->warning()
             ->autoDismiss(1.5); 
 

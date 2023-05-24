@@ -196,25 +196,25 @@ class ProfConfigController extends Controller
         //end for saturday
         
         //checking if the preferred time input is not less than to 3 units
-        if($finalTimeInSunday < $finalMinimumTime){
+        if($finalTimeInSunday < $finalMinimumTime && $finalTimeInSunday != "00:00:00"){
 
-            Toast::title('Please Enter a preferred time greater than 3 units in Sunday')
+            Toast::title('Please Enter a preferred time greater than 3 units in Sunday'.$finalTimeInSunday." ".$finalMinimumTime)
             ->warning()
             ->rightTop()
             ->backdrop()
             ->autoDismiss(5);
 
         //for monday
-        }elseif($finalTimeofMonday < $finalMinimumTime){
+        }elseif($finalTimeofMonday < $finalMinimumTime && $finalTimeofMonday != "00:00:00"){
 
-            Toast::title('Please Enter a preferred time greater than 3 units in Monday')
+            Toast::title('Please Enter a preferred time greater than 3 units in Monday '.$finalTimeofMonday." ".$finalMinimumTime)
             ->warning()
             ->rightTop()
             ->backdrop()
             ->autoDismiss(5);
 
         //for tuesday
-        }elseif($finalTimeofTuesday < $finalMinimumTime){
+        }elseif($finalTimeofTuesday < $finalMinimumTime && $finalTimeofTuesday != "00:00:00"){
 
             Toast::title('Please Enter a preferred time greater than 3 units in Tuesday')
             ->warning()
@@ -223,7 +223,7 @@ class ProfConfigController extends Controller
             ->autoDismiss(5);
 
         //for wednesday
-        }elseif($finalTimeofWednesday < $finalMinimumTime){
+        }elseif($finalTimeofWednesday < $finalMinimumTime && $finalTimeofWednesday != "00:00:00"){
 
             Toast::title('Please Enter a preferred time greater than 3 units in Wednesday')
             ->warning()
@@ -232,7 +232,7 @@ class ProfConfigController extends Controller
             ->autoDismiss(5);
 
         //for thursday
-        }elseif($finalTimeofThursday < $finalMinimumTime){
+        }elseif($finalTimeofThursday < $finalMinimumTime && $finalTimeofThursday != "00:00:00"){
 
             Toast::title('Please Enter a preferred time greater than 3 units in Thursday')
             ->warning()
@@ -241,7 +241,7 @@ class ProfConfigController extends Controller
             ->autoDismiss(5);
 
         //for friday
-        }elseif($finalTimeofFriday < $finalMinimumTime){
+        }elseif($finalTimeofFriday < $finalMinimumTime && $finalTimeofFriday != "00:00:00"){
 
             Toast::title('Please Enter a preferred time greater than 3 units in Friday')
             ->warning()
@@ -249,7 +249,7 @@ class ProfConfigController extends Controller
             ->backdrop()
             ->autoDismiss(5);
 
-        }elseif($finalTimeofSaturday < $finalMinimumTime){
+        }elseif($finalTimeofSaturday < $finalMinimumTime && $finalTimeofSaturday != "00:00:00"){
 
             Toast::title('Please Enter a preferred time greater than 3 units in Saturday')
             ->warning()
@@ -260,7 +260,7 @@ class ProfConfigController extends Controller
         }else{
 
             //checking if the input of professor availability time is in the scope of the configuration of school hours
-            if($prefTimeStartSunConverted < $schTimeStartSun || $prefTimeEndSunConverted > $schTimeEndSun){
+            if($prefTimeStartSunConverted < $schTimeStartSun && $prefTimeStartSunConverted  != "00:00:00"  || $prefTimeEndSunConverted > $schTimeEndSun &&  $prefTimeEndSunConverted != "00:00:00"){
 
                 Toast::title('Please Enter Available Schedule Based on your University School Hours in Sunday')
                 ->warning()
@@ -269,7 +269,7 @@ class ProfConfigController extends Controller
                 ->autoDismiss(5);
 
             //for monday        
-            }elseif($prefTimeStartMonConverted < $schTimeStartMon || $prefTimeEndMonConverted > $schTimeEndMon){
+            }elseif($prefTimeStartMonConverted < $schTimeStartMon && $prefTimeStartMonConverted != "00:00:00"  || $prefTimeEndMonConverted > $schTimeEndMon && $prefTimeEndMonConverted != "00:00:00"){
 
                 Toast::title('Please Enter Available Schedule Based on your University School Hours in Monday')
                 ->warning()
@@ -278,7 +278,7 @@ class ProfConfigController extends Controller
                 ->autoDismiss(5);
 
             //for tuesday
-            }elseif($prefTimeStartTueConverted < $schTimeStartTue || $prefTimeEndTueConverted > $schTimeEndTue){
+            }elseif($prefTimeStartTueConverted < $schTimeStartTue && $prefTimeStartTueConverted != "00:00:00"  || $prefTimeEndTueConverted > $schTimeEndTue && $prefTimeEndTueConverted != "00:00:00"){
 
                 Toast::title('Please Enter Available Schedule Based on your University School Hours in Tuesday')
                 ->warning()
@@ -287,7 +287,7 @@ class ProfConfigController extends Controller
                 ->autoDismiss(5);
         
             //for wednesday
-            }elseif($prefTimeStartWedConverted < $schTimeStartWed || $prefTimeEndWedConverted > $schTimeEndWed){
+            }elseif($prefTimeStartWedConverted < $schTimeStartWed && $prefTimeStartWedConverted !="00:00:00" || $prefTimeEndWedConverted > $schTimeEndWed && $prefTimeEndWedConverted != "00:00:00"){
 
                 Toast::title('Please Enter Available Schedule Based on your University School Hours in Wednesday')
                 ->warning()
@@ -296,7 +296,7 @@ class ProfConfigController extends Controller
                 ->autoDismiss(5);
             
             //for thursday 
-            }elseif($prefTimeStartThuConverted < $schTimeStartThu || $prefTimeEndThuConverted > $schTimeEndThu){
+            }elseif($prefTimeStartThuConverted < $schTimeStartThu && $prefTimeStartThuConverted != "00:00:00" || $prefTimeEndThuConverted > $schTimeEndThu && $prefTimeEndThuConverted != "00:00:00"){
 
                 Toast::title('Please Enter Available Schedule Based on your University School Hours in Thursday')
                 ->warning()
@@ -305,7 +305,7 @@ class ProfConfigController extends Controller
                 ->autoDismiss(5);
             
             //for Friday
-            }elseif($prefTimeStartFriConverted < $schTimeStartFri || $prefTimeEndFriConverted > $schTimeEndFri){
+            }elseif($prefTimeStartFriConverted < $schTimeStartFri && $prefTimeStartFriConverted != "00:00:00" || $prefTimeEndFriConverted > $schTimeEndFri && $prefTimeEndFriConverted != "00:00:00"){
 
                 Toast::title('Please Enter Available Schedule Based on your University School Hours in Friday')
                 ->warning()
@@ -314,7 +314,7 @@ class ProfConfigController extends Controller
                 ->autoDismiss(5);
         
             //for saturday
-            }elseif($prefTimeStartSatConverted < $schTimeStartSat || $prefTimeEndSatConverted > $schTimeEndSat){
+            }elseif($prefTimeStartSatConverted < $schTimeStartSat && $prefTimeStartSatConverted != "00:00:00" || $prefTimeEndSatConverted > $schTimeEndSat && $prefTimeEndSatConverted != "00:00:00"){
 
                 Toast::title('Please Enter Available Schedule Based on your University School Hours in Saturday')
                 ->warning()
@@ -325,7 +325,7 @@ class ProfConfigController extends Controller
             }else{
 
                 //checking if the professor entering a valid schedule format
-                if($prefTimeStartSun > $prefTimeEndSun){
+                if(($prefTimeStartSun > $prefTimeEndSun) || ($prefTimeEndSun > $prefTimeStartSun) && ($prefTimeStartSun == null)){
 
                     Toast::title('Please Enter a Valid Schedule Format for Sunday.')
                     ->warning()
@@ -334,7 +334,7 @@ class ProfConfigController extends Controller
                     ->autoDismiss(5);
                 
                 //for monday    
-                }elseif($prefTimeStartMon > $prefTimeEndMon){
+                }elseif(($prefTimeStartMon > $prefTimeEndMon) || ($prefTimeEndMon > $prefTimeStartMon) && ($prefTimeStartMon == null) ){
         
                     Toast::title('Please Enter a Valid Schedule Format for Monday.')
                     ->warning()
@@ -343,7 +343,7 @@ class ProfConfigController extends Controller
                     ->autoDismiss(5);
                 
                 //for tuesday
-                }elseif($prefTimeStartTue > $prefTimeEndTue){
+                }elseif(($prefTimeStartTue > $prefTimeEndTue) || ($prefTimeEndTue > $prefTimeStartTue) && ($prefTimeStartTue == null)){
         
                     Toast::title('Please Enter a Valid Schedule Format for Tuesday.')
                     ->warning()
@@ -352,7 +352,7 @@ class ProfConfigController extends Controller
                     ->autoDismiss(5);
                     
                 //for wednesday
-                }elseif($prefTimeStartWed > $prefTimeEndWed){
+                }elseif(($prefTimeStartWed > $prefTimeEndWed) || ($prefTimeEndWed > $prefTimeStartWed) && ($prefTimeStartWed == null)){
         
                     Toast::title('Please Enter a Valid Schedule Format for Wednesday.')
                     ->warning()
@@ -361,7 +361,7 @@ class ProfConfigController extends Controller
                     ->autoDismiss(5);
                     
                 //for thursday
-                }elseif($prefTimeStartThu > $prefTimeEndThu){
+                }elseif(($prefTimeStartThu > $prefTimeEndThu) || ($prefTimeEndThu > $prefTimeStartThu) && ($prefTimeStartThu == null)){
         
                     Toast::title('Please Enter a Valid Schedule Format for Thursday.')
                     ->warning()
@@ -370,7 +370,7 @@ class ProfConfigController extends Controller
                     ->autoDismiss(5);
             
                 //for friday
-                }elseif($prefTimeStartFri > $prefTimeEndFri){
+                }elseif(($prefTimeStartFri > $prefTimeEndFri) || ($prefTimeEndFri > $prefTimeStartFri) && ($prefTimeStartFri == null)){
         
                     Toast::title('Please Enter a Valid Schedule Format for Friday.')
                     ->warning()
@@ -379,7 +379,7 @@ class ProfConfigController extends Controller
                     ->autoDismiss(5);
             
                 //for saturday    
-                }elseif($prefTimeStartSat > $prefTimeEndSat){
+                }elseif(($prefTimeStartSat > $prefTimeEndSat) || ($prefTimeEndSat > $prefTimeStartSat) && ($prefTimeStartSat == null)){
         
                     Toast::title('Please Enter a Valid Schedule Format for Saturday.')
                     ->warning()
@@ -409,7 +409,7 @@ class ProfConfigController extends Controller
                     $schoolSetuptime -> prefTimeEndSat = $request -> prefTimeEndSat;
                     $schoolSetuptime -> save();
             
-                    Toast::title('Professor Hours Updated Successfully. ')
+                    Toast::title('Professor Hours Updated Successfully.')
                     ->success()
                     ->rightTop()
                     ->backdrop()
@@ -424,4 +424,39 @@ class ProfConfigController extends Controller
         return to_route('prof-save-time');
 
     }
+
+    public function unset(){
+
+        $profId = Auth::user()->id;
+
+        $professorConfigId = Prof_config::where('profId', $profId )->value('id');
+
+        DB::table('prof_configs')
+        ->where('id', $professorConfigId)
+        ->update(['prefTimeStartSun' => null,
+                'prefTimeEndSun' => null,
+                'prefTimeStartMon' => null,
+                'prefTimeEndMon' => null,
+                'prefTimeStartTue' => null,
+                'prefTimeEndTue' => null,
+                'prefTimeStartWed' => null,
+                'prefTimeEndWed' => null,
+                'prefTimeStartThu' => null,
+                'prefTimeEndThu' => null,
+                'prefTimeStartFri' => null,
+                'prefTimeEndFri' => null,
+                'prefTimeStartSat' => null,
+                'prefTimeEndSat' => null,
+                ]);
+
+        Toast::title('Professor Hours Unset Successfully.')
+        ->success()
+        ->rightTop()
+        ->backdrop()
+        ->autoDismiss(10);
+
+        return to_route('prof-save-time');
+
+    }
+
 }

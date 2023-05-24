@@ -28,7 +28,7 @@
                                 </p>
     
                                 <p class="text-4xl text-b6">
-                                    5
+                                    {{ $subjects }}
                                 </p>
                             </div>
                             
@@ -47,7 +47,7 @@
                                 </p>
     
                                 <p class="text-4xl text-green-500">
-                                    5
+                                    {{ $departments }}
                                 </p>
                             </div>
                             
@@ -66,7 +66,7 @@
                                 </p>
     
                                 <p class="text-4xl text-red-500">
-                                    5
+                                    {{ $courses }}
                                 </p>
                             </div>
                             
@@ -85,7 +85,7 @@
                                 </p>
     
                                 <p class="text-4xl text-yellow-500">
-                                    5
+                                    {{ $professors }}
                                 </p>
                             </div>
                             
@@ -104,7 +104,7 @@
                                 </p>
     
                                 <p class="text-4xl text-purple-500">
-                                    5
+                                    {{ $rooms }}
                                 </p>
                             </div>
                             
@@ -114,6 +114,55 @@
                             </div>
                         </div>
                     </div>
+
+                    {{-- <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">
+                        <div class="flex items-center justify-between p-4">
+                            <div>
+                                <p class="text-yellow-500 text-xs1">
+                                    CAPACITY
+                                </p>
+                                
+                                <p class="text-4xl text-yellow-500">
+                                    {{ $capacity }}
+                                </p>
+                            </div>
+                            
+
+                            <div class="rounded-50 p-4 bg-yellow-500 bg-opacity-20 w-12 h-12 flex items-center justify-center">
+                                <i class="fa-solid fa-user-tie text-xl text-yellow-500"></i>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                    <!--<div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">-->
+                    <!--    <div class="flex items-center justify-between p-4">-->
+                    <!--        <div>-->
+                    <!--            <p class="text-yellow-500 text-xs1">-->
+                    <!--                CAPACITY PLANNING-->
+                    <!--            </p>-->
+
+                    <!--                @if ($unitsSum > $capacity)-->
+                    <!--                <p class="text-4xl text-yellow-500">-->
+                    <!--                    Understaff-->
+                    <!--                </p>-->
+                    <!--                @elseif($capacity > $unitsSum)-->
+                    <!--                <p class="text-4xl text-yellow-500">-->
+                    <!--                    Overstaff-->
+                    <!--                </p>-->
+                    <!--                @elseif($capacity == $unitsSum)-->
+                    <!--                <p class="text-4xl text-yellow-500">-->
+                    <!--                    No lacking and overstaffing-->
+                    <!--                </p>-->
+                    <!--                @endif-->
+                                    
+                    <!--        </div>-->
+                            
+
+                    <!--        <div class="rounded-50 p-4 bg-yellow-500 bg-opacity-20 w-12 h-12 flex items-center justify-center">-->
+                    <!--            <i class="fa-solid fa-user-tie text-xl text-yellow-500"></i>-->
+                    <!--        </div> -->
+                    <!--    </div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>

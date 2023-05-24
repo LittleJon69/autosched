@@ -23,10 +23,10 @@
                     
                     <div>
                         <div class="flex items-center justify-center p-5 pt-0 sm:p-5">
-                            <Link class="flex items-center justify-center flex-wrap" href="/">
+                            <div class="flex items-center justify-center flex-wrap">
                                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 mr-2">
                                 <p class="sm:text-lg text-sm text-center">AUTO - SCHED</p>
-                            </Link>
+                            </div>
                         </div>
             
                         <div class="bg-b6 w-full p-3 flex sm:px-5 items-center justify-center">
@@ -37,17 +37,17 @@
                     <x-splade-form action="{{ route('login') }}">
                         <div class="m-7">
                             <div class="w-full">
-                                <x-splade-input class="input blue-inpt" id="email" type="email" name="email" :label="__('Email')" required />
+                                <x-splade-input class="input blue-inpt" id="email" type="email" name="email" :label="__('Email')" />
                             </div>
         
                             <div class="relative h-full w-full mt-3">
-                                <div onclick="togglepass()" class="group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
+                                <div onclick="togglepass()" class="z-10 group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
                                     <span class="cursor-pointer text-base">
                                         <i id="eyes" class="fa-solid fa-eye text-gray-400 group-hover:text-gray-500"></i>
                                     </span>
                                 </div>
         
-                                <x-splade-input class="input blue-inpt" id="password" type="password" name="password" :label="__('Password')" required />
+                                <x-splade-input class="input blue-inpt" id="password" type="password" name="password" :label="__('Password')" />
                             </div>
         
                             <div class="mt-4 check w-fit">
@@ -65,14 +65,14 @@
     
                 @if (Route::has('password.request'))
                     <div class="flex flex-col items-center mb-8">
-                        <Link class="text-xs text-red-500 sm:text-inherit hover:text-red-500 mb-1" href="{{ route('password.request') }}" >
+                        <Link class="text-xs text-red-500 sm:hover:text-red-300 mb-1" href="{{ route('password.request') }}" >
                             {{ __('Forgot your password?') }}
                         </Link>
     
                         <div class="flex items-center justify-center">
                             <p class="text-blc1 text-xs mr-2">No Account Yet? </p>
         
-                            <Link class="text-xs text-b6 sm:text-blc1 hover:text-b6" onclick="start()" href="{{ route('register') }}">
+                            <Link class="text-xs text-b6 sm:hover:text-b4" onclick="start()" href="{{ route('register') }}">
                                 Register Here.
                             </Link>
                         </div>
@@ -82,7 +82,7 @@
                         <div class="flex items-center justify-center">
                             <p class="text-blc1 text-xs mr-2">No Account Yet? </p>
         
-                            <Link class="text-xs text-b6 sm:text-blc1 hover:text-b6" onclick="start()" href="{{ route('register') }}">
+                            <Link class="text-xs text-b6 sm:hover:text-b4" onclick="start()" href="{{ route('register') }}">
                                 Register Here.
                             </Link>
                         </div>

@@ -214,4 +214,27 @@ class ClassWithSubsController extends Controller
         return Redirect::to(url()->previous());
 
     }
+
+    public function destroy(Class_With_Subs $ClassCourseId, $ClassCourse, $ClassYear, $ClassSection, $ClassSem, $ClassSchool){
+
+        $ClassCourseId->delete();
+
+        //deleting subject info in Ongoing_Class_With_Subs 
+        Ongoing_Class_With_Subs::where('course', $ClassCourse)
+                                ->where('year', $ClassYear)
+                                ->where('section', $ClassSection)
+                                ->where('sem', $ClassSem)
+                                ->where('schName', $ClassSchool)
+                                ->delete();
+
+        Toast::title('Courses Subject Deleted Sucessfully')
+        ->success()
+        ->rightTop()
+        ->backdrop()
+        ->autoDismiss(1.5);                                         
+
+        return Redirect::to(url()->previous());
+
+    }
+
 }

@@ -194,7 +194,7 @@
 
         <!-- Mini Profile -->
         <div v-bind:class="{ proftabclose: toggled, proftabopen: !toggled }" class="w-full h-16">
-            <div class="proftab overflow-hidden h-full flex items-center bg-b6  justify-between">
+            <div class="proftab h-full flex items-center bg-b6  justify-between">
                 <div class="flex items-center">
                     <div class="p-2 m-3 h-8 w-8 rounded-md bg-white flex items-center justify-center">
                         <img src="{{ asset('image/logo-as.png') }}" alt="auto-sched-logo" class="w-6">
@@ -210,8 +210,8 @@
                     </div>
                 </div>
     
-                <div class="h-full">
-                    <x-splade-form method="POST" action="{{ route('logout') }}">
+                <div class="h-full relative group transitions">
+                    {{-- <x-splade-form method="POST" action="{{ route('logout') }}">
                         @csrf
                         
                         <button type="submit" class="text-xs text-center flex items-center justify-center gap-3">
@@ -219,7 +219,19 @@
                                 <i class="fa-solid fa-arrow-right-from-bracket text-white text-sm"></i>
                             </div>
                         </button>
-                    </x-splade-form>
+                    </x-splade-form> --}}
+
+                    <div class="absolute -top-4 -left-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
+                        <p class="text-b6 text-xs">
+                            LOG OUT
+                        </p>
+                    </div>
+
+                    <Link class="text-xs text-center flex items-center justify-center gap-3" href="{{ route('logout') }}" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                        <div class="prof h-full flex items-center justify-center bg-b4 p-6">
+                            <i class="fa-solid fa-arrow-right-from-bracket text-white text-sm"></i>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div> 

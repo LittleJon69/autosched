@@ -54,9 +54,9 @@ class CoorClassSchedulesController extends Controller
         });
 
         $Stud_sched = QueryBuilder::for(Stud_sched::class)
-        ->defaultSort('-id')
-        ->allowedSorts(['studCourse', 'subCode'])
-        ->allowedFilters(['studCourse','studYear', 'studSection','subCode','totalHours','schedDay','startTime','endTime','classroom', $globalSearch,
+        ->defaultSort('startTime')
+        ->allowedSorts(['studCourse','studYear','studSection','profName','totalHours','schedDay','subCode','startTime','endTime','sem','classroom'])
+        ->allowedFilters(['studCourse','studYear', 'studSection','profName','subCode','totalHours','schedDay','startTime','endTime','sem','classroom', $globalSearch,
             AllowedFilter::exact('classroom'),
             AllowedFilter::exact('studCourse'),
             AllowedFilter::exact('studYear'),
@@ -76,12 +76,15 @@ class CoorClassSchedulesController extends Controller
         ->column('studCourse', label: 'Course', searchable: true, sortable: true, canBeHidden: false)
         ->column('studYear', label: 'Year', searchable: true, sortable: true, canBeHidden: false)
         ->column('studSection', label: 'Section', searchable: true, sortable: true, canBeHidden: false)
+        ->column('profName', label: 'Professor Name', searchable: true, sortable: true, canBeHidden: false)
         ->column('subCode', label: 'Subject Code', searchable: true, sortable: true, canBeHidden: false)
         ->column('totalHours', label: 'Units', searchable: true, sortable: true, canBeHidden: false)
         ->column('schedDay', label: 'Day' , searchable: true, sortable: true, canBeHidden: false)
         ->column('startTime', label: 'Start Time', searchable: true, sortable: true,)
         ->column('endTime', label: 'End Time', searchable: true, sortable: true, canBeHidden: false)
+        ->column('sem', label: 'Semester', searchable: true, sortable: true, canBeHidden: false)
         ->column('classroom', label: 'Classroom', searchable: true, sortable: true, canBeHidden: false)
+        ->column('action', label: 'Action')
         ->selectFilter('classroom', $coordinatorDepartmentRoom)
         ->selectFilter('studCourse', $courseName)
         ->selectFilter('studYear', $courseYear)
