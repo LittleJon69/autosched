@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <a href="public/excel/sample.xlsx" download>sample file</a> --}}
+                            <a href="{{ route('download-sample-file') }}">sample file</a>
                         </div>
             
                         <div class="rounded-btn-i green-btn-i mt-8 flex items-center justify-center">

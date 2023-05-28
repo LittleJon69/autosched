@@ -23,7 +23,9 @@ use App\Models\Ongoing_Subjects;
 use App\Models\Prof_sched;
 use App\Models\Room_sched;
 use App\Models\Stud_sched;
-use Attribute;
+use Response;
+use File;
+use Illuminate\Support\Facades\Storage;
 
 class SubjectController extends Controller
 {
@@ -274,6 +276,13 @@ class SubjectController extends Controller
         return redirect()->route('subjects.index');
 
         // return redirect('/subjects')->with('success', 'All Good!');
+    }
+
+    public function downloadSampleFile(){
+
+        $myFile = public_path("excel/sample.xlsx");
+        return response()->download($myFile);
+ 
     }
 
 }

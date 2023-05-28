@@ -28,6 +28,7 @@ use App\Http\Controllers\PasswordProfController;
 use App\Http\Controllers\PasswordCoorController;
 use App\Http\Controllers\PasswordCoordinatorController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PreviousAdminSchedulesController;
 use App\Http\Controllers\ProfConfigController;
 use App\Http\Controllers\ProfessorDashboardSchedulesController;
 use App\Http\Controllers\ProfessorSchedulesController;
@@ -123,6 +124,14 @@ Route::middleware('splade')->group(function ()
             Route::get('class-generate-pdf/{Stud_sched}/{Stud_year}/{Stud_Section}', [PDFController::class, 'generatePdfClassSched'])->name('class-generate-pdf')->middleware(['verified']);
 
             Route::get('unset/school/config', [SchoolConfigController::class, 'unset'])->name('unset-school-hours')->middleware(['verified']);
+
+            Route::get('sampleFile', [SubjectController::class, 'downloadSampleFile'])->name('download-sample-file')->middleware(['verified']);
+            
+            Route::get('previous-professor-schedules', [PreviousAdminSchedulesController::class, 'previousProfessorSchedules'])->name('previous-prof-schedules')->middleware(['verified']);
+
+            Route::get('previous-room-schedules', [PreviousAdminSchedulesController::class, 'previousRoomSchedules'])->name('previous-rooms-schedules')->middleware(['verified']);
+
+            Route::get('previous-class-schedules', [PreviousAdminSchedulesController::class, 'previousClassSchedules'])->name('previous-classess-schedules')->middleware(['verified']);
 
         });
         
