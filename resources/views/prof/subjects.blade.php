@@ -19,9 +19,27 @@
             <div class="w-full h-full flex flex-wrap justify-center xl:w-tabw">
                 <div class="h-full w-full flex items-center justify-center">
                     <div class="h-full w-full flex items-center flex-wrap justify-center p-2 gap-3">
-                        <i class="text-2xl text-gray-500 fa-solid fa-screwdriver-wrench"></i>
-                        <p class="text-2xl text-gray-500">
-                            UNDER CONSTRUCTION
+               
+                        <table> 
+
+                            <tr>
+                                <th>Subject Description</th>
+                                <th>Subject Code</th>
+                                <th>Subject Units</th>
+                            </tr>
+
+                            
+                                @foreach ($matchingRecords as $new_matchingRecords)
+                                    <tr>
+                                        <td>{{ $new_matchingRecords->subTitle }}</td>
+                                        <td>{{ $new_matchingRecords->subCode }}</td>
+                                        <td>{{ $new_matchingRecords->subUnits }}</td>
+                                    </tr>
+                                @endforeach
+                            
+
+                        </table>
+
                         </p>
                     </div>
                 </div>

@@ -20,8 +20,8 @@ class SchoolConfigRequest extends FormRequest
     {
         return [
             // 'autoRoom' => ['required'],
-            'allocationWay' => 'required',
-            'sem' => 'required',
+            // 'allocationWay' => 'required',
+            // 'sem' => 'required',
             // 'mode' => ['required'],
             // 'schTimeStartSun' => ['required'],
             // 'schTimeEndSun' => ['required'],

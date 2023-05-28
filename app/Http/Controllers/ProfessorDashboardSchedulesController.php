@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Prof_sched;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 use ProtoneMedia\Splade\SpladeTable;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -53,8 +54,23 @@ class ProfessorDashboardSchedulesController extends Controller
         ->column('totalHours', label: 'Units', searchable: true, sortable: true,  canBeHidden: false)       
         ->column('startTime', label: 'Start Time', searchable: true, sortable: true,  canBeHidden: false)
         ->column('endTime', label: 'End Time', searchable: true, sortable: true,  canBeHidden: false)
-        // ->column('action', label: 'Action')
         ->paginate(15),]);
+
+    }
+
+
+    public function professorSubjects(){
+
+        $professorId = Auth::user()->id;
+
+        //getting school name
+        $schoolInfo = DB::table('prof_infos')->where('id',  $professorId)->value('profSchool');
+
+        $professor_subjects = DB::table('prof_scheds')->where('profId', $professorId)->where('profSchool', $schoolInfo)->distinct()->pluck('subCode')->toArray();
+
+        $matchingRecords = Subject::whereIn('subCode', $professor_subjects)->where('subSchool',$schoolInfo)->get();
+
+        return view('prof.subjects',['matchingRecords' => $matchingRecords]);
 
     }
     

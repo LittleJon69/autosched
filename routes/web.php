@@ -159,10 +159,7 @@ Route::middleware('splade')->group(function ()
         Route::get('profconfigs', [ProfConfigController::class, 'index'])->name('prof-save-time');
         Route::post('profconfigs', [ProfConfigController::class, 'store'])->name('save-configs');
 
-        Route::get('prof/subjects', function () 
-        {
-            return view('prof.subjects');
-        })->name('prof-subjects');
+        Route::get('professor-subjects', [ProfessorDashboardSchedulesController::class, 'professorSubjects'])->name('prof-subjects');
 
         Route::get('professor/class/calendar', [ProfessorDashboardSchedulesController::class, 'professorSchedules'])->name('prof-class-calendar');
 
