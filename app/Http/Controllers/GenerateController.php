@@ -1655,7 +1655,7 @@ class GenerateController extends Controller
         ->success()
         ->rightTop()
         ->backdrop()
-        ->autoDismiss(3);
+        ->autoDismiss(1.5);
 
         return redirect()->back();
     }

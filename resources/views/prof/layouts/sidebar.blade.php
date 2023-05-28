@@ -4,7 +4,7 @@
         <!-- Tabs -->
         <div v-bind:class="{ tabclose: toggled, tabopen: !toggled }" class="tab flex flex-row content-start flex-wrap h-full w-full overflow-auto p-8 pl-0">
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('prof.dashboard')" :active="request()->routeIs('prof.dashboard')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-border-all text-sm group-hover:text-white"></i>
                     </span>
@@ -17,7 +17,7 @@
 
 
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('prof-subjects')" :active="request()->routeIs('prof-subjects')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-book text-sm group-hover:text-white"></i>
                     </span>
@@ -29,7 +29,7 @@
             </x-sidebar-link>
 
             <x-sidebar-link class="sm:w-full w-11/12" :href="route('prof-class-calendar')" :active="request()->routeIs('prof-class-calendar')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-calendar-days text-sm group-hover:text-white"></i>
                     </span>
@@ -43,19 +43,19 @@
         <!-- End -->
 
         <!-- Mini Profile -->
-        <div v-bind:class="{ proftabclose: toggled, proftabopen: !toggled }" class="w-full h-16">
+        <div v-bind:class="{ proftabclose: toggled, proftabopen: !toggled }" class="w-full h-16  sm:hidden block">
             <div class="proftab overflow-hidden h-full flex items-center bg-b6  justify-between">
                 <div class="flex items-center">
-                    <div class="p-2 m-3 h-8 w-8 rounded-md bg-white flex items-center justify-center">
+                    {{-- <div class="p-2 m-3 h-8 w-8 rounded-md bg-white flex items-center justify-center">
                         <img src="{{ asset('image/logo-as.png') }}" alt="auto-sched-logo" class="w-6">
-                    </div>
+                    </div> --}}
     
-                    <div v-bind:class="{ profclose: toggled, profopen: !toggled }" class="h-8 duration-500 max-w-namew flex flex-col justify-center">
+                    <div v-bind:class="{ profclose: toggled, profopen: !toggled }" class="h-8 duration-500 max-w-namew flex flex-col justify-center ml-5">
                         <p class="text-white text-xs overflow-hidden text-ellipsis whitespace-nowrap">
                             {{ Auth::user()->profFName.' '.Auth::user()->profLName }}
                         </p>
                         <p class="text-white text-xs1">
-                            Administrator
+                            Professor
                         </p>
                     </div>
                 </div>

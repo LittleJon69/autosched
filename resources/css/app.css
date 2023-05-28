@@ -27,8 +27,34 @@ font-family: 'Varela Round', sans-serif; */
     height: 595px;
 }
 
+.flatpickr-time input {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.flatpickr-time .numInputWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.flatpickr-calendar {
+    width: 100% !important;
+}
+
+.flatpickr-calendar.hasTime .flatpickr-time {
+    border-top: 0 !important;
+    width: 100%;
+}
+
+nav.flex.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+}
+
 p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center {
     @apply text-xs !important;
+    text-transform: uppercase;
 }
 
 .transitions {
@@ -41,9 +67,43 @@ p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center {
     background-color: white;
 }
 
-.shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+.mobtable > div:nth-last-child(2) {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    justify-content: center;
+}
+
+.mobtable > div:nth-last-child(1) {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    justify-content: center;
+}
+
+.mobtable .shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
     border-radius: 0.375rem;
-    overflow: hidden;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+.mobtable .py-2.align-middle.inline-block.min-w-full.sm\:px-px {
+    height: 100%;
+    width: 100%;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0 !important;
+}
+
+.mobtable .-my-2.overflow-x-auto {
+    height: 100%;
+    width: 100%;
+}
+
+.mobtable {
+    display: flex;
+    flex-direction: column;
 }
 
 .input p {
@@ -357,9 +417,9 @@ input, select {
     @apply focus:border-b6 focus:ring focus:ring-opacity-20 focus:ring-b6 !important;
 }
 
-    .red-inpt input, .red-inpt select {
-        @apply focus:border-red-500 focus:ring focus:ring-opacity-20 focus:ring-red-500 !important;
-    }
+.red-inpt input, .red-inpt select {
+    @apply focus:border-red-500 focus:ring focus:ring-opacity-20 focus:ring-red-500 !important;
+}
 
 .green-inpt input, .green-inpt select {
     @apply focus:border-green-500 focus:ring focus:ring-opacity-20 focus:ring-green-500 !important;
@@ -382,7 +442,7 @@ input, select {
 }
 
 .orange-btn, .orange-btn-i button {
-    @apply bg-orange-500 border-orange-500 focus:border-orange-500 focus:ring focus:ring-opacity-20 focus:ring-orange-500 sm:hover:bg-white sm:hover:text-orange-500 !important
+    @apply bg-orange-500 border-orange-500 focus:border-orange-500 focus:ring focus:ring-opacity-20 focus:ring-orange-500 sm:hover:bg-white sm:hover:text-orange-500 !important;
 }
 
 .squared-btn {
@@ -813,6 +873,7 @@ td {
 .mobtable .flex-row.sm\:justify-end.mb-3.px-4.sm\:px-0.-mr-2.sm\:-mr-3 {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .mobtable .shadow.relative.sm\:rounded-md.sm\:overflow-hidden {
@@ -909,6 +970,57 @@ select {
         width: fit-content;
         margin-right: 10px;
         text-transform: uppercase;
+        text-align: left;
+    }
+
+    .mobtable tbody {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mobtable td .td {
+        white-space: pre-wrap;
+        width: 100%;
+        text-align: right;
+    }
+
+    .mobtable tbody tr {
+        border-radius: 10px;
+        border: solid 1px rgb(229 231 235 / var(--tw-border-opacity)) !important;
+        --tw-border-opacity: 1;
+    }
+
+    .mobtable thead tr {
+        margin: 0;
+        padding: 0;
+    }
+
+    .divide-y > :not([hidden]) ~ :not([hidden]) {
+        --tw-divide-y-reverse: 0;
+        border-top-width: 0;
+        border-bottom-width: 0;
+    }
+
+    .mobtable .shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+        border: 0 !important;
+    }
+
+    .mobtable .flex-row.sm\:justify-end.mb-3.px-4.sm\:px-0.-mr-2.sm\:-mr-3 {
+        margin-bottom: 0px !important;
+    }
+
+    nav.flex.justify-between.flex-1.md\:hidden {
+        gap: 10px;
+    }
+    
+    nav .flex.justify-between.flex-1.md\:hidden a {
+        margin-left: 0px !important;
+    }
+    
+    nav.flex.items-center.justify-between.px-4.sm\:px-0.py-3 {
+        padding: 0.75rem 0px 0px 0px !important;
     }
 
     .mobtable table {
@@ -917,6 +1029,7 @@ select {
 
     .mobtable tr {
         @apply w-full flex flex-col;
+        padding: 10px 0px 10px 0px;
     }
 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 {

@@ -56,7 +56,7 @@ class SubjectController extends Controller
             ->column('subUnits', label: 'Units',)
             ->column('subField', label: 'Field',)
             ->column('action', label: 'Actions')
-            ->paginate(10),
+            ->paginate(15),
         ]);
     }
 

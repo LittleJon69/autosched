@@ -202,7 +202,7 @@ class ProfConfigController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         //for monday
         }elseif($finalTimeofMonday < $finalMinimumTime && $finalTimeofMonday != "00:00:00"){
@@ -211,7 +211,7 @@ class ProfConfigController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         //for tuesday
         }elseif($finalTimeofTuesday < $finalMinimumTime && $finalTimeofTuesday != "00:00:00"){
@@ -220,7 +220,7 @@ class ProfConfigController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         //for wednesday
         }elseif($finalTimeofWednesday < $finalMinimumTime && $finalTimeofWednesday != "00:00:00"){
@@ -229,7 +229,7 @@ class ProfConfigController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         //for thursday
         }elseif($finalTimeofThursday < $finalMinimumTime && $finalTimeofThursday != "00:00:00"){
@@ -238,7 +238,7 @@ class ProfConfigController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         //for friday
         }elseif($finalTimeofFriday < $finalMinimumTime && $finalTimeofFriday != "00:00:00"){
@@ -247,7 +247,7 @@ class ProfConfigController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         }elseif($finalTimeofSaturday < $finalMinimumTime && $finalTimeofSaturday != "00:00:00"){
 
@@ -255,7 +255,7 @@ class ProfConfigController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         }else{
 
@@ -266,7 +266,7 @@ class ProfConfigController extends Controller
                 ->warning()
                 ->rightTop()
                 ->backdrop()
-                ->autoDismiss(5);
+                ->autoDismiss(1.5);
 
             //for monday        
             }elseif($prefTimeStartMonConverted < $schTimeStartMon && $prefTimeStartMonConverted != "00:00:00"  || $prefTimeEndMonConverted > $schTimeEndMon && $prefTimeEndMonConverted != "00:00:00"){
@@ -275,7 +275,7 @@ class ProfConfigController extends Controller
                 ->warning()
                 ->rightTop()
                 ->backdrop()
-                ->autoDismiss(5);
+                ->autoDismiss(1.5);
 
             //for tuesday
             }elseif($prefTimeStartTueConverted < $schTimeStartTue && $prefTimeStartTueConverted != "00:00:00"  || $prefTimeEndTueConverted > $schTimeEndTue && $prefTimeEndTueConverted != "00:00:00"){
@@ -284,7 +284,7 @@ class ProfConfigController extends Controller
                 ->warning()
                 ->rightTop()
                 ->backdrop()
-                ->autoDismiss(5);
+                ->autoDismiss(1.5);
         
             //for wednesday
             }elseif($prefTimeStartWedConverted < $schTimeStartWed && $prefTimeStartWedConverted !="00:00:00" || $prefTimeEndWedConverted > $schTimeEndWed && $prefTimeEndWedConverted != "00:00:00"){
@@ -293,7 +293,7 @@ class ProfConfigController extends Controller
                 ->warning()
                 ->rightTop()
                 ->backdrop()
-                ->autoDismiss(5);
+                ->autoDismiss(1.5);
             
             //for thursday 
             }elseif($prefTimeStartThuConverted < $schTimeStartThu && $prefTimeStartThuConverted != "00:00:00" || $prefTimeEndThuConverted > $schTimeEndThu && $prefTimeEndThuConverted != "00:00:00"){
@@ -302,7 +302,7 @@ class ProfConfigController extends Controller
                 ->warning()
                 ->rightTop()
                 ->backdrop()
-                ->autoDismiss(5);
+                ->autoDismiss(1.5);
             
             //for Friday
             }elseif($prefTimeStartFriConverted < $schTimeStartFri && $prefTimeStartFriConverted != "00:00:00" || $prefTimeEndFriConverted > $schTimeEndFri && $prefTimeEndFriConverted != "00:00:00"){
@@ -311,7 +311,7 @@ class ProfConfigController extends Controller
                 ->warning()
                 ->rightTop()
                 ->backdrop()
-                ->autoDismiss(5);
+                ->autoDismiss(1.5);
         
             //for saturday
             }elseif($prefTimeStartSatConverted < $schTimeStartSat && $prefTimeStartSatConverted != "00:00:00" || $prefTimeEndSatConverted > $schTimeEndSat && $prefTimeEndSatConverted != "00:00:00"){
@@ -320,7 +320,7 @@ class ProfConfigController extends Controller
                 ->warning()
                 ->rightTop()
                 ->backdrop()
-                ->autoDismiss(5);
+                ->autoDismiss(1.5);
 
             }else{
 
@@ -331,7 +331,7 @@ class ProfConfigController extends Controller
                     ->warning()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(5);
+                    ->autoDismiss(1.5);
                 
                 //for monday    
                 }elseif(($prefTimeStartMon > $prefTimeEndMon) || ($prefTimeEndMon > $prefTimeStartMon) && ($prefTimeStartMon == null) ){
@@ -340,7 +340,7 @@ class ProfConfigController extends Controller
                     ->warning()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(5);
+                    ->autoDismiss(1.5);
                 
                 //for tuesday
                 }elseif(($prefTimeStartTue > $prefTimeEndTue) || ($prefTimeEndTue > $prefTimeStartTue) && ($prefTimeStartTue == null)){
@@ -349,7 +349,7 @@ class ProfConfigController extends Controller
                     ->warning()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(5);
+                    ->autoDismiss(1.5);
                     
                 //for wednesday
                 }elseif(($prefTimeStartWed > $prefTimeEndWed) || ($prefTimeEndWed > $prefTimeStartWed) && ($prefTimeStartWed == null)){
@@ -358,7 +358,7 @@ class ProfConfigController extends Controller
                     ->warning()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(5);
+                    ->autoDismiss(1.5);
                     
                 //for thursday
                 }elseif(($prefTimeStartThu > $prefTimeEndThu) || ($prefTimeEndThu > $prefTimeStartThu) && ($prefTimeStartThu == null)){
@@ -367,7 +367,7 @@ class ProfConfigController extends Controller
                     ->warning()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(5);
+                    ->autoDismiss(1.5);
             
                 //for friday
                 }elseif(($prefTimeStartFri > $prefTimeEndFri) || ($prefTimeEndFri > $prefTimeStartFri) && ($prefTimeStartFri == null)){
@@ -376,7 +376,7 @@ class ProfConfigController extends Controller
                     ->warning()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(5);
+                    ->autoDismiss(1.5);
             
                 //for saturday    
                 }elseif(($prefTimeStartSat > $prefTimeEndSat) || ($prefTimeEndSat > $prefTimeStartSat) && ($prefTimeStartSat == null)){
@@ -385,7 +385,7 @@ class ProfConfigController extends Controller
                     ->warning()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(5);
+                    ->autoDismiss(1.5);
             
                 }else{
         
@@ -413,7 +413,7 @@ class ProfConfigController extends Controller
                     ->success()
                     ->rightTop()
                     ->backdrop()
-                    ->autoDismiss(10);
+                    ->autoDismiss(1.5);
         
                 }
 
@@ -453,7 +453,7 @@ class ProfConfigController extends Controller
         ->success()
         ->rightTop()
         ->backdrop()
-        ->autoDismiss(10);
+        ->autoDismiss(1.5);
 
         return to_route('prof-save-time');
 

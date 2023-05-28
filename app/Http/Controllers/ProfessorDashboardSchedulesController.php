@@ -54,7 +54,7 @@ class ProfessorDashboardSchedulesController extends Controller
         ->column('startTime', label: 'Start Time', searchable: true, sortable: true,  canBeHidden: false)
         ->column('endTime', label: 'End Time', searchable: true, sortable: true,  canBeHidden: false)
         // ->column('action', label: 'Action')
-        ->paginate(10),]);
+        ->paginate(15),]);
 
     }
     

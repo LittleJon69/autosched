@@ -10,7 +10,7 @@
     </div>
     
     <footer class="hidden w-full p-5 sm:flex flex-col justify-center items-center align-bottom h-fit border-t border-gray-300 bg-white">
-        <p class="text-xs0">Terms and Conditions</p>
+        <p class="text-xs">Terms and Conditions</p>
 
         <p class="pt-1 text-xs">
             © Auto-Sched 2023. All Rights Reserved. 

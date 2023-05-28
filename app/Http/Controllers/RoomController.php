@@ -52,7 +52,7 @@ class RoomController extends Controller
             ->column('roomDepartment', label: 'Department', searchable: true, sortable: true, canBeHidden: false)
             ->column('roomSchool', label: 'School Name')
             ->column('action', label: 'Actions')
-            ->paginate(10),
+            ->paginate(15),
         ]);
 
     }

@@ -65,7 +65,6 @@ class RoomSchedulesController extends Controller
         ->column('sem', label: 'Semester', sortable: true, canBeHidden: false)
         ->column('action', label: 'Action')
         ->selectFilter('roomNumber', $roomList)
-        ->paginate(5),]);
-
+        ->paginate(15),]);
     }
 }

@@ -66,7 +66,7 @@ class ClassWithSubsController extends Controller
         ->column('section', label: 'Section', searchable: true, sortable: true, canBeHidden: false)
         ->column('sem', label: 'Semester',)
         ->column('action', label: 'Action',)
-        ->paginate(10),]);
+        ->paginate(15),]);
 
     }
 
@@ -123,7 +123,7 @@ class ClassWithSubsController extends Controller
             ->rightTop()
             ->backdrop()
             ->warning()
-            ->autoDismiss(2); 
+            ->autoDismiss(1.5); 
         }
         else
         {

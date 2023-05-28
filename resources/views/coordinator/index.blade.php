@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="tabname">
         <p class="text-white text-sm">
-            CLASS SCHEDULES
+            COORDINATORS
         </p>
     </x-slot>
 
@@ -39,7 +39,36 @@
 
         <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
             <div class="w-full h-full flex flex-wrap justify-center xl:w-tabw">
-                <x-splade-table class="w-full mobtable" :for="$Coor_info" striped>
+                <x-splade-table class="w-full h-full mobtable" :for="$Coor_info" striped>
+                    @cell('coorFName', $Coor_info)
+                        <div class="td" data-title="First Name">
+                            {{ $Coor_info->coorFName }}
+                        </div>
+                    @endcell
+
+                    @cell('coorLName', $Coor_info)
+                        <div class="td" data-title="Last Name">
+                            {{ $Coor_info->coorLName }}
+                        </div>
+                    @endcell
+
+                    @cell('coorDept', $Coor_info)
+                        <div class="td" data-title="Department">
+                            {{ $Coor_info->coorDept }}
+                        </div>
+                    @endcell
+
+                    @cell('contactNumber', $Coor_info)
+                        <div class="td" data-title="Contact Number">
+                            {{ $Coor_info->contactNumber }}
+                        </div>
+                    @endcell
+
+                    @cell('email', $Coor_info)
+                        <div class="td" data-title="Email Address">
+                            {{ $Coor_info->email }}
+                        </div>
+                    @endcell
                 </x-splade-table>
 
                 {{-- <div class="h-full w-full flex items-center justify-center">

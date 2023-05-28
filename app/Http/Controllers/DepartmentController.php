@@ -42,7 +42,7 @@ class DepartmentController extends Controller
                 ->column(key: 'deptCode', label: 'Department Code', searchable: true, sortable: true, canBeHidden: false)
                 ->column(key: 'deptName', label: 'Department Name', searchable: true, sortable: true, canBeHidden: false)
                 ->column('action', label: 'Actions')
-                ->paginate(10),
+                ->paginate(15),
         ]);
     }
 

@@ -186,7 +186,7 @@ Route::middleware('splade')->group(function ()
         Route::resource('courses', CourseController::class);
         Route::resource('professors', ProfessorController::class);
         Route::resource('rooms', RoomController::class);
-        Route::resource('class', ClassListController::class);
+        Route::resource('classess', ClassListController::class);
 
         Route::get('addCourse/{subject}', [ClassWithSubsController::class, 'index'])->name('addCourses');
         Route::post('saveCourse', [ClassWithSubsController::class, 'create'])->name('save');
@@ -209,7 +209,7 @@ Route::middleware('splade')->group(function ()
 
         Route::get('delete/class/course/{ClassCourseId}/{ClassCourse}/{ClassYear}/{ClassSection}/{ClassSem}/{ClassSchool}', [ClassWithSubsController::class, 'destroy'])->name('delete-addcourse-coor');
         
-        Route::get('delete/class/list/{All_Class}', [ClassListController::class, 'destroy'])->name('class-list-delete');
+        Route::delete('delete/class/list/{All_Class}', [ClassListController::class, 'destroy'])->name('class-list-delete');
 
     });
 

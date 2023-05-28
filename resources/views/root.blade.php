@@ -26,7 +26,7 @@
 
         <!-- JScripts & CSS -->
         <!-- Main CSS -->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
         <!-- End -->
 
         <!-- Main JScript -->

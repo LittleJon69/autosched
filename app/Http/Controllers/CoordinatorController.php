@@ -50,8 +50,8 @@ class CoordinatorController extends Controller
         ->column('coorLName', label: 'Last Name', searchable: true, sortable: true, canBeHidden: false)
         ->column('coorDept', label: 'Department', searchable: true, sortable: true, canBeHidden: false)
         ->column('contactNumber', label: 'Contact Number',)
-        ->column('email', label: 'Email',)
-        ->paginate(10),]);
+        ->column('email', label: 'Email Address',)
+        ->paginate(15),]);
 
     }
 
@@ -90,7 +90,7 @@ class CoordinatorController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(3);
+            ->autoDismiss(1.5);
 
             return to_route('coordinator.create');
 
@@ -115,7 +115,7 @@ class CoordinatorController extends Controller
             ->success()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(5);
+            ->autoDismiss(1.5);
 
         }
 

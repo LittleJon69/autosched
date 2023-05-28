@@ -7,7 +7,7 @@
 
     <!-- Content -->
     <div class="w-full h-full flex flex-col overflow-auto">
-        <div class="title-btn flex w-full justify-between items-center border-b border-b-gray-300 overflow-x-auto overflow-y-hidden">
+        <div class="title-btn flex w-full justify-between items-center border-b border-b-b6 overflow-x-auto overflow-y-hidden">
             <div class="sm:flex hidden h-full">
                 <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">SCHOOL PROFILE</p> 
@@ -15,7 +15,7 @@
             </div>
 
             <div class="m-3 flex items-center h-fit sm:hidden">
-                <div class="pr-2 border-r border-r-gray-300">
+                {{-- <div class="pr-2 border-r border-r-gray-300">
                     <Link class="whitespace-nowrap squared-btn red-btn text-xs0 border group flex items-center justify-center" href="#">
                         <div class="mr-2 flex items-center justify-center">
                             <i class="mr-xs fa-solid fa-plus text-xs1 sm:group-hover:text-red-500 text-white"></i>
@@ -24,7 +24,7 @@
     
                         ADD SCHOOL EVENTS
                     </Link>
-                </div>
+                </div> --}}
 
                 <div class="pl-2 pr-2 border-r border-r-gray-300">
                     <Link class="whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="schoolConfig">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="m-3 sm:flex items-center h-fit hidden">
-                <div class="pr-2 border-r border-r-gray-300">
+                {{-- <div class="pr-2 border-r border-r-gray-300">
                     <Link class="whitespace-nowrap squared-btn red-btn text-xs0 border group flex items-center justify-center" href="#">
                         <div class="mr-2 flex items-center justify-center">
                             <i class="mr-xs fa-solid fa-plus text-xs1 sm:group-hover:text-red-500 text-white"></i>
@@ -57,7 +57,7 @@
     
                         ADD SCHOOL EVENTS
                     </Link>
-                </div>
+                </div> --}}
 
                 <div class="pl-2 pr-2 border-r border-r-gray-300">
                     <Link class="whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" modal onclick="start()" href="schoolConfig">
@@ -95,13 +95,25 @@
                         @endif
                         
                             <div class="absolute bottom-1 right-1 sm:flex hidden">
-                                <Link modal class="transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
+                                <Link modal class="relative transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
                                     <i class="fa-solid fa-camera sm:group-hover:text-b6 text-white"></i>
+
+                                    <div class="absolute bottom-10 right-0 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                                        <p class="text-b6 text-xs0 whitespace-nowrap">
+                                            CHANGE SCHOOL LOGO
+                                        </p>
+                                    </div>
                                 </Link>
                             </div>
                             <div class="absolute bottom-1 right-1 flex sm:hidden">
-                                <Link class="transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
+                                <Link class="relative transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
                                     <i class="fa-solid fa-camera sm:group-hover:text-b6 text-white"></i>
+
+                                    <div class="absolute bottom-10 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
+                                        <p class="text-b6 text-xs0 whitespace-nowrap">
+                                            CHANGE SCHOOL LOGO
+                                        </p>
+                                    </div>
                                 </Link>
                             </div>
                         </div>
@@ -129,13 +141,13 @@
             </div>
 
             <div class="w-full rounded-2xl shadow-sm bg-white flex flex-wrap sm:flex-nowrap gap-3 p-4 xl:w-tabw">
-                <div class="w-full">
+                {{-- <div class="w-full">
                     <div class="p-2 px-3 w-full border-l-4 border-l-b6 border border-gray-300 rounded-md">
                         <p class="sm:text-lg text-sm">
                             CURRENT EVENTS
                         </p>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="w-full">
                     <div class="p-2 px-3 border-l-4 w-full border-l-b6 border border-gray-300 rounded-md">

@@ -1,4 +1,4 @@
-<div class="flex text-blc1 bg-gray-100 relative h-full w-full overflow-hidden">
+<div class="flex text-blc1 bg-white sm:bg-blue-100 relative h-full w-full overflow-hidden">
     <!-- Header -->
     <nav class="bg-b6 p-3 flex justify-between items-center shadow-md absolute top-0 z-10 w-full h-16">
         <div class="sm:hidden flex gap-3 items-center">
@@ -12,14 +12,14 @@
         </div>
 
         <div class="sm:block hidden">
-            <div class="flex items-center ml-3">
+            <Link class="flex items-center">
                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 mr-2">
-                <p class="text-sm text-white">AUTO - SCHED | Welcome <!-- Prof Name --> {{ Auth::user()->profFName }} <!-- End --></p>
-            </div>
+                <p class="text-sm text-white">AUTO - SCHED</p>
+            </Link>
         </div>
 
-        <div class="flex gap-5 sm:mr-5 mr-2">
-            <div class="flex items-center justify-center relative cursor-pointer">
+        <div class="flex items-center gap-3 mr-2">
+            {{-- <div class="flex items-center justify-center relative cursor-pointer">
                 <span>
                     <i class="fa-solid fa-magnifying-glass text-white sm:text-xl text-sm"></i>
                 </span>
@@ -29,34 +29,62 @@
                 <span>
                     <i class="fa-solid fa-bell text-white sm:text-xl text-sm"></i>
                 </span>
+            </div> --}}
+
+            <div class="h-8 duration-500 max-w-namew sm:flex flex-col justify-center text-right hidden">
+                <p class="text-white text-xs overflow-hidden text-ellipsis whitespace-nowrap">
+                    {{ Auth::user()->profFName.' '.Auth::user()->profLName }}
+                </p>
+                <p class="text-white text-xs1">
+                    Professor
+                </p>
             </div>
 
-            <div class="drop-btn flex items-center justify-center relative cursor-pointer">
-                <x-dropdown placement="bottom-end">
-                    <x-slot name="trigger">
-                        <button>
-                            <div>
-                                <span>
-                                    <i class="fa-solid fa-gear text-white sm:text-xl text-sm"></i>
-                                </span>
-                            </div>
-                        </button>
-                    </x-slot>
+            <div class="flex items-center justify-center w-fit h-fit relative">
+                {{-- @if ($school->schLogo == "")
+                    <div class="absolute background-image -top-32 w-11 h-11 flex items-center justify-center border-4 border-b6 rounded-full p-2 shadow-md bg-white" style="background-image:url('{{ asset('image/logo-as.png') }}')">
+                @else
+                    <div class="absolute background-image -top-32 w-11 h-11 flex items-center justify-center border-4 border-b6 rounded-full p-2 shadow-md bg-white" style="background-image:url('{{ asset('storage/'.$school->schLogo) }}')">
+                @endif --}}
 
-                    <x-slot name="content">
-                        <x-dropdown-link onclick="start()" href="{{ route('prof-update') }}">
-                            <div class="flex items-center gap-2 uppercase whitespace-nowrap">
-                                <i class="fa-solid fa-user-pen text-xs"></i> Update Your Profile
-                            </div>
-                        </x-dropdown-link>
+                <div class="background-image w-9 h-9 flex items-center justify-center border-2 border-white rounded-full p-2 shadow-md bg-white" style="background-image:url('{{ asset('image/logo-as.png') }}')">
+                </div>
 
-                        <x-dropdown-link onclick="start()" href="{{ route('update-password') }}">
-                            <div class="flex items-center gap-2 uppercase whitespace-nowrap">
-                                <i class="fa-solid fa-lock text-xs"></i> Change Your Password
-                            </div>
-                        </x-dropdown-link>
-                    </x-slot>
-                </x-dropdown>
+                <div class="absolute shadow-md -bottom-0 -right-1 rounded-full bg-b4 w-4 h-4 flex items-center justify-center">
+                    <div class="drop-btn flex items-center justify-center relative cursor-pointer w-full h-full">
+                        <x-dropdown placement="bottom-end" class="flex items-center justify-center w-full h-full">
+                            <x-slot name="trigger" class="flex items-center justify-center w-4 h-4">
+                                <button class="flex items-center justify-center w-4 h-4">
+                                    <div class="flex items-center justify-center w-4 h-4">
+                                        <span class="flex items-center justify-center w-4 h-4">
+                                            <i class="fa-solid fa-caret-down text-xs1 text-white"></i>
+                                        </span>
+                                    </div>
+                                </button>
+                            </x-slot>
+        
+                            <x-slot name="content">
+                                <x-dropdown-link onclick="start()" href="{{ route('prof-update') }}">
+                                    <div class="flex items-center gap-2 uppercase whitespace-nowrap">
+                                        <i class="fa-solid fa-user-pen text-xs"></i> Update Your Profile
+                                    </div>
+                                </x-dropdown-link>
+        
+                                <x-dropdown-link onclick="start()" href="{{ route('update-password') }}">
+                                    <div class="flex items-center gap-2 uppercase whitespace-nowrap">
+                                        <i class="fa-solid fa-lock text-xs"></i> Change Your Password
+                                    </div>
+                                </x-dropdown-link>
+        
+                                <x-dropdown-link onclick="start()" :href="route('prof.logout')" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                                    <div class="flex items-center gap-2 uppercase whitespace-nowrap">
+                                        <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i> Log Out
+                                    </div>
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>

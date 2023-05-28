@@ -6,10 +6,10 @@
     </x-slot>  
 
     <!-- Content -->
-    <div class="w-full h-full flex flex-col">
-        <div class="title-btn flex w-full justify-between items-center overflow-x-auto overflow-y-hidden">
-            <div class="sm:flex hidden">
-                <div class="z-10 w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
+    <div class="w-full h-full flex flex-col overflow-auto">
+        <div class="title-btn flex w-full justify-between items-center border-b-gray-300 overflow-x-auto overflow-y-hidden">
+            <div class="sm:flex hidden h-full">
+                <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">DASHBOARD</p> 
                 </div>                
             </div>

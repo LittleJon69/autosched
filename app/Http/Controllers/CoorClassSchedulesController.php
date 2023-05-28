@@ -89,7 +89,7 @@ class CoorClassSchedulesController extends Controller
         ->selectFilter('studCourse', $courseName)
         ->selectFilter('studYear', $courseYear)
         ->selectFilter('studSection', $courseSection)
-        ->paginate(5),]);
+        ->paginate(15),]);
 
     }
 

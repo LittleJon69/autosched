@@ -83,7 +83,7 @@ class CoorProfSchedulesController extends Controller
         ->column('classroom', label: 'Room No.', searchable: true, sortable: true, canBeHidden: false)
         ->column('action', label: 'Action')
         ->selectFilter('profId', $coordinatorDepartmentRoom)
-        ->paginate(5),]);
+        ->paginate(15),]);
 
     }
 

@@ -4,7 +4,7 @@
         <!-- Tabs -->
         <div v-bind:class="{ tabclose: toggled, tabopen: !toggled }" class="tab flex flex-row content-start flex-wrap h-full w-full overflow-auto p-8 pl-0">
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <div class="flex items-center">
                         <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                             <i class="fa-solid fa-border-all text-sm sm:group-hover:text-white"></i>
@@ -18,7 +18,7 @@
             </x-sidebar-link>
 
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('subjects.index')" :active="request()->routeIs('subjects.index')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-book text-sm sm:group-hover:text-white"></i>
                     </span>
@@ -30,7 +30,7 @@
             </x-sidebar-link>
 
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('department.index')" :active="request()->routeIs('department.index')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-building text-sm sm:group-hover:text-white"></i>
                     </span>
@@ -42,7 +42,7 @@
             </x-sidebar-link>
 
             {{-- <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('courses.index')" :active="request()->routeIs('courses.index')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-graduation-cap text-sm sm:group-hover:text-white"></i>
                     </span>
@@ -54,7 +54,7 @@
             </x-sidebar-link> --}}
 
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('courselist.index')" :active="request()->routeIs('courselist.index')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-graduation-cap text-sm sm:group-hover:text-white"></i>
                     </span>
@@ -66,7 +66,7 @@
             </x-sidebar-link>
 
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('coordinator.index')" :active="request()->routeIs('coordinator.index')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-user-tie text-sm sm:group-hover:text-white"></i>
                     </span>
@@ -78,7 +78,7 @@
             </x-sidebar-link>
 
             {{-- <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('rooms.index')" :active="request()->routeIs('rooms.index')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-door-open text-sm sm:group-hover:text-white"></i>
                     </span>
@@ -91,7 +91,7 @@
 
             <div v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" class="sm:w-full w-11/12">
                 <x-splade-data remember="content">
-                    <div v-show="!data.show" class="h-12 overflow-hidden transition-all ease-in-out tablink cursor-pointer flex rounded-r-3xl sm:hover:bg-b5 w-full">
+                    <div v-show="!data.show" class="h-12 overflow-hidden transition-all ease-in-out tablink cursor-pointer flex rounded-r-3xl sm:hover:bg-b4 w-full">
                         <div class="flex flex-col items-center w-full">
                             <div @click="data.show = true" class="flex items-center justify-between w-full group">
                                 <div class="flex items-center">
@@ -111,7 +111,7 @@
                         </div>
                     </div>
 
-                    <div v-show="data.show" class="schedopen overflow-hidden transition-all ease-in-out tablink cursor-pointer flex rounded-r-3xl sm:hover:bg-b5 w-full">
+                    <div v-show="data.show" class="schedopen overflow-hidden transition-all ease-in-out tablink cursor-pointer flex rounded-r-3xl sm:hover:bg-b4 w-full">
                         <div class="flex flex-col items-center w-full">
                             <div @click="data.show = false" class="flex items-center justify-between w-full group">
                                 <div class="flex items-center">
@@ -179,7 +179,7 @@
             </div>
 
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('school.index')" :active="request()->routeIs('school.index')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b5 w-full">
+                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
                         <i class="fa-solid fa-school text-sm sm:group-hover:text-white"></i>
                     </span>
@@ -193,14 +193,14 @@
         <!-- End -->
 
         <!-- Mini Profile -->
-        <div v-bind:class="{ proftabclose: toggled, proftabopen: !toggled }" class="w-full h-16">
+        <div v-bind:class="{ proftabclose: toggled, proftabopen: !toggled }" class="w-full h-16 sm:hidden block">
             <div class="proftab h-full flex items-center bg-b6  justify-between">
                 <div class="flex items-center">
-                    <div class="p-2 m-3 h-8 w-8 rounded-md bg-white flex items-center justify-center">
+                    {{-- <div class="p-2 m-3 h-8 w-8 rounded-md bg-white flex items-center justify-center">
                         <img src="{{ asset('image/logo-as.png') }}" alt="auto-sched-logo" class="w-6">
-                    </div>
+                    </div> --}}
     
-                    <div v-bind:class="{ profclose: toggled, profopen: !toggled }" class="h-8 duration-500 max-w-namew flex flex-col justify-center">
+                    <div v-bind:class="{ profclose: toggled, profopen: !toggled }" class="h-8 duration-500 max-w-namew flex flex-col justify-center ml-5">
                         <p class="text-white text-xs overflow-hidden text-ellipsis whitespace-nowrap">
                             {{ Auth::user()->adminFName.' '.Auth::user()->adminLName }}
                         </p>
@@ -221,8 +221,8 @@
                         </button>
                     </x-splade-form> --}}
 
-                    <div class="absolute -top-4 -left-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
-                        <p class="text-b6 text-xs">
+                    <div class="absolute -top-4 -left-4 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                        <p class="text-b6 text-xs0">
                             LOG OUT
                         </p>
                     </div>

@@ -1,25 +1,25 @@
-// function removeMessage() {
-//     try 
-//     {
-//         var regBtn = document.querySelector('#reg-btn');
-//         var fmessage = document.querySelectorAll('p.text-red-600.text-sm.mt-2.font-sans');
-//         var smessage = document.querySelectorAll('.message');
+function removeMessage() {
+    try 
+    {
+        var regBtn = document.querySelector('#reg-btn');
+        var fmessage = document.querySelectorAll('p.text-red-600.text-sm.mt-2.font-sans');
+        var smessage = document.querySelectorAll('.message');
 
-//         console.log(fmessage);
-//         console.log(smessage);
+        console.log(fmessage);
+        console.log(smessage);
 
-//         console.log(fmessage.length + " request messages");
-//         console.log(smessage.length + " realtime messages");   
+        console.log(fmessage.length + " request messages");
+        console.log(smessage.length + " realtime messages");   
 
-//         for (let index = 0; index < smessage.length; index++) {
-//             smessage[index].innerHTML = "";
-//         }
-//     } 
-//     catch (error) 
-//     {
-//         console.log(error);
-//     }
-// }
+        for (let index = 0; index < smessage.length; index++) {
+            smessage[index].innerHTML = "";
+        }
+    } 
+    catch (error) 
+    {
+        console.log(error);
+    }
+}
 
 // Sticky Navigation Bar
 window.addEventListener("scroll", () =>
@@ -144,15 +144,20 @@ function validate(indx, type, req, min, max)
     //     message[indx].classList.remove('front-message');
     // }
 
-    console.log(inputCntnr[indx].lastElementChild);
-
     if(type == "input")
     {
         if(req == "true") 
         {
             if(inputs[indx].value == "")
             {
-                message[indx].innerHTML = "This Field is Required.";
+                if(inputCntnr[indx].lastElementChild.classList.contains('text-red-600'))
+                {
+                    message[indx].innerHTML = "";
+                }
+                else
+                {
+                    message[indx].innerHTML = "This Field is Required.";
+                }
             }
             else if(!inputs[indx].value.match(/^[a-zA-Z ]*$/))
             {
@@ -199,7 +204,14 @@ function validate(indx, type, req, min, max)
         {
             if(inputs[indx].value == "")
             {
-                message[indx].innerHTML = "This Field is Required.";
+                if(inputCntnr[indx].lastElementChild.classList.contains('text-red-600'))
+                {
+                    message[indx].innerHTML = "";
+                }
+                else
+                {
+                    message[indx].innerHTML = "This Field is Required.";
+                }
             }
             else if(inputs[indx].value.length < min)
             {
@@ -238,7 +250,14 @@ function validate(indx, type, req, min, max)
         {
             if(inputs[indx].value == "")
             {
-                message[indx].innerHTML = "This Field is Required.";
+                if(inputCntnr[indx].lastElementChild.classList.contains('text-red-600'))
+                {
+                    message[indx].innerHTML = "";
+                }
+                else
+                {
+                    message[indx].innerHTML = "This Field is Required.";
+                }
             }
             else if(!inputs[indx].value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
             {
@@ -285,7 +304,14 @@ function validate(indx, type, req, min, max)
         {
             if(inputs[indx].value == "")
             {
-                message[indx].innerHTML = "This Field is Required.";
+                if(inputCntnr[indx].lastElementChild.classList.contains('text-red-600'))
+                {
+                    message[indx].innerHTML = "";
+                }
+                else
+                {
+                    message[indx].innerHTML = "This Field is Required.";
+                }
             }
             else if(!inputs[indx].value.match(/^[\d+\+ ]*$/))
             {
@@ -332,7 +358,14 @@ function validate(indx, type, req, min, max)
         {
             if(inputs[indx].value == "")
             {
-                message[indx].innerHTML = "This Field is Required.";
+                if(inputCntnr[indx].lastElementChild.classList.contains('text-red-600'))
+                {
+                    message[indx].innerHTML = "";
+                }
+                else
+                {
+                    message[indx].innerHTML = "This Field is Required.";
+                }
             }
             else if(!inputs[indx].value.match(/^(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*[0-9]{1,})(?=.*[~!@#$%^&*()\-_=+{};:,<.>]{1,}).{8,}$/))
             {

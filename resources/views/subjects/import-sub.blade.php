@@ -29,13 +29,13 @@
         
                 <div class="sm:hidden">
                     <div class="bg-green-500 w-full p-3 flex sm:px-5 items-center justify-center">
-                        <p class="text-white sm:text-lg text-sm font-normal text-center">IMPORT AN EXCEL FILE</p>
+                        <p class="text-white sm:text-lg text-sm font-normal text-center">IMPORT SUBJECTS</p>
                     </div>
                 </div>
         
                 <div class="hidden sm:block px-3 border-l-4 border-l-green-500 m-7 mb-0">
                     <p class="sm:text-lg text-sm text-green-500">
-                        IMPORT AN EXCEL FILE
+                        IMPORT SUBJECTS
                     </p>
                 </div>
         
@@ -43,7 +43,7 @@
                     <x-splade-form action="{{ route('import') }}" class="bg-white rounded-md">
                         <div>
                             <div class="relative border-gray-200 border rounded-md p-5 mt-5 input-cntnr">
-                                <p class="sm:text-lg text-sm bg-white px-1 rounded-md absolute -top-3 left-3">BROWSE AN EXCEL FILE</p>
+                                <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">BROWSE AN EXCEL FILE</p>
         
                                 <div class="w-full">
                                     <div class="">
@@ -55,7 +55,7 @@
                         </div>
             
                         <div class="rounded-btn-i green-btn-i mt-8 flex items-center justify-center">
-                            <x-splade-submit :label="__('IMPORT FILE')" />
+                            <x-splade-submit :label="__('IMPORT SUBJECTS')" />
                         </div>
                     </x-splade-form>
                 </div>

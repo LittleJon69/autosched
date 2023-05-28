@@ -1,38 +1,3 @@
-{{-- <div>   
-
-    <img src="{{ public_path('image/logo-main.png') }}" >
-
-   <h1>ROOM</h1>{{ $roomNumber }}
-
-    <table>
-
-        <tr>
-            <th>Course</th>
-            <th>Year-Section</th>
-            <th>Subject Code</th>
-            <th>Professor's</th>
-            <th>Room</th>
-            <th>Day</th>
-            <th>Time</th>
-        </tr>
-    
-        @foreach ($classSchedules as $newClassSchedules)
-            <tr>
-                <td>{{ $newClassSchedules->studCourse }}</td>
-                <td>{{ $newClassSchedules->studYear."". $newClassSchedules->studSection}}</td>
-                <td>{{ $newClassSchedules->subCode }}</td>
-                <td>{{ $newClassSchedules->profName }}</td>
-                <td>{{ $newClassSchedules->classroom }}</td>
-                <td>{{ $newClassSchedules->schedDay }}</td>
-                <td>{{ $newClassSchedules->totalHours }}</td>
-                <td>{{ $newClassSchedules->startTime." ".$newClassSchedules->endTime }}</td>
-            </tr>
-        @endforeach
-        
-    </table>
-
-</div> --}}
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -7364,7 +7329,7 @@
             }
 
             th, td {
-                padding: 10px;
+                padding: 15px;
             }
 
             .tbl-cntnr {
@@ -7381,13 +7346,13 @@
             <div class="h-fit w-full flex items-center justify-center gap-3">
                 <div class="h-fit w-full flex flex-col items-center justify-center gap-2">
                     <div class="text-center flex gap-2 items-center justify-center">
-                        <div>
+                        {{-- <div>
                             @if ($schLogo == "")
                                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11">
                             @else
                                 <img src="{{ asset('storage/'.$schLogo) }}" alt="school-logo" class="w-11">
                             @endif
-                        </div>
+                        </div> --}}
     
                         <div>
                             <p class="text-lg">
@@ -7396,7 +7361,7 @@
                         </div>
                     </div>
                     
-                    <div class="text-xs text-center">
+                    <div class="text-xs text-center mt-2">
                         <p>
                             {{ $schoolAddress }}
                         </p>
@@ -7433,7 +7398,7 @@
                         {{-- <th>Year-Section</th> --}}
                         <th>Subject Code</th>
                         <th>Professor's Name</th>
-                        <th>Room</th>
+                        <th>Room No.</th>
                         <th>Day</th>
                         <th>Units</th>
                         <th>Time</th>

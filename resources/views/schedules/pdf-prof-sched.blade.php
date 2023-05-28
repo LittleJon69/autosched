@@ -7329,7 +7329,7 @@
             }
 
             th, td {
-                padding: 10px;
+                padding: 15px;
             }
 
             .tbl-cntnr {
@@ -7346,13 +7346,13 @@
             <div class="h-fit w-full flex items-center justify-center gap-3">
                 <div class="h-fit w-full flex flex-col items-center justify-center gap-2">
                     <div class="text-center flex gap-2 items-center justify-center">
-                        <div>
+                        {{-- <div>
                             @if ($schLogo == "")
                                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11">
                             @else
                                 <img src="{{ asset('storage/'.$schLogo) }}" alt="school-logo" class="w-11">
                             @endif
-                        </div>
+                        </div> --}}
     
                         <div>
                             <p class="text-lg">
@@ -7361,7 +7361,7 @@
                         </div>
                     </div>
                     
-                    <div class="text-xs text-center">
+                    <div class="text-xs text-center mt-2">
                         <p>
                             {{ $schoolAddress }}
                         </p>
@@ -7402,7 +7402,7 @@
                         <th>Section</th>
                         <th>Units</th>
                         <th>Time</th>
-                        <th>ClassRoom</th>
+                        <th>Room No.</th>
                     </tr>
                 
                     @foreach ($profSchedules as $newProfSchedules)

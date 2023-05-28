@@ -50,7 +50,7 @@
                                 <div class="relative h-full w-full">
                                     <x-splade-input onkeyup="validate(0, 'input', 'true', 2, 40)" class="input blue-inpt" id="coorFName" type="text" name="coorFName" :label="__('First Name')"/>
                                     <p class="message"></p>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                 
                                 <div class="h-full w-full">
@@ -61,7 +61,7 @@
                                 <div class="relative h-full w-full">
                                     <x-splade-input onkeyup="validate(2, 'input', 'true', 2, 40)" class="input blue-inpt" id="coorLName" type="text" name="coorLName" :label="__('Last Name')"/>
                                     <p class="message"></p>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                             </div>
                         </div>
@@ -71,18 +71,18 @@
         
                             <div class="lg:grid grid-cols-3 flex flex-wrap gap-3 items-center">
                                 <div class="relative h-full w-full">
-                                    <x-splade-select class="input drop-down blue-inpt" placeholder="Select your Region" id="regionCode" name="regionCode" remote-url="https://psgc.gitlab.io/api/regions/" option-label="name" option-value="code" :label="__('Region')"/>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <x-splade-select class="drop-down blue-inpt" placeholder="Select your Region" id="regionCode" name="regionCode" remote-url="https://psgc.gitlab.io/api/regions/" option-label="name" option-value="code" :label="__('Region')"/>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                                 
                                 <div class="relative h-full w-full">
-                                    <x-splade-select class="input drop-down blue-inpt" placeholder="Select your City or Municipality" id="cityCode" name="cityCode" remote-url="`https://psgc.gitlab.io/api/regions/${form.regionCode}/cities-municipalities/`" option-label="name" option-value="code" :label="__('City/Municipality')"/>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <x-splade-select class="drop-down blue-inpt" placeholder="Select your City or Municipality" id="cityCode" name="cityCode" remote-url="`https://psgc.gitlab.io/api/regions/${form.regionCode}/cities-municipalities/`" option-label="name" option-value="code" :label="__('City/Municipality')"/>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                                 
                                 <div class="relative h-full w-full">
-                                    <x-splade-select class="input drop-down blue-inpt" placeholder="Select your Barangay" id="barangayCode" name="barangayCode" remote-url="`https://psgc.gitlab.io/api/cities-municipalities/${form.cityCode}/barangays/`" option-label="name" option-value="code" :label="__('Barangay')"/>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <x-splade-select class="drop-down blue-inpt" placeholder="Select your Barangay" id="barangayCode" name="barangayCode" remote-url="`https://psgc.gitlab.io/api/cities-municipalities/${form.cityCode}/barangays/`" option-label="name" option-value="code" :label="__('Barangay')"/>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                             </div>
         
@@ -99,13 +99,13 @@
                                 <div class="relative h-full w-full">
                                     <x-splade-input onkeyup="validate(4, 'num', 'true', 8, 16)" class="input blue-inpt" id="contactNumber" type="tel" name="contactNumber" :label="__('Contact Number')"/>
                                     <p class="message"></p>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                 
                                 <div class="relative h-full w-full">
                                     <x-splade-input onkeyup="validate(5, 'email', 'true', 5, 40)" class="input blue-inpt" id="email" type="text" name="email" :label="__('Email Address')"/>
                                     <p class="message"></p>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
     
                                     <x-splade-input onkeyup="validate(6, 'pass', 'true', 8, 40)" class="input blue-inpt" id="password" type="password" name="password" :label="__('Password')"/>
                                     <p class="message"></p>
-                                    <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
+                                    <i class="z-[11] fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
                                 </div>
                     
                                 <div class="relative h-full w-full">

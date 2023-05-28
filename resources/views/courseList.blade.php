@@ -41,23 +41,49 @@
 
         <div class="overflow-auto h-full w-full flex justify-center p-3">
             <div class="h-full w-full flex justify-center xl:w-tabw">
-                <div class="w-full">
-                    <x-splade-table class="w-full mobtable" :for="$courses" striped>
-                        @cell('action',$course)
-                        <Link href="{{ route('generate', ['course' => $course->courseName]) }}" confirm="GENERATE SCHEDULE" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" class="flex group squared-btn orange-btn border w-12">
-                            <div class="h-full w-full relative">
-                                <div class="flex items-center justify-center h-full w-full">
-                                    <i class="mr-xs fa-solid fa-plus text-xs1 sm:group-hover:text-orange-500 text-white"></i>
-                                    <i class="fa-solid fa-clock sm:group-hover:text-orange-500 text-white"></i>
-                                </div>
-
-                                <div class="absolute bottom-8 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
-                                    <p class="text-orange-500 text-xs">
-                                        GENERATE SCHEDULES
-                                    </p>
-                                </div>
+                <div class="w-full h-full">
+                    <x-splade-table class="w-full h-full mobtable" :for="$courses" striped>
+                        @cell('courseName', $course)
+                            <div class="td" data-title="Course">
+                                {{ $course->courseName }}
                             </div>
-                        </Link>
+                        @endcell
+
+                        @cell('courseDept', $course)
+                            <div class="td" data-title="Department">
+                                {{ $course->courseDept }}
+                            </div>
+                        @endcell
+
+                        @cell('courseYearLevels', $course)
+                            <div class="td" data-title="Year Levels">
+                                {{ $course->courseYearLevels }}
+                            </div>
+                        @endcell
+
+                        @cell('courseSchool', $course)
+                            <div class="td" data-title="School Name">
+                                {{ $course->courseSchool }}
+                            </div>
+                        @endcell
+
+                        @cell('action', $course)
+                            <div class="td" data-title="Actions">
+                                <Link href="{{ route('generate', ['course' => $course->courseName]) }}" confirm="GENERATE SCHEDULE" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" class="flex group squared-btn orange-btn border w-12">
+                                    <div class="h-full w-full relative">
+                                        <div class="flex items-center justify-center h-full w-full">
+                                            <i class="mr-xs fa-solid fa-plus text-xs1 sm:group-hover:text-orange-500 text-white"></i>
+                                            <i class="fa-solid fa-clock sm:group-hover:text-orange-500 text-white"></i>
+                                        </div>
+        
+                                        <div class="absolute bottom-8 -right-4 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                                            <p class="text-orange-500 text-xs0 whitespace-pre">
+                                                GENERATE SCHEDULES
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
                         @endcell
                     </x-splade-table>
                 </div>

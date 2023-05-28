@@ -1,35 +1,3 @@
-
-<!--<div>   -->
-
-<!--    <table>-->
-
-<!--        <tr>-->
-<!--            <th>Course</th>-->
-<!--            <th>Year-Section</th>-->
-<!--            <th>Subject Code</th>-->
-<!--            <th>Professor's</th>-->
-<!--            <th>Room</th>-->
-<!--            <th>Day</th>-->
-<!--            <th>Time</th>-->
-<!--        </tr>-->
-    
-<!--        @foreach ($profSchedules as $newProfSchedules)-->
-<!--            <tr>-->
-<!--                <td>{{ $newProfSchedules->studCourse }}</td>-->
-<!--                <td>{{ $newProfSchedules->studYear."". $newProfSchedules->studSection}}</td>-->
-<!--                <td>{{ $newProfSchedules->subCode }}</td>-->
-<!--                <td>{{ $newProfSchedules->profName }}</td>-->
-<!--                <td>{{ $newProfSchedules->classroom }}</td>-->
-<!--                <td>{{ $newProfSchedules->schedDay }}</td>-->
-<!--                <td>{{ $newProfSchedules->totalHours }}</td>-->
-<!--                <td>{{ $newProfSchedules->startTime." ".$newProfSchedules->endTime }}</td>-->
-<!--            </tr>-->
-<!--        @endforeach-->
-        
-<!--    </table>-->
-
-<!--</div>-->
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -7378,11 +7346,19 @@
             <div class="h-fit w-full flex items-center justify-center gap-3">
                 <div class="h-fit w-full flex flex-col items-center justify-center gap-2">
                     <div class="text-center flex gap-2 items-center justify-center">
+                        {{-- <div>
+                            @if ($schLogo == "")
+                                <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 rounded-full">
+                            @else
+                                <img src="{{ asset('storage/'.$schLogo) }}" alt="school-logo" class="w-11 rounded-full">
+                            @endif
+                        </div> --}}
+
                         <div>
                             @if ($schLogo == "")
-                                <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11">
+                                <img src="{{ public_path('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11">
                             @else
-                                <img src="{{ asset('storage/'.$schLogo) }}" alt="school-logo" class="w-11">
+                                <img src="{{ public_path('storage/'.$schLogo) }}" alt="school-logo" class="w-11">
                             @endif
                         </div>
     
@@ -7393,7 +7369,7 @@
                         </div>
                     </div>
                     
-                    <div class="text-xs text-center">
+                    <div class="text-xs text-center mt-2">
                         <p>
                             {{ $schoolAddress }}
                         </p>

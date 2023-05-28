@@ -155,7 +155,7 @@
                             <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                                 <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">DAYS AND ITS TIME</p>
                                 
-                                <Link href="{{ route('unset-school-hours') }}">Unset</Link>
+                                {{-- <Link href="{{ route('unset-school-hours') }}">Unset</Link> --}}
             
                                 <div class="flex flex-col flex-wrap gap-3">
                                     <div class="flex items-end gap-3 flex-wrap sm:flex-nowrap">

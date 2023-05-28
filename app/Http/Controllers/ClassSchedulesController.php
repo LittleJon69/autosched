@@ -66,13 +66,13 @@ class ClassSchedulesController extends Controller
         ->column('startTime', label: 'Start Time' , searchable: true, sortable: true,)
         ->column('endTime', label: 'End Time', searchable: true, sortable: true, canBeHidden: false)
         ->column('totalHours', label: 'Units', searchable: true, sortable: true, canBeHidden: false)
-        ->column('classroom', label: 'Classroom', searchable: true, sortable: true, canBeHidden: false)
+        ->column('classroom', label: 'Room Number', searchable: true, sortable: true, canBeHidden: false)
         ->column('sem', label: 'Semester', searchable: true, sortable: true, canBeHidden: false)
         ->column('action', label: 'Action')
         ->selectFilter('studCourse', $courseName)
         ->selectFilter('studYear', $courseYear)
         ->selectFilter('studSection', $courseSection)
-        ->paginate(5),]);
+        ->paginate(15),]);
 
     }
 }

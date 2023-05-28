@@ -55,7 +55,7 @@ class ClassListController extends Controller
         ->column('section', label: 'Section', searchable: true, sortable: true, canBeHidden: false)
         ->column('action', label: 'Action')
         ->selectFilter('course', $course)
-        ->paginate(5),]);
+        ->paginate(15),]);
 
     }
 
@@ -63,7 +63,7 @@ class ClassListController extends Controller
 
         $All_Class->delete();
 
-        Toast::success('Class Deleted Successfully. ')
+        Toast::success('Class Deleted Successfully.')
         ->success()
         ->rightTop()
         ->backdrop()

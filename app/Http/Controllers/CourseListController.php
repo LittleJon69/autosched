@@ -49,7 +49,7 @@ class CourseListController extends Controller
             ->column('courseYearLevels', label: 'Year Levels', searchable: true, sortable: true, canBeHidden: false)
             ->column('courseSchool', label: 'School Name')
             ->column('action', label: 'Actions')
-            ->paginate(10),
+            ->paginate(15),
         ]);
     }
 }

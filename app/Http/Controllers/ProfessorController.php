@@ -56,7 +56,7 @@ class ProfessorController extends Controller
             ->column('contactNumber', label: 'Contact Number',)
             ->column('profDept', label: 'Department',)
             ->column('field', label: 'Field/s',)
-            ->paginate(10),]);
+            ->paginate(15),]);
     }
 
     public function create()
@@ -112,7 +112,7 @@ class ProfessorController extends Controller
             ->warning()
             ->rightTop()
             ->backdrop()
-            ->autoDismiss(3);
+            ->autoDismiss(1.5);
 
         }else{
 

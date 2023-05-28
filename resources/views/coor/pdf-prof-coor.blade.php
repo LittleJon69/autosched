@@ -1,73 +1,3 @@
-<!--<div>   -->
-
-<!--    {{-- <img src="{{ public_path('image/logo-main.png') }}" > --}}-->
-
-<!--        <table>-->
-
-<!--        <tr>-->
-<!--            <th>Professor Name</th>-->
-<!--            <th>Subject Code</th>-->
-<!--            <th>Day</th>-->
-<!--            <th>Course</th>-->
-<!--            <th>Year</th>-->
-<!--            <th>Section</th>-->
-<!--            <th>Units</th>-->
-<!--            <th>Time</th>-->
-<!--            <th>ClassRoom</th>-->
-<!--        </tr>-->
-    
-<!--        @foreach ($coorProfSchedules as $newCoorProfSchedules)-->
-<!--            <tr>-->
-<!--                <td>{{ $newCoorProfSchedules->profName }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->subCode }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->schedDay }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->studCourse }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->studYear }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->studSection }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->totalHours }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->startTime." ".$newCoorProfSchedules->endTime }}</td>-->
-<!--                <td>{{ $newCoorProfSchedules->classroom }}</td>-->
-<!--            </tr>-->
-<!--        @endforeach-->
-        
-    
-<!--    </table>-->
-<!--</div>-->
-
-{{-- <div>   
-
-        <table>
-
-        <tr>
-            <th>Professor Name</th>
-            <th>Subject Code</th>
-            <th>Day</th>
-            <th>Course</th>
-            <th>Year</th>
-            <th>Section</th>
-            <th>Units</th>
-            <th>Time</th>
-            <th>ClassRoom</th>
-        </tr>
-    
-        @foreach ($coorProfSchedules as $newCoorProfSchedules)
-            <tr>
-                <td>{{ $newCoorProfSchedules->profName }}</td>
-                <td>{{ $newCoorProfSchedules->subCode }}</td>
-                <td>{{ $newCoorProfSchedules->schedDay }}</td>
-                <td>{{ $newCoorProfSchedules->studCourse }}</td>
-                <td>{{ $newCoorProfSchedules->studYear }}</td>
-                <td>{{ $newCoorProfSchedules->studSection }}</td>
-                <td>{{ $newCoorProfSchedules->totalHours }}</td>
-                <td>{{ $newCoorProfSchedules->startTime." ".$newCoorProfSchedules->endTime }}</td>
-                <td>{{ $newCoorProfSchedules->classroom }}</td>
-            </tr>
-        @endforeach
-        
-    
-    </table>
-</div> --}}
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -75,6 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
+        <style>
+            table {
+                width: 100%;
+            }
+
+            th {
+                text-align: left;
+                font-size: 0.75rem;
+                line-height: 1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            tr:nth-child(odd) {
+                background-color: rgb(219 234 254);
+            }
+
+            th, td {
+                padding: 10px;
+            }
+
+            .tbl-cntnr {
+                border: 1px solid rgb(219 234 254);
+                margin-top: 30px;
+                margin-bottom: 30px;
+                border-radius: 4px;
+            }
+        </style>
+
         <style>
             /* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka&family=Fredoka+One&family=Kanit&family=Poppins&family=Tilt+Neon&family=Varela+Round&display=swap'); */
 
@@ -86,11 +45,6 @@
             1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
             2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
             */
-
-            .a4 {
-                width: 842px;
-                height: 595px;
-            }
 
             *,
             ::before,
@@ -826,6 +780,10 @@
             visibility: hidden;
             }
 
+            .collapse{
+            visibility: collapse;
+            }
+
             .fixed{
             position: fixed;
             }
@@ -836,6 +794,10 @@
 
             .relative{
             position: relative;
+            }
+
+            .sticky{
+            position: sticky;
             }
 
             .inset-0{
@@ -850,8 +812,16 @@
             bottom: 0px;
             }
 
+            .-bottom-0{
+            bottom: -0px;
+            }
+
             .-bottom-4{
             bottom: -1rem;
+            }
+
+            .-left-4{
+            left: -1rem;
             }
 
             .-right-1{
@@ -874,8 +844,20 @@
             top: -8rem;
             }
 
+            .-top-4{
+            top: -1rem;
+            }
+
             .bottom-1{
             bottom: 0.25rem;
+            }
+
+            .bottom-10{
+            bottom: 2.5rem;
+            }
+
+            .bottom-8{
+            bottom: 2rem;
             }
 
             .bottom-9{
@@ -936,6 +918,10 @@
 
             .z-40{
             z-index: 40;
+            }
+
+            .z-\[11\]{
+            z-index: 11;
             }
 
             .order-1{
@@ -1007,6 +993,11 @@
             margin-bottom: -0.5rem;
             }
 
+            .-my-px{
+            margin-top: -1px;
+            margin-bottom: -1px;
+            }
+
             .mx-2{
             margin-left: 0.5rem;
             margin-right: 0.5rem;
@@ -1037,12 +1028,21 @@
             margin-bottom: 1rem;
             }
 
+            .my-8{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            }
+
             .-ml-px{
             margin-left: -1px;
             }
 
             .-mr-2{
             margin-right: -0.5rem;
+            }
+
+            .-mr-3{
+            margin-right: -0.75rem;
             }
 
             .-mt-px{
@@ -1069,12 +1069,20 @@
             margin-bottom: 1.25rem;
             }
 
+            .mb-6{
+            margin-bottom: 1.5rem;
+            }
+
             .mb-8{
             margin-bottom: 2rem;
             }
 
             .ml-1{
             margin-left: 0.25rem;
+            }
+
+            .ml-10{
+            margin-left: 2.5rem;
             }
 
             .ml-12{
@@ -1091,6 +1099,14 @@
 
             .ml-4{
             margin-left: 1rem;
+            }
+
+            .ml-5{
+            margin-left: 1.25rem;
+            }
+
+            .ml-6{
+            margin-left: 1.5rem;
             }
 
             .ml-auto{
@@ -1189,12 +1205,20 @@
             display: grid;
             }
 
+            .contents{
+            display: contents;
+            }
+
             .hidden{
             display: none;
             }
 
             .h-1{
             height: 0.25rem;
+            }
+
+            .h-100{
+            height: 30rem;
             }
 
             .h-11{
@@ -1350,6 +1374,18 @@
             width: 2rem;
             }
 
+            .w-80{
+            width: 20rem;
+            }
+
+            .w-9{
+            width: 2.25rem;
+            }
+
+            .w-96{
+            width: 24rem;
+            }
+
             .w-auto{
             width: auto;
             }
@@ -1361,6 +1397,10 @@
 
             .w-full{
             width: 100%;
+            }
+
+            .w-tabw{
+            width: 60rem;
             }
 
             .min-w-0{
@@ -1428,6 +1468,10 @@
             flex: 1 1 0%;
             }
 
+            .flex-shrink{
+            flex-shrink: 1;
+            }
+
             .flex-shrink-0{
             flex-shrink: 0;
             }
@@ -1438,6 +1482,10 @@
 
             .flex-grow{
             flex-grow: 1;
+            }
+
+            .border-collapse{
+            border-collapse: collapse;
             }
 
             .-translate-x-full{
@@ -1519,6 +1567,10 @@
                     user-select: none;
             }
 
+            .resize{
+            resize: both;
+            }
+
             .grid-flow-col{
             grid-auto-flow: column;
             }
@@ -1545,6 +1597,10 @@
 
             .flex-wrap{
             flex-wrap: wrap;
+            }
+
+            .flex-nowrap{
+            flex-wrap: nowrap;
             }
 
             .content-start{
@@ -1593,6 +1649,10 @@
 
             .gap-2{
             gap: 0.5rem;
+            }
+
+            .gap-20{
+            gap: 5rem;
             }
 
             .gap-3{
@@ -1664,6 +1724,10 @@
             overflow-y: auto;
             }
 
+            .overflow-x-hidden{
+            overflow-x: hidden;
+            }
+
             .overflow-y-hidden{
             overflow-y: hidden;
             }
@@ -1674,6 +1738,10 @@
 
             .whitespace-nowrap{
             white-space: nowrap;
+            }
+
+            .whitespace-pre{
+            white-space: pre;
             }
 
             .break-words{
@@ -1881,6 +1949,11 @@
             border-color: transparent;
             }
 
+            .border-white{
+            --tw-border-opacity: 1;
+            border-color: rgb(255 255 255 / var(--tw-border-opacity));
+            }
+
             .border-yellow-400{
             --tw-border-opacity: 1;
             border-color: rgb(250 204 21 / var(--tw-border-opacity));
@@ -1945,6 +2018,11 @@
             background-color: rgb(0 0 0 / 0.75);
             }
 
+            .bg-blue-100{
+            --tw-bg-opacity: 1;
+            background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+            }
+
             .bg-blue-50{
             --tw-bg-opacity: 1;
             background-color: rgb(239 246 255 / var(--tw-bg-opacity));
@@ -1968,6 +2046,16 @@
             .bg-gray-50{
             --tw-bg-opacity: 1;
             background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+            }
+
+            .bg-gray-900{
+            --tw-bg-opacity: 1;
+            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+            }
+
+            .bg-green-100{
+            --tw-bg-opacity: 1;
+            background-color: rgb(220 252 231 / var(--tw-bg-opacity));
             }
 
             .bg-green-50{
@@ -1998,6 +2086,11 @@
             .bg-purple-500{
             --tw-bg-opacity: 1;
             background-color: rgb(168 85 247 / var(--tw-bg-opacity));
+            }
+
+            .bg-red-100{
+            --tw-bg-opacity: 1;
+            background-color: rgb(254 226 226 / var(--tw-bg-opacity));
             }
 
             .bg-red-50{
@@ -2037,6 +2130,10 @@
             --tw-bg-opacity: 0.7;
             }
 
+            .bg-opacity-90{
+            --tw-bg-opacity: 0.9;
+            }
+
             .fill-current{
             fill: currentColor;
             }
@@ -2061,6 +2158,10 @@
             padding: 0.5rem;
             }
 
+            .p-20{
+            padding: 5rem;
+            }
+
             .p-3{
             padding: 0.75rem;
             }
@@ -2083,6 +2184,11 @@
 
             .p-8{
             padding: 2rem;
+            }
+
+            .px-0{
+            padding-left: 0px;
+            padding-right: 0px;
             }
 
             .px-1{
@@ -2118,6 +2224,16 @@
             .px-6{
             padding-left: 1.5rem;
             padding-right: 1.5rem;
+            }
+
+            .px-8{
+            padding-left: 2rem;
+            padding-right: 2rem;
+            }
+
+            .px-px{
+            padding-left: 1px;
+            padding-right: 1px;
             }
 
             .py-1{
@@ -2183,6 +2299,10 @@
             padding-left: 0.75rem;
             }
 
+            .pl-9{
+            padding-left: 2.25rem;
+            }
+
             .pr-0{
             padding-right: 0px;
             }
@@ -2205,6 +2325,10 @@
 
             .pt-0{
             padding-top: 0px;
+            }
+
+            .pt-1{
+            padding-top: 0.25rem;
             }
 
             .pt-16{
@@ -2243,6 +2367,10 @@
             text-align: center;
             }
 
+            .text-right{
+            text-align: right;
+            }
+
             .text-justify{
             text-align: justify;
             }
@@ -2272,6 +2400,11 @@
             .text-4xl{
             font-size: 2.25rem;
             line-height: 2.5rem;
+            }
+
+            .text-6xl{
+            font-size: 3.75rem;
+            line-height: 1;
             }
 
             .text-base{
@@ -2482,6 +2615,10 @@
             color: rgb(67 56 202 / var(--tw-text-opacity));
             }
 
+            .text-inherit{
+            color: inherit;
+            }
+
             .text-orange-500{
             --tw-text-opacity: 1;
             color: rgb(249 115 22 / var(--tw-text-opacity));
@@ -2601,6 +2738,10 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
+            .outline{
+            outline-style: solid;
+            }
+
             .ring-0{
             --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
             --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -2644,6 +2785,11 @@
 
             .blur-sm{
             --tw-blur: blur(4px);
+            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+            }
+
+            .grayscale{
+            --tw-grayscale: grayscale(100%);
             filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
             }
 
@@ -2719,6 +2865,93 @@
             color: rgb(255 255 255 / var(--tw-text-opacity));
             }
 
+            .a4 {
+            width: 842px;
+            height: 595px;
+            }
+
+            .flatpickr-time input {
+            height: 100% !important;
+            width: 100% !important;
+            }
+
+            .flatpickr-time .numInputWrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            }
+
+            .flatpickr-calendar {
+            width: 100% !important;
+            }
+
+            .flatpickr-calendar.hasTime .flatpickr-time {
+            border-top: 0 !important;
+            width: 100%;
+            }
+
+            nav.flex.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center{
+            font-size: 0.75rem !important;
+            line-height: 1rem !important;
+            text-transform: uppercase;
+            }
+
+            .transitions{
+            transition-property: all;
+            transition-duration: 150ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .front-message {
+            position: absolute;
+            bottom: 0;
+            background-color: white;
+            }
+
+            .mobtable > div:nth-last-child(2) {
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            justify-content: center;
+            }
+
+            .mobtable > div:nth-last-child(1) {
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            justify-content: center;
+            }
+
+            .mobtable .shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+            border-radius: 0.375rem;
+            overflow: auto;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            }
+
+            .mobtable .py-2.align-middle.inline-block.min-w-full.sm\:px-px {
+            height: 100%;
+            width: 100%;
+            padding-top: 0.75rem !important;
+            padding-bottom: 0 !important;
+            }
+
+            .mobtable .-my-2.overflow-x-auto {
+            height: 100%;
+            width: 100%;
+            }
+
+            .mobtable {
+            display: flex;
+            flex-direction: column;
+            }
+
             .input p{
             margin: 0px;
             width: 100%;
@@ -2726,7 +2959,16 @@
             color: rgb(239 68 68 / var(--tw-text-opacity));
             }
 
-            .input p.sm\:max-w-sm,.input p.sm\:max-w-md,.input p.sm\:max-w-lg,.input p.sm\:max-w-xl,.input p.sm\:max-w-2xl,.input p.sm\:max-w-3xl,.input p.sm\:max-w-4xl,.input p.sm\:max-w-5xl,.input p.sm\:max-w-6xl,.input p.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -2734,7 +2976,16 @@
             height: 100%;
             }
 
-            .input p.sm\:max-w-sm > div,.input p.sm\:max-w-md > div,.input p.sm\:max-w-lg > div,.input p.sm\:max-w-xl > div,.input p.sm\:max-w-2xl > div,.input p.sm\:max-w-3xl > div,.input p.sm\:max-w-4xl > div,.input p.sm\:max-w-5xl > div,.input p.sm\:max-w-6xl > div,.input p.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -2744,7 +2995,16 @@
             }
 
             @media (max-width: 640px) {
-            .input p.sm\:max-w-sm > div,.input p.sm\:max-w-md > div,.input p.sm\:max-w-lg > div,.input p.sm\:max-w-xl > div,.input p.sm\:max-w-2xl > div,.input p.sm\:max-w-3xl > div,.input p.sm\:max-w-4xl > div,.input p.sm\:max-w-5xl > div,.input p.sm\:max-w-6xl > div,.input p.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .input p.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -2753,7 +3013,7 @@
             font-size: .70rem;
             }
 
-            label, input, span, p {
+            label, input, span, p, a{
             font-family: 'Tilt Neon', sans-serif !important;
             }
 
@@ -2796,7 +3056,16 @@
             color: rgb(239 68 68 / var(--tw-text-opacity));
             }
 
-            .error-help-block.sm\:max-w-sm,.error-help-block.sm\:max-w-md,.error-help-block.sm\:max-w-lg,.error-help-block.sm\:max-w-xl,.error-help-block.sm\:max-w-2xl,.error-help-block.sm\:max-w-3xl,.error-help-block.sm\:max-w-4xl,.error-help-block.sm\:max-w-5xl,.error-help-block.sm\:max-w-6xl,.error-help-block.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -2804,7 +3073,16 @@
             height: 100%;
             }
 
-            .error-help-block.sm\:max-w-sm > div,.error-help-block.sm\:max-w-md > div,.error-help-block.sm\:max-w-lg > div,.error-help-block.sm\:max-w-xl > div,.error-help-block.sm\:max-w-2xl > div,.error-help-block.sm\:max-w-3xl > div,.error-help-block.sm\:max-w-4xl > div,.error-help-block.sm\:max-w-5xl > div,.error-help-block.sm\:max-w-6xl > div,.error-help-block.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -2814,7 +3092,16 @@
             }
 
             @media (max-width: 640px) {
-            .error-help-block.sm\:max-w-sm > div,.error-help-block.sm\:max-w-md > div,.error-help-block.sm\:max-w-lg > div,.error-help-block.sm\:max-w-xl > div,.error-help-block.sm\:max-w-2xl > div,.error-help-block.sm\:max-w-3xl > div,.error-help-block.sm\:max-w-4xl > div,.error-help-block.sm\:max-w-5xl > div,.error-help-block.sm\:max-w-6xl > div,.error-help-block.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .error-help-block.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -2831,6 +3118,11 @@
             .intl-tel-input {
             width: 100% !important;
             border-radius: 0.375rem !important;
+            }
+
+            .intl-tel-input .country-list.dropup {
+            bottom: 100%;
+            margin-bottom: 0.25rem !important;
             }
 
             .intl-tel-input .selected-flag .iti-flag {
@@ -2865,7 +3157,7 @@
 
             .intl-tel-input .country-list {
             position: absolute !important;
-            z-index: 2 !important;
+            z-index: 11 !important;
             list-style: none !important;
             list-style-position: initial !important;
             list-style-image: initial !important;
@@ -2936,72 +3228,6 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
             }
 
-            /*the container must be positioned relative:*/
-
-            .custom-select {
-            position: relative;
-            font-family: Arial;
-            }
-
-            .custom-select select {
-            display: none;
-            /*hide original SELECT element:*/
-            }
-
-            .select-selected {
-            background-color: DodgerBlue;
-            }
-
-            /*style the arrow inside the select element:*/
-
-            .select-selected:after {
-            position: absolute;
-            content: "";
-            top: 14px;
-            right: 10px;
-            width: 0;
-            height: 0;
-            border: 6px solid transparent;
-            border-color: #fff transparent transparent transparent;
-            }
-
-            /*point the arrow upwards when the select box is open (active):*/
-
-            .select-selected.select-arrow-active:after {
-            border-color: transparent transparent #fff transparent;
-            top: 7px;
-            }
-
-            /*style the items (options), including the selected item:*/
-
-            .select-items div,.select-selected {
-            color: #ffffff;
-            padding: 8px 16px;
-            border: 1px solid transparent;
-            border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-            cursor: pointer;
-            -webkit-user-select: none;
-                -moz-user-select: none;
-                    user-select: none;
-            }
-
-            /*style items (options):*/
-
-            .select-items {
-            position: absolute;
-            background-color: DodgerBlue;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 99;
-            }
-
-            /*hide the items when the select box is closed:*/
-
-            .select-hide {
-            display: none;
-            }
-
             .select-items div:hover, .same-as-selected {
             background-color: rgba(0, 0, 0, 0.1);
             }
@@ -3010,11 +3236,20 @@
             margin: 0px !important;
             display: flex !important;
             height: 100% !important;
+            width: 100% !important;
             flex-wrap: wrap !important;
             align-items: center !important;
             justify-content: center !important;
             background-color: transparent !important;
             padding: 0px !important;
+            }
+
+            nav.modal.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            nav.flex.modal.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
             }
 
             .input .modal{
@@ -3025,12 +3260,78 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-7xl {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 100% !important;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-7xl > div {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            height: 100% !important;
+            }
+
             .modal.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center !important;
             }
 
             .flex.items-end.sm\:items-center.modal.min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center !important;
+            }
+
+            @media (max-width: 640px) {
+            nav.modal.justify-between.flex-1.md\:hidden {
+                gap: 10px !important;
+            }
+
+            nav .modal.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px !important;
+            }
+
+            nav.modal.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            nav.flex.modal.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-7xl > div {
+                display: block !important;
+            }
             }
 
             @media (min-width: 640px){
@@ -3060,10 +3361,31 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
+            .sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-sm,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-md,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-lg,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-xl,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-2xl,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-3xl,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-4xl,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-5xl,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-6xl,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-7xl {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            }
+
+            .sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-sm > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-md > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-lg > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-2xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-3xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-4xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-5xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-6xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-7xl > div {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            }
+
             .relative.sticky-nav.rounded-lg div:nth-child(2){
             display: flex;
             justify-content: center;
             gap: 0.75rem;
+            }
+
+            nav.relative.sticky-nav.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
             }
 
             .input .relative.sticky-nav.rounded-lg div:nth-child(2){
@@ -3080,6 +3402,20 @@
 
             .flex.items-end.sm\:items-center.relative.sticky-nav.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.relative.sticky-nav.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.sticky-nav.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.sticky-nav.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             @media (min-width: 640px){
@@ -3119,6 +3455,14 @@
             text-transform: uppercase;
             }
 
+            nav.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button{
             flex-wrap: wrap;
             border-width: 0px;
@@ -3127,7 +3471,16 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-sm,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-md,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-lg,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-xl,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-2xl,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-3xl,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-4xl,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-5xl,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-6xl,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -3135,7 +3488,16 @@
             height: 100%;
             }
 
-            .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -3153,7 +3515,32 @@
             }
 
             @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            nav.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -3213,6 +3600,10 @@
             box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
             --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity));
             --tw-ring-opacity: 0.2;
+            }
+
+            #headlessui-portal-root .modal .absolute.sticky-nav.right-0.pt-3.pr-3.sm\:items-start {
+            width: 100%;
             }
 
             @media (min-width: 640px){
@@ -3385,6 +3776,10 @@
                 background-color: white;
                 display: block;
             }
+
+            .sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-sm > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-md > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-lg > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-2xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-3xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-4xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-5xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-6xl > div,.sticky-nav.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-7xl > div {
+                display: block;
+            }
             }
 
             .sticky-navback{
@@ -3407,6 +3802,10 @@
             gap: 0.75rem;
             }
 
+            nav.relative.sticky-navback.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .relative.sticky-navback.rounded-lg div:nth-child(2){
             flex-wrap: wrap;
             border-width: 0px;
@@ -3421,6 +3820,20 @@
 
             .flex.items-end.sm\:items-center.relative.sticky-navback.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.relative.sticky-navback.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.sticky-navback.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.sticky-navback.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             @media (min-width: 640px){
@@ -3460,6 +3873,14 @@
             text-transform: uppercase;
             }
 
+            nav.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button{
             flex-wrap: wrap;
             border-width: 0px;
@@ -3468,7 +3889,16 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-sm,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-md,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-lg,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-xl,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-2xl,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-3xl,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-4xl,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-5xl,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-6xl,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -3476,7 +3906,16 @@
             height: 100%;
             }
 
-            .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -3494,7 +3933,32 @@
             }
 
             @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            nav.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -3554,6 +4018,10 @@
             box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
             --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity));
             --tw-ring-opacity: 0.2;
+            }
+
+            #headlessui-portal-root .modal .absolute.sticky-navback.right-0.pt-3.pr-3.sm\:items-start {
+            width: 100%;
             }
 
             @media (min-width: 640px){
@@ -3738,7 +4206,16 @@
             color: rgb(239 68 68 / var(--tw-text-opacity));
             }
 
-            .message.sm\:max-w-sm,.message.sm\:max-w-md,.message.sm\:max-w-lg,.message.sm\:max-w-xl,.message.sm\:max-w-2xl,.message.sm\:max-w-3xl,.message.sm\:max-w-4xl,.message.sm\:max-w-5xl,.message.sm\:max-w-6xl,.message.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -3746,7 +4223,16 @@
             height: 100%;
             }
 
-            .message.sm\:max-w-sm > div,.message.sm\:max-w-md > div,.message.sm\:max-w-lg > div,.message.sm\:max-w-xl > div,.message.sm\:max-w-2xl > div,.message.sm\:max-w-3xl > div,.message.sm\:max-w-4xl > div,.message.sm\:max-w-5xl > div,.message.sm\:max-w-6xl > div,.message.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -3756,7 +4242,16 @@
             }
 
             @media (max-width: 640px) {
-            .message.sm\:max-w-sm > div,.message.sm\:max-w-md > div,.message.sm\:max-w-lg > div,.message.sm\:max-w-xl > div,.message.sm\:max-w-2xl > div,.message.sm\:max-w-3xl > div,.message.sm\:max-w-4xl > div,.message.sm\:max-w-5xl > div,.message.sm\:max-w-6xl > div,.message.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .message.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -3824,6 +4319,10 @@
             padding: 0px;
             }
 
+            nav.sch-logo .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .sch-logo .filepond--drop-label{
             flex-wrap: wrap;
             border-width: 0px;
@@ -3836,6 +4335,10 @@
             display: flex;
             justify-content: center;
             gap: 0.75rem;
+            }
+
+            nav.relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
             }
 
             .input .relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2){
@@ -3854,6 +4357,20 @@
             align-items: center;
             }
 
+            @media (max-width: 640px) {
+            nav.relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+            }
+
             @media (min-width: 640px){
             .relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2){
                 gap: 0.5rem;
@@ -3870,6 +4387,20 @@
 
             .flex.items-end.sm\:items-center.sch-logo .filepond--drop-label.min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.sch-logo .filepond--drop-label.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .sch-logo .filepond--drop-label.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.sch-logo .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             .sch-logo .filepond--drop-label {
@@ -3892,7 +4423,16 @@
             color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
             }
 
-            .sch-logo .filepond--drop-label label.sm\:max-w-sm,.sch-logo .filepond--drop-label label.sm\:max-w-md,.sch-logo .filepond--drop-label label.sm\:max-w-lg,.sch-logo .filepond--drop-label label.sm\:max-w-xl,.sch-logo .filepond--drop-label label.sm\:max-w-2xl,.sch-logo .filepond--drop-label label.sm\:max-w-3xl,.sch-logo .filepond--drop-label label.sm\:max-w-4xl,.sch-logo .filepond--drop-label label.sm\:max-w-5xl,.sch-logo .filepond--drop-label label.sm\:max-w-6xl,.sch-logo .filepond--drop-label label.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-7xl {
             display: flex !important;
             flex-wrap: wrap !important;
             align-items: center !important;
@@ -3900,7 +4440,51 @@
             height: 100% !important;
             }
 
-            .sch-logo .filepond--drop-label label.sm\:max-w-sm > div,.sch-logo .filepond--drop-label label.sm\:max-w-md > div,.sch-logo .filepond--drop-label label.sm\:max-w-lg > div,.sch-logo .filepond--drop-label label.sm\:max-w-xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-2xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-3xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-4xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-5xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-6xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-7xl {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 100% !important;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-7xl > div {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            height: 100% !important;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-7xl > div {
             display: flex !important;
             flex-wrap: wrap !important;
             align-items: center !important;
@@ -3933,7 +4517,29 @@
                 display: block !important;
             }
 
-            .sch-logo .filepond--drop-label label.sm\:max-w-sm > div,.sch-logo .filepond--drop-label label.sm\:max-w-md > div,.sch-logo .filepond--drop-label label.sm\:max-w-lg > div,.sch-logo .filepond--drop-label label.sm\:max-w-xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-2xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-3xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-4xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-5xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-6xl > div,.sch-logo .filepond--drop-label label.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sch-logo .filepond--drop-label label.sm\:max-w-7xl > div {
+                display: block !important;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.sch-logo .filepond--drop-label label .w-full.sm\:max-w-7xl > div {
                 display: block !important;
             }
             }
@@ -3965,6 +4571,14 @@
             border-radius: 0.5rem;
             }
 
+            nav.import .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.import .filepond--drop-label.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .import .filepond--drop-label{
             flex-wrap: wrap;
             border-width: 0px;
@@ -3977,6 +4591,10 @@
             display: flex;
             justify-content: center;
             gap: 0.75rem;
+            }
+
+            nav.relative.bg-white.import .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
             }
 
             .input .relative.bg-white.import .filepond--drop-label div:nth-child(2){
@@ -3995,6 +4613,20 @@
             align-items: center;
             }
 
+            @media (max-width: 640px) {
+            nav.relative.bg-white.import .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.bg-white.import .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.bg-white.import .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+            }
+
             @media (min-width: 640px){
             .relative.bg-white.import .filepond--drop-label div:nth-child(2){
                 gap: 0.5rem;
@@ -4007,6 +4639,24 @@
 
             .flex.items-end.sm\:items-center.import .filepond--drop-label.min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.import .filepond--drop-label.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .import .filepond--drop-label.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.import .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.import .filepond--drop-label.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             .import label, .sch-logo label{
@@ -4026,10 +4676,19 @@
             cursor: pointer;
             }
 
+            .drop-down p {
+            font-size: .70rem;
+            margin: 0px;
+            width: 100%;
+            --tw-text-opacity: 1;
+            color: rgb(239 68 68 / var(--tw-text-opacity));
+            }
+
             .input .block {
             display: flex;
             flex-direction: column;
             width: 100%;
+            z-index: 1;
             }
 
             .input .flex{
@@ -4047,6 +4706,20 @@
             border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
             outline: 2px solid transparent !important;
             outline-offset: 2px !important;
+            }
+
+            .mobtable input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden,.mobtable  select.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+            border-radius: 0.375rem !important;
+            overflow: auto !important;
+            height: 100% !important;
+            width: 100% !important;
+            background-color: white !important;
+            }
+
+            @media (max-width: 640px) {
+            .mobtable input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden,.mobtable  select.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+                border: 0 !important;
+            }
             }
 
             .blue-inpt input:focus, .blue-inpt select:focus{
@@ -4205,9 +4878,24 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             }
 
+            nav.flex.items-center.justify-between.squared-btn.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn.sm\:px-0.-mr-2.sm\:-mr-3 {
             padding-left: 0;
             padding-right: 0;
+            margin-bottom: 0;
+            }
+
+            @media (max-width: 640px) {
+            .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn.sm\:px-0.-mr-2.sm\:-mr-3 {
+                margin-bottom: 0px;
+            }
+
+            nav.flex.items-center.justify-between.squared-btn.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             .squared-btn-i button{
@@ -4223,9 +4911,24 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             }
 
+            nav.flex.items-center.justify-between.squared-btn-i button.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn-i button.sm\:px-0.-mr-2.sm\:-mr-3 {
             padding-left: 0;
             padding-right: 0;
+            margin-bottom: 0;
+            }
+
+            @media (max-width: 640px) {
+            .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn-i button.sm\:px-0.-mr-2.sm\:-mr-3 {
+                margin-bottom: 0px;
+            }
+
+            nav.flex.items-center.justify-between.squared-btn-i button.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             .rounded-btn{
@@ -4351,6 +5054,10 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             }
 
+            nav.flex.close-btn.justify-between.px-4.sm\:px-0.py-3,nav.flex .menu-close-btn.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .flex.items-end.sm\:items-center.close-btn.min-h-full.p-4.text-center.sm\:p-0,.flex.items-end.sm\:items-center .menu-close-btn.min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
             }
@@ -4373,6 +5080,14 @@
             text-transform: uppercase;
             }
 
+            nav.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3,nav.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3,nav.flex.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button,.input .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button{
             flex-wrap: wrap;
             border-width: 0px;
@@ -4381,7 +5096,25 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl,.fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -4389,7 +5122,25 @@
             height: 100%;
             }
 
-            .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div,.fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -4407,7 +5158,41 @@
             }
 
             @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            nav.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden,nav.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a,nav .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3,nav.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3,nav.flex.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div,.fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -4467,6 +5252,10 @@
             box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
             --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity));
             --tw-ring-opacity: 0.2;
+            }
+
+            #headlessui-portal-root .modal .close-btn.top-0.right-0.pt-3.pr-3.sm\:items-start,#headlessui-portal-root .modal  .menu-close-btn.top-0.right-0.pt-3.pr-3.sm\:items-start {
+            width: 100%;
             }
 
             @media (min-width: 640px){
@@ -4633,6 +5422,12 @@
             color: rgb(249 115 22 / var(--tw-text-opacity));
             }
 
+            @media (max-width: 640px) {
+            nav.flex.close-btn.justify-between.px-4.sm\:px-0.py-3,nav.flex .menu-close-btn.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+            }
+
             .close-btn{
             display: none !important;
             }
@@ -4648,6 +5443,14 @@
             text-transform: uppercase;
             }
 
+            nav.mt-5.sm\:mt-4.close-btn-show button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.close-btn-show button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .mt-5.sm\:mt-4.close-btn-show button{
             flex-wrap: wrap;
             border-width: 0px;
@@ -4656,7 +5459,16 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-sm,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-md,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-lg,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-xl,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-2xl,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-3xl,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-4xl,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-5xl,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-6xl,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -4664,7 +5476,16 @@
             height: 100%;
             }
 
-            .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-md > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -4682,7 +5503,32 @@
             }
 
             @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-md > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-7xl > div {
+            nav.mt-5.sm\:mt-4.close-btn-show button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.close-btn-show button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.close-btn-show button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.close-btn-show button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -4744,6 +5590,10 @@
             --tw-ring-opacity: 0.2;
             }
 
+            #headlessui-portal-root .close-btn-show.sm\:items-start {
+            width: 100% !important;
+            }
+
             @media (min-width: 640px){
             .close-btn-show{
                 display: flex !important;
@@ -4779,6 +5629,10 @@
             display: flex !important;
             }
 
+            nav.open-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
             .input .open-sb{
             flex-wrap: wrap;
             border-width: 0px;
@@ -4791,8 +5645,26 @@
             align-items: center !important;
             }
 
+            @media (max-width: 640px) {
+            nav.open-sb.justify-between.flex-1.md\:hidden {
+                gap: 10px !important;
+            }
+
+            nav .open-sb.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px !important;
+            }
+
+            nav.open-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+            }
+
             .close-sb{
             display: flex !important;
+            }
+
+            nav.close-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
             }
 
             .input .close-sb{
@@ -4807,12 +5679,35 @@
             align-items: center !important;
             }
 
+            @media (max-width: 640px) {
+            nav.close-sb.justify-between.flex-1.md\:hidden {
+                gap: 10px !important;
+            }
+
+            nav .close-sb.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px !important;
+            }
+
+            nav.close-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+            }
+
             .sidebar{
             width: 100%;
             transition-duration: 500ms;
             }
 
-            .sidebar.sm\:max-w-sm,.sidebar.sm\:max-w-md,.sidebar.sm\:max-w-lg,.sidebar.sm\:max-w-xl,.sidebar.sm\:max-w-2xl,.sidebar.sm\:max-w-3xl,.sidebar.sm\:max-w-4xl,.sidebar.sm\:max-w-5xl,.sidebar.sm\:max-w-6xl,.sidebar.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -4820,7 +5715,16 @@
             height: 100%;
             }
 
-            .sidebar.sm\:max-w-sm > div,.sidebar.sm\:max-w-md > div,.sidebar.sm\:max-w-lg > div,.sidebar.sm\:max-w-xl > div,.sidebar.sm\:max-w-2xl > div,.sidebar.sm\:max-w-3xl > div,.sidebar.sm\:max-w-4xl > div,.sidebar.sm\:max-w-5xl > div,.sidebar.sm\:max-w-6xl > div,.sidebar.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -4830,7 +5734,16 @@
             }
 
             @media (max-width: 640px) {
-            .sidebar.sm\:max-w-sm > div,.sidebar.sm\:max-w-md > div,.sidebar.sm\:max-w-lg > div,.sidebar.sm\:max-w-xl > div,.sidebar.sm\:max-w-2xl > div,.sidebar.sm\:max-w-3xl > div,.sidebar.sm\:max-w-4xl > div,.sidebar.sm\:max-w-5xl > div,.sidebar.sm\:max-w-6xl > div,.sidebar.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .sidebar.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -4904,6 +5817,10 @@
             gap: 0.75rem;
             }
 
+            nav.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .relative.schedopen .sched-drop.rounded-lg div:nth-child(2){
             flex-wrap: wrap;
             border-width: 0px;
@@ -4918,6 +5835,20 @@
 
             .flex.items-end.sm\:items-center.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.schedopen .sched-drop.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             @media (min-width: 640px){
@@ -5004,6 +5935,10 @@
             gap: 0.75rem;
             }
 
+            nav.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2){
             flex-wrap: wrap;
             border-width: 0px;
@@ -5018,6 +5953,20 @@
 
             .flex.items-end.sm\:items-center.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             @media (min-width: 640px){
@@ -5063,16 +6012,16 @@
             margin: 0;
             }
 
-            .w-full.sm\:max-w-sm, 
-            .w-full.sm\:max-w-md, 
-            .w-full.sm\:max-w-lg, 
-            .w-full.sm\:max-w-xl,
-            .w-full.sm\:max-w-2xl,
-            .w-full.sm\:max-w-3xl,
-            .w-full.sm\:max-w-4xl,
-            .w-full.sm\:max-w-5xl,
-            .w-full.sm\:max-w-6xl,
-            .w-full.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5080,16 +6029,16 @@
             height: 100%;
             }
 
-            .w-full.sm\:max-w-sm > div, 
-            .w-full.sm\:max-w-md > div, 
-            .w-full.sm\:max-w-lg > div, 
-            .w-full.sm\:max-w-xl > div,
-            .w-full.sm\:max-w-2xl > div,
-            .w-full.sm\:max-w-3xl > div,
-            .w-full.sm\:max-w-4xl > div,
-            .w-full.sm\:max-w-5xl > div,
-            .w-full.sm\:max-w-6xl > div,
-            .w-full.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5109,6 +6058,14 @@
             text-transform: uppercase;
             }
 
+            nav.mt-5.sm\:mt-4.sm\:flex button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.sm\:flex button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .mt-5.sm\:mt-4.sm\:flex button{
             flex-wrap: wrap;
             border-width: 0px;
@@ -5117,7 +6074,16 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-sm,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-md,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-lg,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-xl,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-2xl,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-3xl,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-4xl,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-5xl,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-6xl,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5125,7 +6091,16 @@
             height: 100%;
             }
 
-            .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-md > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5143,7 +6118,32 @@
             }
 
             @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-md > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-7xl > div {
+            nav.mt-5.sm\:mt-4.sm\:flex button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.sm\:flex button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.sm\:flex button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.sm\:flex button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -5205,12 +6205,23 @@
             --tw-ring-opacity: 0.2;
             }
 
+            #headlessui-portal-root .text-center.sm\:mt-0.sm\:text-left {
+            width: 100%;
+            }
+
+            #headlessui-portal-root .sm\:flex.sm\:items-start {
+            width: 100%;
+            }
+
+            #headlessui-portal-root .mt-2 p{
+            font-size: 0.75rem !important;
+            line-height: 1rem !important;
+            }
+
             #headlessui-portal-root h3{
             border-left-width: 4px;
             --tw-border-opacity: 1;
             border-left-color: rgb(239 68 68 / var(--tw-border-opacity));
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
             padding-left: 0.75rem;
             padding-right: 0.75rem;
             --tw-text-opacity: 1;
@@ -5236,6 +6247,10 @@
             gap: 0.75rem;
             }
 
+            nav.relative.bg-white.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .relative.bg-white.rounded-lg div:nth-child(2){
             flex-wrap: wrap;
             border-width: 0px;
@@ -5250,6 +6265,20 @@
 
             .flex.items-end.sm\:items-center.relative.bg-white.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.relative.bg-white.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.bg-white.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.bg-white.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             @media (min-width: 640px){
@@ -5275,9 +6304,787 @@
             width: 2rem;
             }
 
-            .drop-down {
-            position: relative;
-            outline: none;
+            /* .drop-down li:nth-child(1) {
+                @apply hidden bg-gray-200;
+            } */
+
+            .open-close{
+            display: none !important;
+            }
+
+            /* #headlessui-portal-root .fixed div:nth-child(1) {
+                @apply items-center;
+            } */
+
+            .blue-chck [type='radio']:checked{
+            --tw-text-opacity: 1 !important;
+            color: rgb(0 150 199 / var(--tw-text-opacity)) !important;
+            }
+
+            .red-chck [type='radio']:checked{
+            --tw-text-opacity: 1 !important;
+            color: rgb(239 68 68 / var(--tw-text-opacity)) !important;
+            }
+
+            .green-chck [type='radio']:checked{
+            --tw-text-opacity: 1 !important;
+            color: rgb(34 197 94 / var(--tw-text-opacity)) !important;
+            }
+
+            .orange-chck [type='radio']:checked{
+            --tw-text-opacity: 1 !important;
+            color: rgb(249 115 22 / var(--tw-text-opacity)) !important;
+            }
+
+            .choices .choices__list--dropdown .choices__item--selectable.is-highlighted{
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+            --tw-text-opacity: 1 !important;
+            color: rgb(48 48 48 / var(--tw-text-opacity)) !important;
+            }
+
+            .is-flipped .choices__list--dropdown, .is-flipped .choices__list[aria-expanded] {
+            margin-bottom: 0.25rem !important;
+            border-radius: 0.375rem !important;
+            }
+
+            .choices .choices__list--dropdown .choices__item--selectable {
+            font-size: .70rem !important;
+            }
+
+            .choices.is-focused .choices__inner:focus{
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+            --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity)) !important;
+            --tw-ring-opacity: 0.2 !important;
+            }
+
+            .choices .choices__inner{
+            --tw-text-opacity: 1 !important;
+            color: rgb(48 48 48 / var(--tw-text-opacity)) !important;
+            background-size: 1rem 1rem !important;
+            display: flex !important;
+            align-items: center !important;
+            cursor: pointer !important;
+            }
+
+            .choices[data-type*=select-multiple] .choices__inner {
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
+            border-radius: 0.375rem !important;
+            }
+
+            .choices__input{
+            display: flex !important;
+            align-items: center !important;
+            --tw-text-opacity: 1 !important;
+            color: rgb(48 48 48 / var(--tw-text-opacity)) !important;
+            opacity: 1 !important;
+            }
+
+            nav.choices__input.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            nav.flex.choices__input.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            .input .choices__input{
+            flex-wrap: wrap;
+            border-width: 0px;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+
+            .choices__input.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center !important;
+            }
+
+            @media (max-width: 640px) {
+            nav.choices__input.justify-between.flex-1.md\:hidden {
+                gap: 10px !important;
+            }
+
+            nav .choices__input.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px !important;
+            }
+
+            nav.choices__input.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            nav.flex.choices__input.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+            }
+
+            .choices .choices__list--multiple .choices__item{
+            display: flex !important;
+            width: -moz-fit-content !important;
+            width: fit-content !important;
+            cursor: pointer !important;
+            align-items: center !important;
+            gap: 0.25rem !important;
+            border-width: 2px !important;
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(0 150 199 / var(--tw-bg-opacity)) !important;
+            font-size: 0.75rem !important;
+            line-height: 1rem !important;
+            transition-property: all !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+            transition-duration: 150ms !important;
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
+            }
+
+            nav.choices .choices__list--multiple .choices__item.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            nav.flex.choices .choices__list--multiple .choices__item.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            .input .choices .choices__list--multiple .choices__item{
+            flex-wrap: wrap;
+            border-width: 0px;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+
+            .choices .choices__list--multiple .choices__item.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center !important;
+            }
+
+            @media (max-width: 640px) {
+            nav.choices .choices__list--multiple .choices__item.justify-between.flex-1.md\:hidden {
+                gap: 10px !important;
+            }
+
+            nav .choices .choices__list--multiple .choices__item.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px !important;
+            }
+
+            nav.choices .choices__list--multiple .choices__item.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            nav.flex.choices .choices__list--multiple .choices__item.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+            }
+
+            .choices .choices__list--multiple .choices__item:hover{
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+            --tw-text-opacity: 1 !important;
+            color: rgb(0 150 199 / var(--tw-text-opacity)) !important;
+            }
+
+            .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2){
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            }
+
+            nav.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            .input .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2){
+            flex-wrap: wrap;
+            border-width: 0px;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+
+            .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center;
+            }
+
+            .flex.items-end.sm\:items-center.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+            }
+
+            @media (min-width: 640px){
+            .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2){
+                gap: 0.5rem;
+            }
+            }
+
+            .choices[data-type*=select-multiple] .choices__button{
+            height: 1.25rem !important;
+            width: 1.25rem !important;
+            border-radius: 9999px !important;
+            border-width: 2px !important;
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(239 68 68 / var(--tw-border-opacity)) !important;
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important;
+            padding: 0.5rem !important;
+            transition-property: all !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+            transition-duration: 150ms !important;
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
+            }
+
+            .choices .choices__list--multiple{
+            display: flex !important;
+            gap: 0.25rem !important;
+            }
+
+            nav.choices .choices__list--multiple.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px !important;
+            }
+
+            .input .choices .choices__list--multiple{
+            flex-wrap: wrap;
+            border-width: 0px;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+
+            .choices .choices__list--multiple.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center !important;
+            }
+
+            @media (max-width: 640px) {
+            nav.choices .choices__list--multiple.justify-between.flex-1.md\:hidden {
+                gap: 10px !important;
+            }
+
+            nav .choices .choices__list--multiple.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px !important;
+            }
+
+            nav.choices .choices__list--multiple.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
+            }
+            }
+
+            .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item{
+            font-size: 0.75rem !important;
+            line-height: 1rem !important;
+            }
+
+            td{
+            font-size: 0.75rem !important;
+            line-height: 1rem !important;
+            }
+
+            .mobtable tr {
+            display: revert;
+            }
+
+            .mobtable table {
+            display: revert;
+            }
+
+            .mobtable th{
+            display: none;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            }
+
+            @media (min-width: 640px){
+            .mobtable th{
+                display: table-cell;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+            }
+
+            .mobtable tbody{
+            width: 100%;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-7xl {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-7xl > div {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            }
+
+            @media (max-width: 640px) {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tbody.sm\:max-w-7xl > div {
+                display: block;
+            }
+            }
+
+            .mobtable td .td{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            }
+
+            nav.mobtable td .td.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.items-center.mobtable td .td.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mobtable td .td.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            .input .mobtable td .td{
+            flex-wrap: wrap;
+            border-width: 0px;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+
+            .mobtable td .td.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.mobtable td .td.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav.flex.mobtable td .td.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mobtable td .td.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav .flex.mobtable td .td.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mobtable td .td.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.items-center.mobtable td .td.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mobtable td .td.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+            }
+
+            @media (min-width: 640px){
+            .mobtable td .td{
+                display: table-cell;
+            }
+            }
+
+            .mobtable .flex-row.sm\:justify-end.mb-3.px-4.sm\:px-0.-mr-2.sm\:-mr-3 {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin-bottom: 0 !important;
+            }
+
+            .mobtable .shadow.relative.sm\:rounded-md.sm\:overflow-hidden {
+            border-radius: 0.375rem;
+            overflow: hidden;
+            }
+
+            .modal .absolute.top-0.right-0.pt-3.pr-3{
+            z-index: 10;
+            display: none;
+            padding-top: 1.25rem;
+            padding-right: 1.25rem;
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            text-transform: uppercase;
+            }
+
+            nav.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            .input .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button{
+            flex-wrap: wrap;
+            border-width: 0px;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center;
+            }
+
+            .flex.items-end.sm\:items-center.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.min-h-full.p-4.text-center.sm\:p-0 {
+            align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+                display: block;
+            }
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(1){
+            --tw-border-opacity: 1;
+            border-color: rgb(239 68 68 / var(--tw-border-opacity));
+            --tw-bg-opacity: 1;
+            background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+            transition-property: all;
+            transition-duration: 150ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(1):hover{
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(239 68 68 / var(--tw-text-opacity));
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(1):focus{
+            --tw-border-opacity: 1;
+            border-color: rgb(239 68 68 / var(--tw-border-opacity));
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+            --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity));
+            --tw-ring-opacity: 0.2;
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(2){
+            margin-top: 0px;
+            --tw-border-opacity: 1;
+            border-color: rgb(0 150 199 / var(--tw-border-opacity));
+            --tw-bg-opacity: 1;
+            background-color: rgb(0 150 199 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity));
+            transition-property: all;
+            transition-duration: 150ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(2):hover{
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(0 150 199 / var(--tw-text-opacity));
+            }
+
+            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(2):focus{
+            --tw-border-opacity: 1;
+            border-color: rgb(0 150 199 / var(--tw-border-opacity));
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+            --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity));
+            --tw-ring-opacity: 0.2;
+            }
+
+            #headlessui-portal-root .modal .absolute.top-0.right-0.pt-3.pr-3.sm\:items-start {
+            width: 100%;
+            }
+
+            @media (min-width: 640px){
+            .modal .absolute.top-0.right-0.pt-3.pr-3{
+                display: flex;
+            }
+            }
+
+            .modal .absolute.top-0.right-0.pt-3.pr-3 svg{
+            height: 1rem;
+            width: 1rem;
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity));
+            transition-property: all;
+            transition-duration: 150ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
+            border-radius: 9999px !important;
+            border-width: 2px !important;
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(0 150 199 / var(--tw-bg-opacity)) !important;
+            padding: 0.25rem !important;
+            transition-property: all !important;
+            transition-duration: 150ms !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
+
+            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+            --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity)) !important;
+            --tw-ring-opacity: 0.2 !important;
+            }
+
+            @media (min-width: 640px){
+            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
+                --tw-bg-opacity: 1 !important;
+                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+                --tw-text-opacity: 1 !important;
+                color: rgb(0 150 199 / var(--tw-text-opacity)) !important;
+            }
+            }
+
+            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
+            --tw-text-opacity: 1;
+            color: rgb(0 150 199 / var(--tw-text-opacity));
+            }
+
+            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
+            border-radius: 9999px !important;
+            border-width: 2px !important;
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(239 68 68 / var(--tw-border-opacity)) !important;
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important;
+            padding: 0.25rem !important;
+            transition-property: all !important;
+            transition-duration: 150ms !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
+
+            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(239 68 68 / var(--tw-border-opacity)) !important;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+            --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity)) !important;
+            --tw-ring-opacity: 0.2 !important;
+            }
+
+            @media (min-width: 640px){
+            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
+                --tw-bg-opacity: 1 !important;
+                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+                --tw-text-opacity: 1 !important;
+                color: rgb(239 68 68 / var(--tw-text-opacity)) !important;
+            }
+            }
+
+            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
+            --tw-text-opacity: 1;
+            color: rgb(239 68 68 / var(--tw-text-opacity));
+            }
+
+            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
+            border-radius: 9999px !important;
+            border-width: 2px !important;
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(34 197 94 / var(--tw-border-opacity)) !important;
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(34 197 94 / var(--tw-bg-opacity)) !important;
+            padding: 0.25rem !important;
+            transition-property: all !important;
+            transition-duration: 150ms !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
+
+            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(34 197 94 / var(--tw-border-opacity)) !important;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+            --tw-ring-color: rgb(34 197 94 / var(--tw-ring-opacity)) !important;
+            --tw-ring-opacity: 0.2 !important;
+            }
+
+            @media (min-width: 640px){
+            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
+                --tw-bg-opacity: 1 !important;
+                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+                --tw-text-opacity: 1 !important;
+                color: rgb(34 197 94 / var(--tw-text-opacity)) !important;
+            }
+            }
+
+            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
+            --tw-text-opacity: 1;
+            color: rgb(34 197 94 / var(--tw-text-opacity));
+            }
+
+            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
+            border-radius: 9999px !important;
+            border-width: 2px !important;
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(249 115 22 / var(--tw-border-opacity)) !important;
+            --tw-bg-opacity: 1 !important;
+            background-color: rgb(249 115 22 / var(--tw-bg-opacity)) !important;
+            padding: 0.25rem !important;
+            transition-property: all !important;
+            transition-duration: 150ms !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
+
+            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(249 115 22 / var(--tw-border-opacity)) !important;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+            --tw-ring-color: rgb(249 115 22 / var(--tw-ring-opacity)) !important;
+            --tw-ring-opacity: 0.2 !important;
+            }
+
+            @media (min-width: 640px){
+            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
+                --tw-bg-opacity: 1 !important;
+                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+                --tw-text-opacity: 1 !important;
+                color: rgb(249 115 22 / var(--tw-text-opacity)) !important;
+            }
+            }
+
+            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
+            --tw-text-opacity: 1;
+            color: rgb(249 115 22 / var(--tw-text-opacity));
+            }
+
+            #nprogress .bar {
+            height: 6px !important;
+            background-size: 500% 500% !important;
+            animation: gradient 1.5s ease infinite;
             }
 
             select {
@@ -5311,7 +7118,24 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             }
 
-            .drop-down .optn.sm\:max-w-sm,.drop-down .optn.sm\:max-w-md,.drop-down .optn.sm\:max-w-lg,.drop-down .optn.sm\:max-w-xl,.drop-down .optn.sm\:max-w-2xl,.drop-down .optn.sm\:max-w-3xl,.drop-down .optn.sm\:max-w-4xl,.drop-down .optn.sm\:max-w-5xl,.drop-down .optn.sm\:max-w-6xl,.drop-down .optn.sm\:max-w-7xl {
+            .mobtable .shadow-sm.relative.drop-down .optn.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+            border-radius: 0.375rem;
+            overflow: auto;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5319,7 +7143,16 @@
             height: 100%;
             }
 
-            .drop-down .optn.sm\:max-w-sm > div,.drop-down .optn.sm\:max-w-md > div,.drop-down .optn.sm\:max-w-lg > div,.drop-down .optn.sm\:max-w-xl > div,.drop-down .optn.sm\:max-w-2xl > div,.drop-down .optn.sm\:max-w-3xl > div,.drop-down .optn.sm\:max-w-4xl > div,.drop-down .optn.sm\:max-w-5xl > div,.drop-down .optn.sm\:max-w-6xl > div,.drop-down .optn.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5332,6 +7165,10 @@
             display: flex;
             justify-content: center;
             gap: 0.75rem;
+            }
+
+            nav.relative.drop-down .optn.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
             }
 
             .input .relative.drop-down .optn.rounded-lg div:nth-child(2){
@@ -5348,6 +7185,20 @@
 
             .flex.items-end.sm\:items-center.relative.drop-down .optn.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
             align-items: center;
+            }
+
+            @media (max-width: 640px) {
+            nav.relative.drop-down .optn.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .relative.drop-down .optn.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.relative.drop-down .optn.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
             }
 
             @media (min-width: 640px){
@@ -5387,6 +7238,14 @@
             text-transform: uppercase;
             }
 
+            nav.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button{
             flex-wrap: wrap;
             border-width: 0px;
@@ -5395,7 +7254,16 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5403,7 +7271,16 @@
             height: 100%;
             }
 
-            .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5421,7 +7298,32 @@
             }
 
             @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            nav.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -5483,6 +7385,10 @@
             --tw-ring-opacity: 0.2;
             }
 
+            #headlessui-portal-root .modal .drop-down .optn.top-0.right-0.pt-3.pr-3.sm\:items-start {
+            width: 100%;
+            }
+
             @media (min-width: 640px){
             .modal .drop-down .optn.top-0.right-0.pt-3.pr-3{
                 display: flex;
@@ -5507,6 +7413,14 @@
             text-transform: uppercase;
             }
 
+            nav.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
             .input .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button{
             flex-wrap: wrap;
             border-width: 0px;
@@ -5515,7 +7429,16 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-sm,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-md,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-lg,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-xl,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-2xl,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-3xl,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-4xl,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-5xl,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-6xl,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-7xl {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5523,7 +7446,16 @@
             height: 100%;
             }
 
-            .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-7xl > div {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -5541,7 +7473,32 @@
             }
 
             @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-7xl > div {
+            nav.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -5601,6 +7558,10 @@
             box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
             --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity));
             --tw-ring-opacity: 0.2;
+            }
+
+            #headlessui-portal-root .modal .absolute.top-0.drop-down .optn.pt-3.pr-3.sm\:items-start {
+            width: 100%;
             }
 
             @media (min-width: 640px){
@@ -5926,9 +7887,27 @@
             }
 
             @media (max-width: 640px) {
-            .drop-down .optn.sm\:max-w-sm > div,.drop-down .optn.sm\:max-w-md > div,.drop-down .optn.sm\:max-w-lg > div,.drop-down .optn.sm\:max-w-xl > div,.drop-down .optn.sm\:max-w-2xl > div,.drop-down .optn.sm\:max-w-3xl > div,.drop-down .optn.sm\:max-w-4xl > div,.drop-down .optn.sm\:max-w-5xl > div,.drop-down .optn.sm\:max-w-6xl > div,.drop-down .optn.sm\:max-w-7xl > div {
+            .mobtable .shadow-sm.relative.drop-down .optn.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+                border: 0;
+            }
+
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-7xl > div {
                 display: block;
             }
+            }
+
+            .drop-down {
+            position: relative;
+            outline: none;
             }
 
             .drop-down li{
@@ -5947,6 +7926,21 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             }
 
+            nav.drop-down li.items-center.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.drop-down li.justify-between.px-4.sm\:px-0.py-3 {
+            padding: 0.75rem 0px 0px 0px;
+            }
+
+            .mobtable .drop-down li.align-middle.inline-block.min-w-full.sm\:px-px {
+            height: 100%;
+            width: 100%;
+            padding-top: 0.75rem;
+            padding-bottom: 0;
+            }
+
             .input .drop-down li{
             flex-wrap: wrap;
             border-width: 0px;
@@ -5959,573 +7953,47 @@
             align-items: center;
             }
 
+            @media (max-width: 640px) {
+            nav.drop-down li.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .drop-down li.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+            }
+
+            nav.drop-down li.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+
+            nav.flex.drop-down li.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+            }
+            }
+
             .drop-down li:hover{
             --tw-bg-opacity: 1;
             background-color: rgb(229 231 235 / var(--tw-bg-opacity));
             }
 
-            /* .drop-down li:nth-child(1) {
-                @apply hidden bg-gray-200;
+            /* .sidebar {
+                background: linear-gradient(90deg, rgb(193, 126, 255), rgb(124, 222, 255), rgb(128, 255, 174), rgb(255, 224, 131), rgb(255, 133, 133));
+                background-size: 500% 500% !important;
+                animation: gradient 5s ease infinite ;
             } */
 
-            .open-close{
-            display: none !important;
+            @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
             }
 
-            /* #headlessui-portal-root .fixed div:nth-child(1) {
-                @apply items-center;
-            } */
-
-            .blue-chck [type='radio']:checked{
-            --tw-text-opacity: 1 !important;
-            color: rgb(0 150 199 / var(--tw-text-opacity)) !important;
-            }
-
-            .red-chck [type='radio']:checked{
-            --tw-text-opacity: 1 !important;
-            color: rgb(239 68 68 / var(--tw-text-opacity)) !important;
-            }
-
-            .green-chck [type='radio']:checked{
-            --tw-text-opacity: 1 !important;
-            color: rgb(34 197 94 / var(--tw-text-opacity)) !important;
-            }
-
-            .orange-chck [type='radio']:checked{
-            --tw-text-opacity: 1 !important;
-            color: rgb(249 115 22 / var(--tw-text-opacity)) !important;
-            }
-
-            .choices .choices__list--dropdown .choices__item--selectable.is-highlighted{
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
-            --tw-text-opacity: 1 !important;
-            color: rgb(48 48 48 / var(--tw-text-opacity)) !important;
-            }
-
-            .is-flipped .choices__list--dropdown, .is-flipped .choices__list[aria-expanded] {
-            margin-bottom: 0.25rem !important;
-            border-radius: 0.375rem !important;
-            }
-
-            .choices .choices__list--dropdown .choices__item--selectable {
-            font-size: .70rem !important;
-            }
-
-            .choices.is-focused .choices__inner:focus{
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
-            --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity)) !important;
-            --tw-ring-opacity: 0.2 !important;
-            }
-
-            .choices .choices__inner{
-            --tw-text-opacity: 1 !important;
-            color: rgb(48 48 48 / var(--tw-text-opacity)) !important;
-            background-size: 1rem 1rem !important;
-            display: flex !important;
-            align-items: center !important;
-            cursor: pointer !important;
-            }
-
-            .choices[data-type*=select-multiple] .choices__inner {
-            padding-top: 0.75rem !important;
-            padding-bottom: 0.75rem !important;
-            border-radius: 0.375rem !important;
-            }
-
-            .choices__input{
-            display: flex !important;
-            align-items: center !important;
-            --tw-text-opacity: 1 !important;
-            color: rgb(48 48 48 / var(--tw-text-opacity)) !important;
-            opacity: 1 !important;
-            }
-
-            .input .choices__input{
-            flex-wrap: wrap;
-            border-width: 0px;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-            }
-
-            .choices__input.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center !important;
-            }
-
-            .choices .choices__list--multiple .choices__item{
-            display: flex !important;
-            width: -moz-fit-content !important;
-            width: fit-content !important;
-            cursor: pointer !important;
-            align-items: center !important;
-            gap: 0.25rem !important;
-            border-width: 2px !important;
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(0 150 199 / var(--tw-bg-opacity)) !important;
-            font-size: 0.75rem !important;
-            line-height: 1rem !important;
-            transition-property: all !important;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
-            transition-duration: 150ms !important;
-            transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
-            }
-
-            .input .choices .choices__list--multiple .choices__item{
-            flex-wrap: wrap;
-            border-width: 0px;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-            }
-
-            .choices .choices__list--multiple .choices__item.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center !important;
-            }
-
-            .choices .choices__list--multiple .choices__item:hover{
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-            --tw-text-opacity: 1 !important;
-            color: rgb(0 150 199 / var(--tw-text-opacity)) !important;
-            }
-
-            .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2){
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            }
-
-            .input .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2){
-            flex-wrap: wrap;
-            border-width: 0px;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-            }
-
-            .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center;
-            }
-
-            .flex.items-end.sm\:items-center.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center;
-            }
-
-            @media (min-width: 640px){
-            .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2){
-                gap: 0.5rem;
-            }
-            }
-
-            .choices[data-type*=select-multiple] .choices__button{
-            height: 1.25rem !important;
-            width: 1.25rem !important;
-            border-radius: 9999px !important;
-            border-width: 2px !important;
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(239 68 68 / var(--tw-border-opacity)) !important;
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important;
-            padding: 0.5rem !important;
-            transition-property: all !important;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
-            transition-duration: 150ms !important;
-            transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
-            }
-
-            .choices .choices__list--multiple{
-            display: flex !important;
-            gap: 0.25rem !important;
-            }
-
-            .input .choices .choices__list--multiple{
-            flex-wrap: wrap;
-            border-width: 0px;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-            }
-
-            .choices .choices__list--multiple.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center !important;
-            }
-
-            .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item{
-            font-size: 0.75rem !important;
-            line-height: 1rem !important;
-            }
-
-            td{
-            font-size: 0.75rem !important;
-            line-height: 1rem !important;
-            }
-
-            .mobtable tr {
-            display: revert;
-            }
-
-            .mobtable table {
-            display: revert;
-            }
-
-            .mobtable th{
-            display: none;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            }
-
-            @media (min-width: 640px){
-            .mobtable th{
-                display: table-cell;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-            }
-
-            .mobtable tbody{
-            width: 100%;
-            }
-
-            .mobtable tbody.sm\:max-w-sm,.mobtable tbody.sm\:max-w-md,.mobtable tbody.sm\:max-w-lg,.mobtable tbody.sm\:max-w-xl,.mobtable tbody.sm\:max-w-2xl,.mobtable tbody.sm\:max-w-3xl,.mobtable tbody.sm\:max-w-4xl,.mobtable tbody.sm\:max-w-5xl,.mobtable tbody.sm\:max-w-6xl,.mobtable tbody.sm\:max-w-7xl {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            }
-
-            .mobtable tbody.sm\:max-w-sm > div,.mobtable tbody.sm\:max-w-md > div,.mobtable tbody.sm\:max-w-lg > div,.mobtable tbody.sm\:max-w-xl > div,.mobtable tbody.sm\:max-w-2xl > div,.mobtable tbody.sm\:max-w-3xl > div,.mobtable tbody.sm\:max-w-4xl > div,.mobtable tbody.sm\:max-w-5xl > div,.mobtable tbody.sm\:max-w-6xl > div,.mobtable tbody.sm\:max-w-7xl > div {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            }
-
-            @media (max-width: 640px) {
-            .mobtable tbody.sm\:max-w-sm > div,.mobtable tbody.sm\:max-w-md > div,.mobtable tbody.sm\:max-w-lg > div,.mobtable tbody.sm\:max-w-xl > div,.mobtable tbody.sm\:max-w-2xl > div,.mobtable tbody.sm\:max-w-3xl > div,.mobtable tbody.sm\:max-w-4xl > div,.mobtable tbody.sm\:max-w-5xl > div,.mobtable tbody.sm\:max-w-6xl > div,.mobtable tbody.sm\:max-w-7xl > div {
-                display: block;
-            }
-            }
-
-            .mobtable td .td{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            }
-
-            .input .mobtable td .td{
-            flex-wrap: wrap;
-            border-width: 0px;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-            }
-
-            .mobtable td .td.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center;
-            }
-
-            @media (min-width: 640px){
-            .mobtable td .td{
-                display: table-cell;
-            }
-            }
-
-            .mobtable .flex-row.sm\:justify-end.mb-3.px-4.sm\:px-0.-mr-2.sm\:-mr-3 {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            }
-
-            .mobtable .shadow.relative.sm\:rounded-md.sm\:overflow-hidden {
-            border-radius: 0.375rem;
-            overflow: hidden;
-            }
-
-            .modal .absolute.top-0.right-0.pt-3.pr-3{
-            z-index: 10;
-            display: none;
-            padding-top: 1.25rem;
-            padding-right: 1.25rem;
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button{
-            display: flex;
-            height: 100%;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            line-height: 1rem;
-            text-transform: uppercase;
-            }
-
-            .input .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button{
-            flex-wrap: wrap;
-            border-width: 0px;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center;
-            }
-
-            .flex.items-end.sm\:items-center.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.min-h-full.p-4.text-center.sm\:p-0 {
-            align-items: center;
-            }
-
-            @media (max-width: 640px) {
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-2xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-3xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-4xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-5xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-6xl > div,.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-7xl > div {
-                display: block;
-            }
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(1){
-            --tw-border-opacity: 1;
-            border-color: rgb(239 68 68 / var(--tw-border-opacity));
-            --tw-bg-opacity: 1;
-            background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-            transition-property: all;
-            transition-duration: 150ms;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(1):hover{
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-            --tw-text-opacity: 1;
-            color: rgb(239 68 68 / var(--tw-text-opacity));
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(1):focus{
-            --tw-border-opacity: 1;
-            border-color: rgb(239 68 68 / var(--tw-border-opacity));
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-            --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity));
-            --tw-ring-opacity: 0.2;
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(2){
-            margin-top: 0px;
-            --tw-border-opacity: 1;
-            border-color: rgb(0 150 199 / var(--tw-border-opacity));
-            --tw-bg-opacity: 1;
-            background-color: rgb(0 150 199 / var(--tw-bg-opacity));
-            --tw-text-opacity: 1;
-            color: rgb(255 255 255 / var(--tw-text-opacity));
-            transition-property: all;
-            transition-duration: 150ms;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(2):hover{
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-            --tw-text-opacity: 1;
-            color: rgb(0 150 199 / var(--tw-text-opacity));
-            }
-
-            .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button:nth-child(2):focus{
-            --tw-border-opacity: 1;
-            border-color: rgb(0 150 199 / var(--tw-border-opacity));
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-            --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity));
-            --tw-ring-opacity: 0.2;
-            }
-
-            @media (min-width: 640px){
-            .modal .absolute.top-0.right-0.pt-3.pr-3{
-                display: flex;
-            }
-            }
-
-            .modal .absolute.top-0.right-0.pt-3.pr-3 svg{
-            height: 1rem;
-            width: 1rem;
-            --tw-text-opacity: 1;
-            color: rgb(255 255 255 / var(--tw-text-opacity));
-            transition-property: all;
-            transition-duration: 150ms;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
-            border-radius: 9999px !important;
-            border-width: 2px !important;
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(0 150 199 / var(--tw-bg-opacity)) !important;
-            padding: 0.25rem !important;
-            transition-property: all !important;
-            transition-duration: 150ms !important;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
-            }
-
-            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(0 150 199 / var(--tw-border-opacity)) !important;
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
-            --tw-ring-color: rgb(0 150 199 / var(--tw-ring-opacity)) !important;
-            --tw-ring-opacity: 0.2 !important;
-            }
-
-            @media (min-width: 640px){
-            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
-                --tw-bg-opacity: 1 !important;
-                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-                --tw-text-opacity: 1 !important;
-                color: rgb(0 150 199 / var(--tw-text-opacity)) !important;
-            }
-            }
-
-            .blue-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
-            --tw-text-opacity: 1;
-            color: rgb(0 150 199 / var(--tw-text-opacity));
-            }
-
-            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
-            border-radius: 9999px !important;
-            border-width: 2px !important;
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(239 68 68 / var(--tw-border-opacity)) !important;
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(239 68 68 / var(--tw-bg-opacity)) !important;
-            padding: 0.25rem !important;
-            transition-property: all !important;
-            transition-duration: 150ms !important;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
-            }
-
-            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(239 68 68 / var(--tw-border-opacity)) !important;
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
-            --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity)) !important;
-            --tw-ring-opacity: 0.2 !important;
+            50% {
+                background-position: 100% 50%;
             }
 
-            @media (min-width: 640px){
-            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
-                --tw-bg-opacity: 1 !important;
-                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-                --tw-text-opacity: 1 !important;
-                color: rgb(239 68 68 / var(--tw-text-opacity)) !important;
+            100% {
+                background-position: 0% 50%;
             }
-            }
-
-            .red-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
-            --tw-text-opacity: 1;
-            color: rgb(239 68 68 / var(--tw-text-opacity));
-            }
-
-            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
-            border-radius: 9999px !important;
-            border-width: 2px !important;
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(34 197 94 / var(--tw-border-opacity)) !important;
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(34 197 94 / var(--tw-bg-opacity)) !important;
-            padding: 0.25rem !important;
-            transition-property: all !important;
-            transition-duration: 150ms !important;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
-            }
-
-            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(34 197 94 / var(--tw-border-opacity)) !important;
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
-            --tw-ring-color: rgb(34 197 94 / var(--tw-ring-opacity)) !important;
-            --tw-ring-opacity: 0.2 !important;
-            }
-
-            @media (min-width: 640px){
-            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
-                --tw-bg-opacity: 1 !important;
-                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-                --tw-text-opacity: 1 !important;
-                color: rgb(34 197 94 / var(--tw-text-opacity)) !important;
-            }
-            }
-
-            .green-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
-            --tw-text-opacity: 1;
-            color: rgb(34 197 94 / var(--tw-text-opacity));
-            }
-
-            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button{
-            border-radius: 9999px !important;
-            border-width: 2px !important;
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(249 115 22 / var(--tw-border-opacity)) !important;
-            --tw-bg-opacity: 1 !important;
-            background-color: rgb(249 115 22 / var(--tw-bg-opacity)) !important;
-            padding: 0.25rem !important;
-            transition-property: all !important;
-            transition-duration: 150ms !important;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
-            }
-
-            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:focus{
-            --tw-border-opacity: 1 !important;
-            border-color: rgb(249 115 22 / var(--tw-border-opacity)) !important;
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
-            --tw-ring-color: rgb(249 115 22 / var(--tw-ring-opacity)) !important;
-            --tw-ring-opacity: 0.2 !important;
-            }
-
-            @media (min-width: 640px){
-            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover{
-                --tw-bg-opacity: 1 !important;
-                background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
-                --tw-text-opacity: 1 !important;
-                color: rgb(249 115 22 / var(--tw-text-opacity)) !important;
-            }
-            }
-
-            .orange-btn-x .absolute.top-0.right-0.pt-3.pr-3 button:hover svg{
-            --tw-text-opacity: 1;
-            color: rgb(249 115 22 / var(--tw-text-opacity));
             }
 
             @media (max-width: 640px) {
@@ -6535,10 +8003,65 @@
                 width: fit-content;
                 margin-right: 10px;
                 text-transform: uppercase;
+                text-align: left;
+            }
+
+            .mobtable tbody {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .mobtable td .td {
+                white-space: pre-wrap;
+                width: 100%;
+                text-align: right;
+            }
+
+            .mobtable tbody tr {
+                border-radius: 10px;
+                border: solid 1px rgb(229 231 235 / var(--tw-border-opacity)) !important;
+                --tw-border-opacity: 1;
+            }
+
+            .mobtable thead tr {
+                margin: 0;
+                padding: 0;
+            }
+
+            .divide-y > :not([hidden]) ~ :not([hidden]) {
+                --tw-divide-y-reverse: 0;
+                border-top-width: 0;
+                border-bottom-width: 0;
+            }
+
+            .mobtable .shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+                border: 0 !important;
+            }
+
+            .mobtable .flex-row.sm\:justify-end.mb-3.px-4.sm\:px-0.-mr-2.sm\:-mr-3 {
+                margin-bottom: 0px !important;
+            }
+
+            nav.flex.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+            }
+
+            nav .flex.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px !important;
+            }
+
+            nav.flex.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px !important;
             }
 
             .mobtable table{
                 display: flex;
+            }
+
+            nav.mobtable table.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
             }
 
             .input .mobtable table{
@@ -6553,10 +8076,28 @@
                 align-items: center;
             }
 
+            @media (max-width: 640px) {
+                nav.mobtable table.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+                }
+
+                nav .mobtable table.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+                }
+
+                nav.mobtable table.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+                }
+            }
+
             .mobtable tr{
                 display: flex;
                 width: 100%;
                 flex-direction: column;
+            }
+
+            nav.mobtable tr.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
             }
 
             .input .mobtable tr{
@@ -6567,7 +8108,16 @@
                 box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             }
 
-            .mobtable tr.sm\:max-w-sm,.mobtable tr.sm\:max-w-md,.mobtable tr.sm\:max-w-lg,.mobtable tr.sm\:max-w-xl,.mobtable tr.sm\:max-w-2xl,.mobtable tr.sm\:max-w-3xl,.mobtable tr.sm\:max-w-4xl,.mobtable tr.sm\:max-w-5xl,.mobtable tr.sm\:max-w-6xl,.mobtable tr.sm\:max-w-7xl {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-sm, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-md, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-lg, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-2xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-3xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-4xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-5xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-6xl,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-7xl {
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
@@ -6575,7 +8125,16 @@
                 height: 100%;
             }
 
-            .mobtable tr.sm\:max-w-sm > div,.mobtable tr.sm\:max-w-md > div,.mobtable tr.sm\:max-w-lg > div,.mobtable tr.sm\:max-w-xl > div,.mobtable tr.sm\:max-w-2xl > div,.mobtable tr.sm\:max-w-3xl > div,.mobtable tr.sm\:max-w-4xl > div,.mobtable tr.sm\:max-w-5xl > div,.mobtable tr.sm\:max-w-6xl > div,.mobtable tr.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-sm > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-md > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-lg > div, 
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-2xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-3xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-4xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-5xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-6xl > div,
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-7xl > div {
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
@@ -6589,9 +8148,34 @@
             }
 
             @media (max-width: 640px) {
-                .mobtable tr.sm\:max-w-sm > div,.mobtable tr.sm\:max-w-md > div,.mobtable tr.sm\:max-w-lg > div,.mobtable tr.sm\:max-w-xl > div,.mobtable tr.sm\:max-w-2xl > div,.mobtable tr.sm\:max-w-3xl > div,.mobtable tr.sm\:max-w-4xl > div,.mobtable tr.sm\:max-w-5xl > div,.mobtable tr.sm\:max-w-6xl > div,.mobtable tr.sm\:max-w-7xl > div {
+                nav.mobtable tr.justify-between.flex-1.md\:hidden {
+                gap: 10px;
+                }
+
+                nav .mobtable tr.justify-between.flex-1.md\:hidden a {
+                margin-left: 0px;
+                }
+
+                nav.mobtable tr.items-center.justify-between.px-4.sm\:px-0.py-3 {
+                padding: 0.75rem 0px 0px 0px;
+                }
+
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-7xl > div {
                 display: block;
                 }
+            }
+
+            .mobtable tr {
+                padding: 10px 0px 10px 0px;
             }
 
             .fixed.inset-0.z-40.overflow-y-auto.p-4 {
@@ -6600,16 +8184,16 @@
                 display: block !important;
             }
 
-            .w-full.sm\:max-w-sm > div, 
-                .w-full.sm\:max-w-md > div, 
-                .w-full.sm\:max-w-lg > div, 
-                .w-full.sm\:max-w-xl > div,
-                .w-full.sm\:max-w-2xl > div,
-                .w-full.sm\:max-w-3xl > div,
-                .w-full.sm\:max-w-4xl > div,
-                .w-full.sm\:max-w-5xl > div,
-                .w-full.sm\:max-w-6xl > div,
-                .w-full.sm\:max-w-7xl > div {
+            .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-sm > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-md > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-lg > div, 
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-2xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-3xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-4xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-5xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-6xl > div,
+                .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-7xl > div {
                 display: block;
             }
             }
@@ -6896,6 +8480,10 @@
             visibility: visible;
             }
 
+            .group:hover .group-hover\:block{
+            display: block;
+            }
+
             .group:hover .group-hover\:w-fit{
             width: -moz-fit-content;
             width: fit-content;
@@ -6980,6 +8568,10 @@
 
             .sm\:-mr-3{
                 margin-right: -0.75rem;
+            }
+
+            .sm\:mb-3{
+                margin-bottom: 0.75rem;
             }
 
             .sm\:ml-10{
@@ -7076,6 +8668,10 @@
                 max-width: 24rem;
             }
 
+            .sm\:max-w-xl{
+                max-width: 36rem;
+            }
+
             .sm\:flex-1{
                 flex: 1 1 0%;
             }
@@ -7149,6 +8745,11 @@
                 border-radius: 0.75rem;
             }
 
+            .sm\:bg-blue-100{
+                --tw-bg-opacity: 1;
+                background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+            }
+
             .sm\:bg-gray-100{
                 --tw-bg-opacity: 1;
                 background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -7182,6 +8783,11 @@
             .sm\:px-4{
                 padding-left: 1rem;
                 padding-right: 1rem;
+            }
+
+            .sm\:px-5{
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
 
             .sm\:px-6{
@@ -7236,6 +8842,11 @@
                 line-height: 1.75rem;
             }
 
+            .sm\:text-xs{
+                font-size: 0.75rem;
+                line-height: 1rem;
+            }
+
             .sm\:text-blc1{
                 --tw-text-opacity: 1;
                 color: rgb(48 48 48 / var(--tw-text-opacity));
@@ -7256,9 +8867,24 @@
                 background-color: rgb(202 240 248 / var(--tw-bg-opacity));
             }
 
+            .sm\:hover\:bg-b4:hover{
+                --tw-bg-opacity: 1;
+                background-color: rgb(72 202 228 / var(--tw-bg-opacity));
+            }
+
             .sm\:hover\:bg-b5:hover{
                 --tw-bg-opacity: 1;
                 background-color: rgb(0 180 216 / var(--tw-bg-opacity));
+            }
+
+            .sm\:hover\:text-b4:hover{
+                --tw-text-opacity: 1;
+                color: rgb(72 202 228 / var(--tw-text-opacity));
+            }
+
+            .sm\:hover\:text-red-300:hover{
+                --tw-text-opacity: 1;
+                color: rgb(252 165 165 / var(--tw-text-opacity));
             }
 
             .group:hover .sm\:group-hover\:bg-white{
@@ -7274,6 +8900,11 @@
             .group:hover .sm\:group-hover\:text-green-500{
                 --tw-text-opacity: 1;
                 color: rgb(34 197 94 / var(--tw-text-opacity));
+            }
+
+            .group:hover .sm\:group-hover\:text-orange-500{
+                --tw-text-opacity: 1;
+                color: rgb(249 115 22 / var(--tw-text-opacity));
             }
 
             .group:hover .sm\:group-hover\:text-red-500{
@@ -7380,47 +9011,26 @@
             }
             }
         </style>
-
-        <style>
-            table {
-                width: 100%;
-            }
-
-            th {
-                text-align: left;
-                font-size: 0.75rem;
-                line-height: 1rem;
-                font-weight: bold;
-                text-transform: uppercase;
-            }
-
-            tr:nth-child(odd) {
-                background-color: rgb(219 234 254);
-            }
-
-            th, td {
-                padding: 10px;
-            }
-
-            .tbl-cntnr {
-                border: 1px solid rgb(219 234 254);
-                margin-top: 30px;
-                margin-bottom: 30px;
-                border-radius: 4px;
-            }
-        </style>
     </head>
 
     <body class="bg-blue-100 flex items-center justify-center">
         <div class="rounded-md flex flex-col items-center justify-center gap-4">
             <div class="h-fit w-full flex items-center justify-center gap-3">
                 <div class="h-fit w-full flex flex-col items-center justify-center gap-2">
-                    <div class="text-center flex gap-2 items-center justify-center">
-                        <div>
+                    <div class="text-center flex gap-2 items-center justify-center w-full">
+                        {{-- <div>
                             @if ($schLogo == "")
                                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11">
                             @else
                                 <img src="{{ asset('storage/'.$schLogo) }}" alt="school-logo" class="w-11">
+                            @endif
+                        </div> --}}
+
+                        <div>
+                            @if ($schLogo == "")
+                                <img src="{{ public_path('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11">
+                            @else
+                                <img src="{{ public_path('storage/'.$schLogo) }}" alt="school-logo" class="w-11">
                             @endif
                         </div>
     
@@ -7431,7 +9041,7 @@
                         </div>
                     </div>
                     
-                    <div class="text-xs text-center">
+                    <div class="text-xs text-center mt-2">
                         <p>
                             {{ $schAddress }}
                         </p>
@@ -7464,7 +9074,7 @@
             <div class="overflow-hidden w-fit tbl-cntnr">
                 <table>
                     <tr>
-                        {{-- <th>Professor's Name</th> --}}
+              
                         <th>Subject Code</th>
                         <th>Day</th>
                         <th>Course</th>
@@ -7477,7 +9087,7 @@
                 
                     @foreach ($coorProfSchedules as $newCoorProfSchedules)
                     <tr>
-                        {{-- <td>{{ $newProfSchedules->profName }}</td> --}}
+                  
                         <td>{{ $newCoorProfSchedules->subCode }}</td>
                         <td>{{ $newCoorProfSchedules->schedDay }}</td>
                         <td>{{ $newCoorProfSchedules->studCourse }}</td>

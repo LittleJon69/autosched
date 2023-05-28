@@ -34,7 +34,7 @@
                             </div>
         
                             <div class="relative h-full w-full mt-3">
-                                <div onclick="togglepass()" class="group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
+                                <div onclick="togglepass()" class="z-[11] group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
                                     <span class="cursor-pointer text-base">
                                         <i id="eyes" class="fa-solid fa-eye text-gray-400 group-hover:text-gray-500"></i>
                                     </span>

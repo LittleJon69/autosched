@@ -18,7 +18,7 @@
     </x-slot>    
 
     <div class="sm:p-20 sm:max-w-xl w-full sm:h-fit h-full flex flex-wrap">
-        <x-splade-modal class="rounded-xl p-0 modal" max-width="md">
+        <x-splade-modal class="rounded-xl p-0 modal blue-btn-x" max-width="md">
             <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full">
                 <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
                     <Link class="flex items-center justify-center gap-3" href="{{ route('school.index') }}">

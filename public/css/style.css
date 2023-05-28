@@ -775,6 +775,10 @@ select{
   bottom: 0px;
 }
 
+.-bottom-0{
+  bottom: -0px;
+}
+
 .-bottom-4{
   bottom: -1rem;
 }
@@ -809,6 +813,10 @@ select{
 
 .bottom-1{
   bottom: 0.25rem;
+}
+
+.bottom-10{
+  bottom: 2.5rem;
 }
 
 .bottom-8{
@@ -873,6 +881,10 @@ select{
 
 .z-40{
   z-index: 40;
+}
+
+.z-\[11\]{
+  z-index: 11;
 }
 
 .order-1{
@@ -1020,6 +1032,10 @@ select{
   margin-bottom: 1.25rem;
 }
 
+.mb-6{
+  margin-bottom: 1.5rem;
+}
+
 .mb-8{
   margin-bottom: 2rem;
 }
@@ -1046,6 +1062,10 @@ select{
 
 .ml-4{
   margin-left: 1rem;
+}
+
+.ml-5{
+  margin-left: 1.25rem;
 }
 
 .ml-6{
@@ -1319,6 +1339,10 @@ select{
 
 .w-80{
   width: 20rem;
+}
+
+.w-9{
+  width: 2.25rem;
 }
 
 .w-96{
@@ -1679,6 +1703,10 @@ select{
   white-space: nowrap;
 }
 
+.whitespace-pre{
+  white-space: pre;
+}
+
 .break-words{
   overflow-wrap: break-word;
 }
@@ -1884,6 +1912,11 @@ select{
   border-color: transparent;
 }
 
+.border-white{
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .border-yellow-400{
   --tw-border-opacity: 1;
   border-color: rgb(250 204 21 / var(--tw-border-opacity));
@@ -2058,6 +2091,10 @@ select{
 
 .bg-opacity-70{
   --tw-bg-opacity: 0.7;
+}
+
+.bg-opacity-90{
+  --tw-bg-opacity: 0.9;
 }
 
 .fill-current{
@@ -2291,6 +2328,10 @@ select{
 
 .text-center{
   text-align: center;
+}
+
+.text-right{
+  text-align: right;
 }
 
 .text-justify{
@@ -2792,9 +2833,35 @@ font-family: 'Varela Round', sans-serif; */
   height: 595px;
 }
 
+.flatpickr-time input {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.flatpickr-time .numInputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.flatpickr-calendar {
+  width: 100% !important;
+}
+
+.flatpickr-calendar.hasTime .flatpickr-time {
+  border-top: 0 !important;
+  width: 100%;
+}
+
+nav.flex.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
 p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center{
   font-size: 0.75rem !important;
   line-height: 1rem !important;
+  text-transform: uppercase;
 }
 
 .transitions{
@@ -2809,9 +2876,43 @@ p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center{
   background-color: white;
 }
 
-.shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+.mobtable > div:nth-last-child(2) {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  justify-content: center;
+}
+
+.mobtable > div:nth-last-child(1) {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  justify-content: center;
+}
+
+.mobtable .shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
   border-radius: 0.375rem;
-  overflow: hidden;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.mobtable .py-2.align-middle.inline-block.min-w-full.sm\:px-px {
+  height: 100%;
+  width: 100%;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0 !important;
+}
+
+.mobtable .-my-2.overflow-x-auto {
+  height: 100%;
+  width: 100%;
+}
+
+.mobtable {
+  display: flex;
+  flex-direction: column;
 }
 
 .input p{
@@ -3106,6 +3207,14 @@ html, body {
   padding: 0px !important;
 }
 
+nav.modal.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
+nav.flex.modal.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
 .input .modal{
   flex-wrap: wrap;
   border-width: 0px;
@@ -3158,6 +3267,22 @@ html, body {
 }
 
 @media (max-width: 640px) {
+  nav.modal.justify-between.flex-1.md\:hidden {
+    gap: 10px !important;
+  }
+
+  nav .modal.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px !important;
+  }
+
+  nav.modal.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
+
+  nav.flex.modal.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .modal.sm\:max-w-lg > div, 
@@ -3222,6 +3347,10 @@ html, body {
   gap: 0.75rem;
 }
 
+nav.relative.sticky-nav.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .relative.sticky-nav.rounded-lg div:nth-child(2){
   flex-wrap: wrap;
   border-width: 0px;
@@ -3236,6 +3365,20 @@ html, body {
 
 .flex.items-end.sm\:items-center.relative.sticky-nav.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.relative.sticky-nav.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.sticky-nav.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.sticky-nav.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 @media (min-width: 640px){
@@ -3273,6 +3416,14 @@ html, body {
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
+}
+
+nav.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button{
@@ -3327,6 +3478,22 @@ html, body {
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-nav.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
@@ -3598,6 +3765,10 @@ html, body {
   gap: 0.75rem;
 }
 
+nav.relative.sticky-navback.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .relative.sticky-navback.rounded-lg div:nth-child(2){
   flex-wrap: wrap;
   border-width: 0px;
@@ -3612,6 +3783,20 @@ html, body {
 
 .flex.items-end.sm\:items-center.relative.sticky-navback.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.relative.sticky-navback.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.sticky-navback.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.sticky-navback.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 @media (min-width: 640px){
@@ -3649,6 +3834,14 @@ html, body {
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
+}
+
+nav.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button{
@@ -3703,6 +3896,22 @@ html, body {
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.sticky-navback.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
@@ -4073,6 +4282,10 @@ html, body {
   padding: 0px;
 }
 
+nav.sch-logo .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .sch-logo .filepond--drop-label{
   flex-wrap: wrap;
   border-width: 0px;
@@ -4085,6 +4298,10 @@ html, body {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
+}
+
+nav.relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2){
@@ -4103,6 +4320,20 @@ html, body {
   align-items: center;
 }
 
+@media (max-width: 640px) {
+  nav.relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+}
+
 @media (min-width: 640px){
   .relative.bg-white.sch-logo .filepond--drop-label div:nth-child(2){
     gap: 0.5rem;
@@ -4119,6 +4350,20 @@ html, body {
 
 .flex.items-end.sm\:items-center.sch-logo .filepond--drop-label.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.sch-logo .filepond--drop-label.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .sch-logo .filepond--drop-label.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.sch-logo .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 .sch-logo .filepond--drop-label {
@@ -4289,6 +4534,14 @@ html, body {
   border-radius: 0.5rem;
 }
 
+nav.import .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.import .filepond--drop-label.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .import .filepond--drop-label{
   flex-wrap: wrap;
   border-width: 0px;
@@ -4301,6 +4554,10 @@ html, body {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
+}
+
+nav.relative.bg-white.import .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .relative.bg-white.import .filepond--drop-label div:nth-child(2){
@@ -4319,6 +4576,20 @@ html, body {
   align-items: center;
 }
 
+@media (max-width: 640px) {
+  nav.relative.bg-white.import .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.bg-white.import .filepond--drop-label div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.bg-white.import .filepond--drop-label div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+}
+
 @media (min-width: 640px){
   .relative.bg-white.import .filepond--drop-label div:nth-child(2){
     gap: 0.5rem;
@@ -4331,6 +4602,24 @@ html, body {
 
 .flex.items-end.sm\:items-center.import .filepond--drop-label.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.import .filepond--drop-label.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .import .filepond--drop-label.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.import .filepond--drop-label.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.import .filepond--drop-label.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 .import label, .sch-logo label{
@@ -4382,9 +4671,18 @@ input, select{
   outline-offset: 2px !important;
 }
 
-input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, select.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+.mobtable input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden,.mobtable  select.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
   border-radius: 0.375rem !important;
-  overflow: hidden !important;
+  overflow: auto !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: white !important;
+}
+
+@media (max-width: 640px) {
+  .mobtable input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden,.mobtable  select.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+    border: 0 !important;
+  }
 }
 
 .blue-inpt input:focus, .blue-inpt select:focus{
@@ -4543,9 +4841,24 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+nav.flex.items-center.justify-between.squared-btn.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn.sm\:px-0.-mr-2.sm\:-mr-3 {
   padding-left: 0;
   padding-right: 0;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn.sm\:px-0.-mr-2.sm\:-mr-3 {
+    margin-bottom: 0px;
+  }
+
+  nav.flex.items-center.justify-between.squared-btn.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 .squared-btn-i button{
@@ -4561,9 +4874,24 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+nav.flex.items-center.justify-between.squared-btn-i button.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn-i button.sm\:px-0.-mr-2.sm\:-mr-3 {
   padding-left: 0;
   padding-right: 0;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .mobtable .flex-row.sm\:justify-end.mb-3.squared-btn-i button.sm\:px-0.-mr-2.sm\:-mr-3 {
+    margin-bottom: 0px;
+  }
+
+  nav.flex.items-center.justify-between.squared-btn-i button.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 .rounded-btn{
@@ -4689,6 +5017,10 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+nav.flex.close-btn.justify-between.px-4.sm\:px-0.py-3,nav.flex .menu-close-btn.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .flex.items-end.sm\:items-center.close-btn.min-h-full.p-4.text-center.sm\:p-0,.flex.items-end.sm\:items-center .menu-close-btn.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
 }
@@ -4709,6 +5041,14 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
+}
+
+nav.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3,nav.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3,nav.flex.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button,.input .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button{
@@ -4781,6 +5121,22 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden,nav.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a,nav .mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3,nav.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3,nav.flex.mt-5.sm\:mt-4.modal  .menu-close-btn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .close-btn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
@@ -5029,6 +5385,12 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   color: rgb(249 115 22 / var(--tw-text-opacity));
 }
 
+@media (max-width: 640px) {
+  nav.flex.close-btn.justify-between.px-4.sm\:px-0.py-3,nav.flex .menu-close-btn.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+}
+
 .close-btn{
   display: none !important;
 }
@@ -5042,6 +5404,14 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
+}
+
+nav.mt-5.sm\:mt-4.close-btn-show button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.close-btn-show button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .mt-5.sm\:mt-4.close-btn-show button{
@@ -5096,6 +5466,22 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.close-btn-show button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.close-btn-show button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.close-btn-show button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.close-btn-show button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.close-btn-show button.sm\:max-w-lg > div, 
@@ -5206,6 +5592,10 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   display: flex !important;
 }
 
+nav.open-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
 .input .open-sb{
   flex-wrap: wrap;
   border-width: 0px;
@@ -5218,8 +5608,26 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   align-items: center !important;
 }
 
+@media (max-width: 640px) {
+  nav.open-sb.justify-between.flex-1.md\:hidden {
+    gap: 10px !important;
+  }
+
+  nav .open-sb.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px !important;
+  }
+
+  nav.open-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
+}
+
 .close-sb{
   display: flex !important;
+}
+
+nav.close-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
 }
 
 .input .close-sb{
@@ -5232,6 +5640,20 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
 
 .close-sb.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center !important;
+}
+
+@media (max-width: 640px) {
+  nav.close-sb.justify-between.flex-1.md\:hidden {
+    gap: 10px !important;
+  }
+
+  nav .close-sb.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px !important;
+  }
+
+  nav.close-sb.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
 }
 
 .sidebar{
@@ -5358,6 +5780,10 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
   gap: 0.75rem;
 }
 
+nav.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .relative.schedopen .sched-drop.rounded-lg div:nth-child(2){
   flex-wrap: wrap;
   border-width: 0px;
@@ -5372,6 +5798,20 @@ input.shadow-sm.relative.border-gray-200.sm\:rounded-md.sm\:overflow-hidden, sel
 
 .flex.items-end.sm\:items-center.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.schedopen .sched-drop.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.schedopen .sched-drop.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 @media (min-width: 640px){
@@ -5458,6 +5898,10 @@ select:-webkit-autofill:focus {
   gap: 0.75rem;
 }
 
+nav.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2){
   flex-wrap: wrap;
   border-width: 0px;
@@ -5472,6 +5916,20 @@ select:-webkit-autofill:focus {
 
 .flex.items-end.sm\:items-center.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative*.rounded-lg::-webkit-scrollbar-track div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 @media (min-width: 640px){
@@ -5563,6 +6021,14 @@ input::-webkit-inner-spin-button {
   text-transform: uppercase;
 }
 
+nav.mt-5.sm\:mt-4.sm\:flex button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.sm\:flex button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .mt-5.sm\:mt-4.sm\:flex button{
   flex-wrap: wrap;
   border-width: 0px;
@@ -5615,6 +6081,22 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.sm\:flex button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.sm\:flex button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.sm\:flex button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.sm\:flex button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.sm\:flex button.sm\:max-w-lg > div, 
@@ -5728,6 +6210,10 @@ input::-webkit-inner-spin-button {
   gap: 0.75rem;
 }
 
+nav.relative.bg-white.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .relative.bg-white.rounded-lg div:nth-child(2){
   flex-wrap: wrap;
   border-width: 0px;
@@ -5742,6 +6228,20 @@ input::-webkit-inner-spin-button {
 
 .flex.items-end.sm\:items-center.relative.bg-white.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.relative.bg-white.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.bg-white.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.bg-white.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 @media (min-width: 640px){
@@ -5848,6 +6348,14 @@ input::-webkit-inner-spin-button {
   opacity: 1 !important;
 }
 
+nav.choices__input.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
+nav.flex.choices__input.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
 .input .choices__input{
   flex-wrap: wrap;
   border-width: 0px;
@@ -5858,6 +6366,24 @@ input::-webkit-inner-spin-button {
 
 .choices__input.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center !important;
+}
+
+@media (max-width: 640px) {
+  nav.choices__input.justify-between.flex-1.md\:hidden {
+    gap: 10px !important;
+  }
+
+  nav .choices__input.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px !important;
+  }
+
+  nav.choices__input.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
+
+  nav.flex.choices__input.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
 }
 
 .choices .choices__list--multiple .choices__item{
@@ -5880,6 +6406,14 @@ input::-webkit-inner-spin-button {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
 }
 
+nav.choices .choices__list--multiple .choices__item.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
+nav.flex.choices .choices__list--multiple .choices__item.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
 .input .choices .choices__list--multiple .choices__item{
   flex-wrap: wrap;
   border-width: 0px;
@@ -5890,6 +6424,24 @@ input::-webkit-inner-spin-button {
 
 .choices .choices__list--multiple .choices__item.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center !important;
+}
+
+@media (max-width: 640px) {
+  nav.choices .choices__list--multiple .choices__item.justify-between.flex-1.md\:hidden {
+    gap: 10px !important;
+  }
+
+  nav .choices .choices__list--multiple .choices__item.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px !important;
+  }
+
+  nav.choices .choices__list--multiple .choices__item.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
+
+  nav.flex.choices .choices__list--multiple .choices__item.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
 }
 
 .choices .choices__list--multiple .choices__item:hover{
@@ -5903,6 +6455,10 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
+}
+
+nav.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2){
@@ -5919,6 +6475,20 @@ input::-webkit-inner-spin-button {
 
 .flex.items-end.sm\:items-center.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.choices .choices__list--multiple .choices__item:hover.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 @media (min-width: 640px){
@@ -5948,6 +6518,10 @@ input::-webkit-inner-spin-button {
   gap: 0.25rem !important;
 }
 
+nav.choices .choices__list--multiple.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px !important;
+}
+
 .input .choices .choices__list--multiple{
   flex-wrap: wrap;
   border-width: 0px;
@@ -5958,6 +6532,20 @@ input::-webkit-inner-spin-button {
 
 .choices .choices__list--multiple.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center !important;
+}
+
+@media (max-width: 640px) {
+  nav.choices .choices__list--multiple.justify-between.flex-1.md\:hidden {
+    gap: 10px !important;
+  }
+
+  nav .choices .choices__list--multiple.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px !important;
+  }
+
+  nav.choices .choices__list--multiple.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
+  }
 }
 
 .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item{
@@ -6052,6 +6640,18 @@ td{
   justify-content: space-between;
 }
 
+nav.mobtable td .td.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.items-center.mobtable td .td.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mobtable td .td.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .mobtable td .td{
   flex-wrap: wrap;
   border-width: 0px;
@@ -6064,6 +6664,36 @@ td{
   align-items: center;
 }
 
+@media (max-width: 640px) {
+  nav.mobtable td .td.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav.flex.mobtable td .td.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mobtable td .td.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav .flex.mobtable td .td.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mobtable td .td.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.items-center.mobtable td .td.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mobtable td .td.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+}
+
 @media (min-width: 640px){
   .mobtable td .td{
     display: table-cell;
@@ -6073,6 +6703,7 @@ td{
 .mobtable .flex-row.sm\:justify-end.mb-3.px-4.sm\:px-0.-mr-2.sm\:-mr-3 {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .mobtable .shadow.relative.sm\:rounded-md.sm\:overflow-hidden {
@@ -6096,6 +6727,14 @@ td{
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
+}
+
+nav.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button{
@@ -6150,6 +6789,22 @@ td{
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
@@ -6426,9 +7081,12 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.shadow-sm.relative.drop-down .optn.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+.mobtable .shadow-sm.relative.drop-down .optn.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
   border-radius: 0.375rem;
-  overflow: hidden;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  background-color: white;
 }
 
 .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-sm, 
@@ -6472,6 +7130,10 @@ select {
   gap: 0.75rem;
 }
 
+nav.relative.drop-down .optn.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .relative.drop-down .optn.rounded-lg div:nth-child(2){
   flex-wrap: wrap;
   border-width: 0px;
@@ -6486,6 +7148,20 @@ select {
 
 .flex.items-end.sm\:items-center.relative.drop-down .optn.rounded-lg div:nth-child(2).min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.relative.drop-down .optn.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .relative.drop-down .optn.rounded-lg div:nth-child(2).justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.relative.drop-down .optn.rounded-lg div:nth-child(2).items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 @media (min-width: 640px){
@@ -6523,6 +7199,14 @@ select {
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
+}
+
+nav.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
 }
 
 .input .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button{
@@ -6577,6 +7261,22 @@ select {
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .drop-down .optn.top-0.right-0.pt-3.pr-3 button.sm\:max-w-lg > div, 
@@ -6676,6 +7376,14 @@ select {
   text-transform: uppercase;
 }
 
+nav.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
 .input .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button{
   flex-wrap: wrap;
   border-width: 0px;
@@ -6728,6 +7436,22 @@ select {
 }
 
 @media (max-width: 640px) {
+  nav.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mt-5.sm\:mt-4.modal .absolute.top-0.drop-down .optn.pt-3.pr-3 button.sm\:max-w-lg > div, 
@@ -7126,6 +7850,10 @@ select {
 }
 
 @media (max-width: 640px) {
+  .mobtable .shadow-sm.relative.drop-down .optn.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+    border: 0;
+  }
+
   .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .drop-down .optn.sm\:max-w-lg > div, 
@@ -7161,6 +7889,21 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+nav.drop-down li.items-center.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+nav.flex.drop-down li.justify-between.px-4.sm\:px-0.py-3 {
+  padding: 0.75rem 0px 0px 0px;
+}
+
+.mobtable .drop-down li.align-middle.inline-block.min-w-full.sm\:px-px {
+  height: 100%;
+  width: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0;
+}
+
 .input .drop-down li{
   flex-wrap: wrap;
   border-width: 0px;
@@ -7171,6 +7914,24 @@ select {
 
 .drop-down li.items-end.sm\:items-center.justify-center.min-h-full.p-4.text-center.sm\:p-0 {
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  nav.drop-down li.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .drop-down li.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px;
+  }
+
+  nav.drop-down li.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
+
+  nav.flex.drop-down li.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
+  }
 }
 
 .drop-down li:hover{
@@ -7205,10 +7966,65 @@ select {
     width: fit-content;
     margin-right: 10px;
     text-transform: uppercase;
+    text-align: left;
+  }
+
+  .mobtable tbody {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mobtable td .td {
+    white-space: pre-wrap;
+    width: 100%;
+    text-align: right;
+  }
+
+  .mobtable tbody tr {
+    border-radius: 10px;
+    border: solid 1px rgb(229 231 235 / var(--tw-border-opacity)) !important;
+    --tw-border-opacity: 1;
+  }
+
+  .mobtable thead tr {
+    margin: 0;
+    padding: 0;
+  }
+
+  .divide-y > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+  }
+
+  .mobtable .shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
+    border: 0 !important;
+  }
+
+  .mobtable .flex-row.sm\:justify-end.mb-3.px-4.sm\:px-0.-mr-2.sm\:-mr-3 {
+    margin-bottom: 0px !important;
+  }
+
+  nav.flex.justify-between.flex-1.md\:hidden {
+    gap: 10px;
+  }
+
+  nav .flex.justify-between.flex-1.md\:hidden a {
+    margin-left: 0px !important;
+  }
+
+  nav.flex.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px !important;
   }
 
   .mobtable table{
     display: flex;
+  }
+
+  nav.mobtable table.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
   }
 
   .input .mobtable table{
@@ -7223,10 +8039,28 @@ select {
     align-items: center;
   }
 
+  @media (max-width: 640px) {
+    nav.mobtable table.justify-between.flex-1.md\:hidden {
+      gap: 10px;
+    }
+
+    nav .mobtable table.justify-between.flex-1.md\:hidden a {
+      margin-left: 0px;
+    }
+
+    nav.mobtable table.items-center.justify-between.px-4.sm\:px-0.py-3 {
+      padding: 0.75rem 0px 0px 0px;
+    }
+  }
+
   .mobtable tr{
     display: flex;
     width: 100%;
     flex-direction: column;
+  }
+
+  nav.mobtable tr.items-center.justify-between.px-4.sm\:px-0.py-3 {
+    padding: 0.75rem 0px 0px 0px;
   }
 
   .input .mobtable tr{
@@ -7277,6 +8111,18 @@ select {
   }
 
   @media (max-width: 640px) {
+    nav.mobtable tr.justify-between.flex-1.md\:hidden {
+      gap: 10px;
+    }
+
+    nav .mobtable tr.justify-between.flex-1.md\:hidden a {
+      margin-left: 0px;
+    }
+
+    nav.mobtable tr.items-center.justify-between.px-4.sm\:px-0.py-3 {
+      padding: 0.75rem 0px 0px 0px;
+    }
+
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-sm > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-md > div, 
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-lg > div, 
@@ -7289,6 +8135,10 @@ select {
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .mobtable tr.sm\:max-w-7xl > div {
       display: block;
     }
+  }
+
+  .mobtable tr {
+    padding: 10px 0px 10px 0px;
   }
 
   .fixed.inset-0.z-40.overflow-y-auto.p-4 {
@@ -7683,6 +8533,10 @@ select {
     margin-right: -0.75rem;
   }
 
+  .sm\:mb-3{
+    margin-bottom: 0.75rem;
+  }
+
   .sm\:ml-10{
     margin-left: 2.5rem;
   }
@@ -7974,6 +8828,11 @@ select {
   .sm\:hover\:bg-b1:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(202 240 248 / var(--tw-bg-opacity));
+  }
+
+  .sm\:hover\:bg-b4:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgb(72 202 228 / var(--tw-bg-opacity));
   }
 
   .sm\:hover\:bg-b5:hover{

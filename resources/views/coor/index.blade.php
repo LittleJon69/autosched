@@ -7,9 +7,9 @@
 
     <!-- Content -->
     <div class="w-full h-full flex flex-col overflow-auto">
-        <div class="title-btn flex w-full justify-between items-center border-b border-b-gray-300 overflow-x-auto overflow-y-hidden">
-            <div class="sm:flex hidden">
-                <div class="z-10 h-full w-fit rounded-br-3xl bg-b7 sm:flex hidden justify-center items-center shadow-md p-5">
+        <div class="title-btn flex w-full justify-between items-center border-b-gray-300 overflow-x-auto overflow-y-hidden">
+            <div class="sm:flex hidden h-full">
+                <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">SUBJECTS</p> 
                 </div>                
             </div>
@@ -17,8 +17,8 @@
 
         <div class="overflow-auto h-full w-full flex justify-center p-3">
             <div class="h-full w-full flex justify-center xl:w-tabw">
-                <div class="w-full">
-                    <x-splade-table class="w-full mobtable" :for="$subjects" striped>
+                <div class="w-full h-full">
+                    <x-splade-table class="w-full h-full mobtable" :for="$subjects" striped>
                         @cell('subTitle', $subject)
                             <div class="td" data-title="Subject Description">
                                 {{ $subject->subTitle }}

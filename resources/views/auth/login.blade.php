@@ -16,8 +16,8 @@
                 <div class="">    
                     <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
                         <Link class="flex items-center justify-center gap-3" href="/">
-                            <i class="text-sm fa-solid fa-arrow-left"></i>
-                            <p class="text-xs text-center">Back</p>
+                            <i class="text-sm fa-solid fa-house"></i>
+                            <p class="text-xs text-center">Home</p>
                         </Link>
                     </div>
                     
@@ -37,7 +37,7 @@
                     <x-splade-form action="{{ route('login') }}">
                         <div class="m-7">
                             <div class="w-full">
-                                <x-splade-input class="input blue-inpt" id="email" type="email" name="email" :label="__('Email')" />
+                                <x-splade-input class="input blue-inpt" id="email" type="text" name="email" :label="__('Email')" />
                             </div>
         
                             <div class="relative h-full w-full mt-3">

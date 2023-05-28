@@ -6,10 +6,10 @@
     </x-slot>  
 
     <!-- Content -->
-    <div class="w-full h-full flex flex-col">
-        <div class="title-btn flex w-full justify-between items-center overflow-x-auto overflow-y-hidden">
-            <div class="sm:flex hidden">
-                <div class="z-10 w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
+    <div class="w-full h-full flex flex-col overflow-auto">
+        <div class="title-btn flex w-full justify-between items-center border-b-gray-300 overflow-x-auto overflow-y-hidden">
+            <div class="sm:flex hidden h-full">
+                <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">DASHBOARD</p> 
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
             <div class="w-full h-fit flex justify-center xl:w-tabw">
                 <div class="w-full flex flex-wrap justify-center gap-5 m-5">
-                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">
+                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit cursor-pointer">
                         <div class="flex items-center justify-between p-4">
                             <div>
                                 <p class="text-b6 text-xs1">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">
+                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit cursor-pointer">
                         <div class="flex items-center justify-between p-4">
                             <div>
                                 <p class="text-green-500 text-xs1">
@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">
+                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit cursor-pointer">
                         <div class="flex items-center justify-between p-4">
                             <div>
                                 <p class="text-red-500 text-xs1">
@@ -77,7 +77,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">
+                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit cursor-pointer">
                         <div class="flex items-center justify-between p-4">
                             <div>
                                 <p class="text-yellow-500 text-xs1">
@@ -96,7 +96,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit">
+                    <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit cursor-pointer">
                         <div class="flex items-center justify-between p-4">
                             <div>
                                 <p class="text-purple-500 text-xs1">

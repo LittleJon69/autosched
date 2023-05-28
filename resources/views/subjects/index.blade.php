@@ -7,7 +7,7 @@
 
     <!-- Content -->
     <div class="w-full h-full flex flex-col overflow-auto">
-        <div class="title-btn flex w-full justify-between items-center border-b border-b-gray-300 overflow-x-auto overflow-y-hidden">
+        <div class="title-btn flex w-full justify-between items-center border-b border-b-b6 overflow-x-auto overflow-y-hidden">
             <div class="sm:flex hidden h-full">
                 <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">SUBJECTS</p> 
@@ -32,7 +32,7 @@
                             <i class="fa-solid fa-download sm:group-hover:text-green-500 text-white text-xs"></i>
                         </div>
     
-                        IMPORT
+                        IMPORT SUBJECTS
                     </Link>
                 </div>
             </div>
@@ -55,16 +55,16 @@
                             <i class="fa-solid fa-download sm:group-hover:text-green-500 text-white text-xs"></i>
                         </div>
     
-                        IMPORT
+                        IMPORT SUBJECTS
                     </Link>
                 </div>
             </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex justify-center p-3">
-            <div class="h-full w-full flex justify-center xl:w-tabw">
-                <div class="w-full">
-                    <x-splade-table class="w-full mobtable" :for="$subjects" striped>
+        <div class="h-full w-full flex justify-center p-3 overflow-auto">
+            <div class="w-full h-full flex justify-center xl:w-tabw">
+                <div class="w-full h-full">
+                    <x-splade-table class="w-full h-full mobtable" :for="$subjects" striped>
                         @cell('subTitle', $subject)
                             <div class="td" data-title="Subject Description">
                                 {{ $subject->subTitle }}
@@ -96,14 +96,14 @@
                         @endcell
 
                         @cell('action', $subject)
-                        <div class="td" data-title="Action">
+                        <div class="td" data-title="Actions">
                             <div class="flex gap-2">
                                 <Link confirm="EDIT SUBJECT" confirm-text="Are You Sure?" onclick="start()" href="{{ route('subjects.edit', $subject->id) }}" class="flex sm:hidden group squared-btn green-btn border">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
-                                            <p class="text-green-500 text-xs">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                                            <p class="text-green-500 text-xs0 whitespace-pre">
                                                 EDIT SUBJECT
                                             </p>
                                         </div>
@@ -114,8 +114,8 @@
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
-                                            <p class="text-green-500 text-xs">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                                            <p class="text-green-500 text-xs0 whitespace-pre">
                                                 EDIT SUBJECT
                                             </p>
                                         </div>
@@ -126,8 +126,8 @@
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-trash text-white sm:group-hover:text-red-500"></i>
     
-                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
-                                            <p class="text-red-500 text-xs">
+                                        <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                                            <p class="text-red-500 text-xs0 whitespace-pre">
                                                 DELETE SUBJECT
                                             </p>
                                         </div>

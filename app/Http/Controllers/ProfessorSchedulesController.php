@@ -65,7 +65,7 @@ class ProfessorSchedulesController extends Controller
         ->column('classroom', label: 'Room', sortable: true, canBeHidden: false)
         ->column('action', label: 'action')
         ->selectFilter('profId', $profList)
-        ->paginate(5),]);
+        ->paginate(15),]);
 
     }
 
