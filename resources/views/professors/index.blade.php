@@ -37,8 +37,8 @@
             </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex justify-center p-3">
-            <div class="h-full w-full flex justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex justify-center p-3 items-center">
+            <div class="h-full w-full flex justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table class="w-full h-full mobtable" :for="$professors" striped>
                         @cell('profFName', $professor)

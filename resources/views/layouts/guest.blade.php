@@ -1,9 +1,9 @@
-<div class="flex flex-wrap justify-between h-full w-full">
-    <div class="w-full min-h-full relative sm:bg-blue-100 flex flex-wrap">
+<div class="flex flex-wrap h-full w-full">
+    <div class="w-full min-h-full justify-between relative sm:bg-blue-100 flex flex-wrap">
         {{ $navbar }}
     
-        <div class="w-full flex justify-center flex-wrap">
-            <div class="flex justify-center items-center w-full h-full">
+        <div class="w-full h-full flex justify-center flex-wrap">
+            <div class="flex justify-center sm:items-center w-full h-full flex-wrap">
                 {{ $slot }}
             </div>
         </div>

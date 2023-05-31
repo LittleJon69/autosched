@@ -1,15 +1,15 @@
 <x-coor-guest-layout>
     <div class="bg-white sm:rounded-xl relative sm:shadow-md lg:w-tabw w-full">
         <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
-            <Link class="flex items-center justify-center gap-3" href="{{ route('coor.login') }}">
-                <i class="text-sm fa-solid fa-arrow-left"></i>
-                <p class="text-xs text-center">Back</p>
+            <Link class="text-xs0 flex items-center justify-center gap-2" href="{{ route('coor.login') }}">
+                <i class=" fa-solid fa-arrow-left"></i>
+                <p class="text-center">BACK</p>
             </Link>
         </div>
 
         <div class="sm:hidden">
             <div class="flex items-center justify-center p-5 pt-0">
-                <Link class="flex items-center justify-center flex-wrap" href="/">
+                <Link class="text-xs0 flex items-center justify-center flex-wrap" href="/">
                     <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 mr-2">
                     <p class="text-lg text-center">AUTO - SCHED</p>
                 </Link>
@@ -28,12 +28,12 @@
 
         <x-splade-form action="{{ route('coor.register') }}" class="space-y-4">
             <div class="m-7 mt-2">
-                <p class="mt-4 mb-8 text-xs0 flex items-center justify-center sm:justify-start">Note: " <i class="fa-solid fa-circle text-xs3 text-red-500"></i> " Means that the Field is Required.</p>
+                <p class="mt-4 mb-8 text-xs0 flex items-center justify-center sm:justify-start">Note: Red Dot " <i class="fa-solid fa-circle text-xs3 text-red-500"></i> " Means that the Field is Required.</p>
 
                 <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
-                    <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">PERSONAL DETAILS</p>
+                    <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">PERSONAL DETAILS</p>
 
-                    <div class="lg:grid grid-cols-3 flex flex-wrap gap-3 items-center">
+                    <div class="md:grid grid-cols-3 flex flex-wrap gap-3 items-center">
                         <div class="relative h-full w-full">
                             <x-splade-input class="input blue-inpt" id="coorFName" type="text" name="profFName" :label="__('First Name')" :show-errors="false" required />
                             <p class="message"></p>
@@ -49,9 +49,9 @@
                 </div>
 
                 <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
-                    <p class="text-md bg-white absolute -top-3 left-3 px-1">CONTACT DETAILS</p>
+                    <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">CONTACT DETAILS</p>
 
-                    <div class="lg:grid grid-cols-2 flex flex-wrap gap-3 items-center">
+                    <div class="md:grid grid-cols-2 flex flex-wrap gap-3 items-center">
                         <div class="relative h-full w-full">
                             <x-splade-input class="input blue-inpt" id="contactNumber" type="text" name="contactNumber" :label="__('Contact Number')" required />
                             <p class="message"></p>
@@ -67,9 +67,9 @@
                 </div>
 
                 <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
-                    <p class="text-md bg-white absolute -top-3 left-3 px-1">SECURITY DETAILS</p>
+                    <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">SECURITY DETAILS</p>
 
-                    <div class="lg:grid grid-cols-2 flex flex-wrap gap-3 items-center">
+                    <div class="md:grid grid-cols-2 flex flex-wrap gap-3 items-center">
                         <div class="relative h-full w-full">
                             <div onclick="togglepass()" class="group cursor-pointer bg-white w-11 flex items-center justify-center mt-5 p-2 absolute right-0 border-gray-300 border-solid border rounded-md rounded-tl-none rounded-bl-none">
                                 <span class="cursor-pointer text-base">

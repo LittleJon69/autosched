@@ -3,9 +3,9 @@
         <nav class="w-full hidden sm:flex justify-between items-center p-3 transition-all ease-in-out nav absolute top-0">
             <div class="flex items-center">
                 <div class="pr-3 border-r border-gray-300">
-                    <Link class="flex items-center justify-center gap-3 blue-btn squared-btn border-2" href="{{ route('prof.dashboard') }}">
-                        <i class="text-sm fa-solid fa-border-all"></i>
-                        <p class="text-xs text-center">DASHBOARD</p>
+                    <Link class="text-xs0 flex items-center justify-center gap-3 blue-btn squared-btn border-2" href="{{ route('prof.dashboard') }}">
+                        <i class=" fa-solid fa-border-all"></i>
+                        <p class="text-center">DASHBOARD</p>
                     </Link>
                 </div>
     
@@ -18,11 +18,11 @@
     </x-slot>
 
     <div class="sm:p-20 sm:max-w-xl w-full sm:h-fit h-full flex flex-wrap">
-        <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full">
+        <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full flex flex-col">
             <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
-                <Link class="flex items-center justify-center gap-3" href="{{ route('prof.dashboard') }}">
-                    <i class="text-sm fa-solid fa-border-all"></i>
-                    <p class="text-xs text-center">Dashboard</p>
+                <Link class="text-xs0 flex items-center justify-center gap-2" href="{{ route('prof.dashboard') }}">
+                    <i class=" fa-solid fa-border-all"></i>
+                    <p class="text-center">DASHBOARD</p>
                 </Link>
             </div>
     
@@ -40,12 +40,12 @@
     
             {{-- <x-splade-form method="POST" :default="$user" action="profileUpdateadmin" class="space-y-4">
                 <div class="m-7 mt-2">
-                    <p class="mt-4 mb-8 text-xs0 flex items-center justify-center sm:justify-start">Note: " <i class="fa-solid fa-circle text-xs3 text-red-500"></i> " Means that the Field is Required.</p>
+                    <p class="mt-4 mb-8 text-xs0 flex items-center justify-center sm:justify-start">Note: Red Dot " <i class="fa-solid fa-circle text-xs3 text-red-500"></i> " Means that the Field is Required.</p>
     
                     <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                         <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">PERSONAL DETAILS</p>
     
-                        <div class="lg:grid grid-cols-3 flex flex-wrap gap-3 items-center">
+                        <div class="md:grid grid-cols-3 flex flex-wrap gap-3 items-center">
                             <div class="relative h-full w-full">
                                 <x-splade-input onkeyup="validate(0, 'input', 'true', 2, 40)" class="input blue-inpt" id="adminFName" type="text" name="adminFName" :label="__('First Name')" :show-errors="false" required />
                                 <p class="message"></p>
@@ -68,7 +68,7 @@
                     <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                         <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">ADDRESS DETAILS</p>
     
-                        <div class="lg:grid grid-cols-3 flex flex-wrap gap-3 items-center">
+                        <div class="md:grid grid-cols-3 flex flex-wrap gap-3 items-center">
                             <div class="relative h-full w-full">
                                 <x-splade-select class="drop-down blue-inpt" placeholder="Select your Region" id="regionCode" name="regionCode" remote-url="https://psgc.gitlab.io/api/regions/" option-label="name" option-value="code" :label="__('Region')" required />
                                 <i class="fa-solid fa-circle text-xs3 text-red-500 mx-2 absolute top-6 -right-1"></i>
@@ -94,7 +94,7 @@
                     <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                         <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">CONTACT DETAILS</p>
     
-                        <div class="lg:grid grid-cols-2 flex flex-wrap gap-3 items-center">
+                        <div class="md:grid grid-cols-2 flex flex-wrap gap-3 items-center">
                             <div class="relative h-full w-full">
                                 <x-splade-input onkeyup="validate(4, 'num', 'true', 8, 16)" class="input blue-inpt" id="contactNumber" type="tel" name="contactNumber" :label="__('Contact Number')" required />
                                 <p class="message"></p>
@@ -121,7 +121,7 @@
                 <x-splade-form :default="$user" action="{{ route('save-profile') }}" class="space-y-4">
                     <div class="w-fit">
                         {{-- <div class="relative border-gray-200 border rounded-md p-5 mt-5 input-cntnr">
-                            <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">PROFILE PICTURE</p>
+                            <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">PROFILE PICTURE</p>
             
                             <div class="w-full">
                                 @if ($user->profPic == "")
@@ -135,7 +135,7 @@
                         </div> --}}
 
                         <div class="relative border-gray-200 border rounded-md p-5 mt-5 input-cntnr">
-                            <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">PERSONAL DETAILS</p>
+                            <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">PERSONAL DETAILS</p>
             
                             <div class="w-full">
                                 <div class="">
@@ -149,7 +149,7 @@
                         </div>
             
                         <div class="relative border-gray-200 border rounded-md p-5 input-cntnr">
-                            <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">CONTACT DETAILS</p>
+                            <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">CONTACT DETAILS</p>
             
                             <div class="w-full">
                                 <div class="">
@@ -165,7 +165,7 @@
                         </div>
             
                         <div class="relative border-gray-200 border rounded-md p-5 input-cntnr">
-                            <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">OTHER DETAILS</p>
+                            <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">OTHER DETAILS</p>
             
                             <div class="">
                                 <x-splade-select class="input drop-down blue-inpt" placeholder="Select the Department" id="profDept" name="profDept" :label="__('Department')"  :options="$department"/>

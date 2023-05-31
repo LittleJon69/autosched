@@ -14,7 +14,7 @@
                 </div>                
             </div>
 
-            <div class="m-3 flex items-center h-fit sm:hidden">
+            <div class="m-3 flex items-center h-fit">
                 <div class="pr-2 border-r border-r-gray-300">
                     <Link class="whitespace-nowrap squared-btn blue-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('subjects.create') }}">
                         <div class="mr-2 flex items-center justify-center">
@@ -29,7 +29,7 @@
                 <div>
                     <Link class="ml-2 whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" href="{{ route('import-sub') }}">
                         <div class="mr-2 flex items-center justify-center">
-                            <i class="fa-solid fa-download sm:group-hover:text-green-500 text-white text-xs"></i>
+                            <i class="fa-solid fa-download sm:group-hover:text-green-500 text-white"></i>
                         </div>
     
                         IMPORT SUBJECTS
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <div class="m-3 sm:flex items-center h-fit hidden">
+            {{-- <div class="m-3 sm:flex items-center h-fit hidden">
                 <div class="pr-2 border-r border-r-gray-300">
                     <Link modal class="whitespace-nowrap squared-btn blue-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('subjects.create') }}">
                         <div class="mr-2 flex items-center justify-center">
@@ -52,17 +52,17 @@
                 <div>
                     <Link modal class="ml-2 whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('import-sub') }}">
                         <div class="mr-2 flex items-center justify-center">
-                            <i class="fa-solid fa-download sm:group-hover:text-green-500 text-white text-xs"></i>
+                            <i class="fa-solid fa-download sm:group-hover:text-green-500 text-white"></i>
                         </div>
     
                         IMPORT SUBJECTS
                     </Link>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
-        <div class="h-full w-full flex justify-center p-3 overflow-auto">
-            <div class="w-full h-full flex justify-center xl:w-tabw">
+        <div class="h-full w-full flex justify-center p-3 overflow-auto items-center">
+            <div class="w-full h-full flex justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table class="w-full h-full mobtable" :for="$subjects" striped>
                         @cell('subTitle', $subject)
@@ -110,7 +110,7 @@
                                     </div>
                                 </Link>
                 
-                                <Link modal confirm="EDIT SUBJECT" confirm-text="Are You Sure?" onclick="start()" href="{{ route('subjects.edit', $subject->id) }}" class="sm:flex hidden group squared-btn green-btn border">
+                                <Link confirm="EDIT SUBJECT" confirm-text="Are You Sure?" onclick="start()" href="{{ route('subjects.edit', $subject->id) }}" class="sm:flex hidden group squared-btn green-btn border">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     

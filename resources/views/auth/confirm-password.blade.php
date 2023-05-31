@@ -13,9 +13,9 @@
     <div class="sm:p-20 sm:max-w-lg w-full sm:h-fit h-full flex flex-wrap">
         <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-fit">
             {{-- <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
-                <Link class="flex items-center justify-center gap-3" href="{{ route('login') }}">
-                    <i class="text-sm fa-solid fa-arrow-left"></i>
-                    <p class="text-xs text-center">Exit</p>
+                <Link class="text-xs0 flex items-center justify-center gap-2" href="{{ route('login') }}">
+                    <i class=" fa-solid fa-arrow-left"></i>
+                    <p class="text-center">Exit</p>
                 </Link>
             </div> --}}
 
@@ -42,7 +42,7 @@
                         This is a Secure Area of the Application. Please Confirm your Password before Continuing.
                     </p>
 
-                    <p class="mt-2 text-xs flex items-center justify-center sm:justify-start">Note: " <i class="fa-solid fa-circle text-xs3 text-red-500"></i> " Means that the Field is Required.</p>
+                    <p class="mt-2 text-xs flex items-center justify-center sm:justify-start">Note: Red Dot " <i class="fa-solid fa-circle text-xs3 text-red-500"></i> " Means that the Field is Required.</p>
                 </div>
                 
                 <div class="mt-4">

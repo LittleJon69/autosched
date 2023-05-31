@@ -17,7 +17,7 @@
                     @csrf
                     
                     <button type="submit" class="text-xs text-center flex items-center justify-center gap-3">
-                        <i class="text-sm fa-solid fa-arrow-right-from-bracket"></i> {{ __('Log Out') }}
+                        <i class=" fa-solid fa-arrow-right-from-bracket"></i> {{ __('LOG OUT') }}
                     </button>
                 </x-splade-form>
             </div>

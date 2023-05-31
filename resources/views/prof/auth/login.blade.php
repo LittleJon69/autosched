@@ -12,11 +12,11 @@
 
     <div class="sm:p-20 sm:max-w-lg w-full sm:h-fit h-full flex flex-wrap">
         <x-splade-modal class="rounded-xl p-0 modal" max-width="sm" :close-button="false">
-            <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full sm:block flex flex-col flex-wrap justify-between">
+            <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full flex flex-col sm:block flex flex-col flex-wrap justify-between">
                 <div class="">   
                     <div>
                         <div class="flex items-center justify-center p-5 sm:p-5">
-                            <Link class="flex items-center justify-center flex-wrap" href="/">
+                            <Link class="text-xs0 flex items-center justify-center flex-wrap" href="/">
                                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 mr-2">
                                 <p class="text-lg text-center">AUTO - SCHED</p>
                             </Link>

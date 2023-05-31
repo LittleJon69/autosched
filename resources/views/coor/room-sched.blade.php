@@ -15,8 +15,8 @@
             </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
-            <div class="w-full h-full flex flex-wrap justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3 items-center">
+            <div class="w-full h-full flex flex-wrap justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table  class="w-full h-full mobtable" :for="$Room_sched" striped>
                         @cell('action', $Room_sched)

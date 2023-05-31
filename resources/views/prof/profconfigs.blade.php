@@ -3,9 +3,9 @@
         <nav class="w-full hidden sm:flex justify-between items-center p-3 transition-all ease-in-out nav absolute top-0">
             <div class="flex items-center">
                 <div class="pr-3 border-r border-gray-300">
-                    <Link class="flex items-center justify-center gap-3 blue-btn squared-btn border-2" href="{{ route('prof-class-calendar') }}">
-                        <i class="text-sm fa-solid fa-calendar-days"></i>
-                        <p class="text-xs text-center">SCHOOL CALENDAR</p>
+                    <Link class="text-xs0 flex items-center justify-center gap-3 blue-btn squared-btn border-2" href="{{ route('prof-class-calendar') }}">
+                        <i class=" fa-solid fa-calendar-days"></i>
+                        <p class="text-center">SCHOOL CALENDAR</p>
                     </Link>
                 </div>
     
@@ -21,9 +21,9 @@
         <x-splade-modal class="rounded-xl p-0 modal blue-btn-x" max-width="md">
             <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full sm:w-100 h-full sm:h-fit">
                 <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
-                    <Link class="flex items-center justify-center gap-3" href="{{ route('prof-class-calendar') }}">
-                        <i class="text-sm fa-solid fa-calendar-days"></i>
-                        <p class="text-xs text-center">SCHOOL CALENDAR</p>
+                    <Link class="text-xs0 flex items-center justify-center gap-2" href="{{ route('prof-class-calendar') }}">
+                        <i class=" fa-solid fa-calendar-days"></i>
+                        <p class="text-center">SCHOOL CALENDAR</p>
                     </Link>
                 </div>
         
@@ -50,7 +50,7 @@
                     <x-splade-form :default="$profconfig" method="POST" action="{{ route('save-configs') }}">
                         <div class="">
                             <div class="relative border-gray-200 border rounded-md p-6 mt-5 input-cntnr">
-                                <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">TYPE OF EMPLOYMENT</p>
+                                <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">TYPE OF EMPLOYMENT</p>
                     
                                 <div class="flex flex-col flex-wrap gap-3">
                                     <div class="relative">
@@ -64,7 +64,7 @@
                             </div>
     
                             <div class="relative border-gray-200 border rounded-md p-6 mt-5 input-cntnr">
-                                <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">PREFERRED MODE OF CLASS</p>
+                                <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">PREFERRED MODE OF CLASS</p>
     
                                 <div class="flex flex-col flex-wrap gap-3">
                                     <div class="relative">
@@ -82,7 +82,7 @@
                             </div>
 
                             <div class="relative border-gray-200 border rounded-md p-6 mt-5 input-cntnr">
-                                <p class="text-md bg-white px-1 rounded-md absolute -top-3 left-3">UNITS</p>
+                                <p class="sm:text-base text-sm bg-white px-1 rounded-md absolute -top-3 left-3">UNITS</p>
         
                                 <div class="w-full">
                                     <div class="">
@@ -92,7 +92,7 @@
                             </div>
         
                             <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
-                                <p class="text-md bg-white absolute -top-3 left-3 px-1">DAYS AND ITS TIME</p>
+                                <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">DAYS AND ITS TIME</p>
 
                                 <Link href="{{ route('unset-prof-hours') }}">Unset</Link>
             

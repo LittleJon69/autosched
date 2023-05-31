@@ -17,8 +17,8 @@
 
         {{-- <Link href="profconfig">setup</Link> --}}
 
-        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
-            <div class="w-full h-fit flex flex-wrap justify-center xl:w-tabw m-3">
+        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3 items-center">
+            <div class="w-full h-fit flex flex-wrap justify-center 2xl:w-tabw m-3">
                 <div class="bg-white shadow-md rounded-lg w-full">
                     <div class="p-5 flex items-center justify-center sm:block border-b border-gray-300">
                         <p class="text-xl text-b6">

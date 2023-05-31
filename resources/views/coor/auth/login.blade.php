@@ -12,18 +12,18 @@
 
     <div class="sm:p-20 sm:max-w-lg w-full sm:h-fit h-full flex flex-wrap">
         <x-splade-modal class="rounded-xl p-0 modal" max-width="sm" :close-button="false">
-            <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full sm:block flex flex-col flex-wrap justify-between">
+            <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full flex flex-col sm:block flex flex-col flex-wrap justify-between">
                 <div class="">    
                     <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
-                        <Link class="flex items-center justify-center gap-3" href="/">
-                            <i class="text-sm fa-solid fa-arrow-left"></i>
-                            <p class="text-xs text-center">Back</p>
+                        <Link class="text-xs0 flex items-center justify-center gap-2" href="/">
+                            <i class=" fa-solid fa-arrow-left"></i>
+                            <p class="text-center">BACK</p>
                         </Link>
                     </div>
                     
                     <div>
                         <div class="flex items-center justify-center p-5 pt-0 sm:p-5">
-                            <Link class="flex items-center justify-center flex-wrap" href="/">
+                            <Link class="text-xs0 flex items-center justify-center flex-wrap" href="/">
                                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 mr-2">
                                 <p class="text-lg text-center">AUTO - SCHED</p>
                             </Link>

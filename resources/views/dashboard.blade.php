@@ -18,7 +18,7 @@
         {{-- <Link href="profconfig">setup</Link> --}}
 
         <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
-            <div class="w-full h-fit flex justify-center xl:w-tabw">
+            <div class="w-full h-fit flex justify-center 2xl:w-tabw">
                 <div class="w-full flex flex-wrap justify-center gap-5 m-5">
                     <div class="bg-white flex flex-col shadow-md rounded-lg overflow-hidden w-52 h-fit cursor-pointer">
                         <div class="flex items-center justify-between p-4">

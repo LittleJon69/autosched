@@ -26,10 +26,13 @@
                     </Link>
                 </div> --}}
 
-                <div class="pl-2 pr-2 border-r border-r-gray-300">
+                <div class="pr-2 border-r border-r-gray-300">
                     <Link class="whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="schoolConfig">
                         <div class="mr-2 flex items-center justify-center">
-                            <i class="fa-solid fa-clock text-white sm:group-hover:text-green-500"></i>
+                            <span class="flex justify-center items-center relative">
+                                <i class="fa-solid fa-clock sm:group-hover:text-green-500"></i>
+                                <i class="absolute -bottom-1 -right-1 side-icon-btn fa-solid fa-pen-to-square text-xs2 sm:group-hover:text-green-500"></i>
+                            </span>
                         </div>
     
                         UPDATE SCHOOL HOURS
@@ -60,9 +63,12 @@
                 </div> --}}
 
                 <div class="pl-2 pr-2 border-r border-r-gray-300">
-                    <Link class="whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" modal onclick="start()" href="schoolConfig">
+                    <Link class="whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="schoolConfig">
                         <div class="mr-2 flex items-center justify-center">
-                            <i class="fa-solid fa-clock text-white sm:group-hover:text-green-500"></i>
+                            <span class="flex justify-center items-center relative">
+                                <i class="fa-solid fa-clock sm:group-hover:text-green-500"></i>
+                                <i class="absolute -bottom-1 -right-1 side-icon-btn fa-solid fa-pen-to-square text-xs2 sm:group-hover:text-green-500"></i>
+                            </span>
                         </div>
     
                         UPDATE SCHOOL HOURS
@@ -70,7 +76,7 @@
                 </div>
 
                 <div class="pl-2">
-                    <Link modal class="whitespace-nowrap squared-btn blue-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('school.edit', $school) }}">
+                    <Link class="whitespace-nowrap squared-btn blue-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('school.edit', $school) }}">
                         <div class="mr-2 flex items-center justify-center">
                             <i class="fa-solid fa-pen-to-square sm:group-hover:text-b6 text-white"></i>
                         </div>
@@ -82,7 +88,7 @@
         </div>
 
         <div class="overflow-auto h-full w-full p-3 gap-3 flex flex-col items-center">
-            <div class="w-full rounded-2xl shadow-sm bg-white xl:w-tabw">
+            <div class="w-full rounded-2xl shadow-md bg-white 2xl:w-tabw">
                 <div class="w-full">
                     <div class="flex items-center justify-center h-40 bg-b4 rounded-t-2xl">
                     </div>
@@ -93,28 +99,30 @@
                         @else
                             <div class="absolute background-image -top-32 w-40 h-40 flex items-center justify-center border-4 border-b6 rounded-full p-2 shadow-md bg-white" style="background-image:url('{{ asset('storage/'.$school->schLogo) }}')">
                         @endif
-                        
-                            <div class="absolute bottom-1 right-1 sm:flex hidden">
-                                <Link modal class="relative transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
-                                    <i class="fa-solid fa-camera sm:group-hover:text-b6 text-white"></i>
 
-                                    <div class="absolute bottom-10 right-0 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
-                                        <p class="text-b6 text-xs0 whitespace-nowrap">
-                                            CHANGE SCHOOL LOGO
-                                        </p>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div class="absolute bottom-1 right-1 flex sm:hidden">
-                                <Link class="relative transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
-                                    <i class="fa-solid fa-camera sm:group-hover:text-b6 text-white"></i>
-
-                                    <div class="absolute bottom-10 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
-                                        <p class="text-b6 text-xs0 whitespace-nowrap">
-                                            CHANGE SCHOOL LOGO
-                                        </p>
-                                    </div>
-                                </Link>
+                            <div class="relative flex justify-center items-center w-full h-full">
+                                <div class="absolute -bottom-1 -right-1 sm:flex hidden">
+                                    <Link modal class="relative transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
+                                        <i class="fa-solid fa-camera sm:group-hover:text-b6 text-white"></i>
+    
+                                        <div class="absolute bottom-0 left-10 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                                            <p class="text-b6 text-xs0 whitespace-nowrap">
+                                                CHANGE SCHOOL LOGO
+                                            </p>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div class="absolute -bottom-1 -right-1 flex sm:hidden">
+                                    <Link class="transition-all ease-in-out p-4 w-2 h-2 rounded-50 blue-btn text-xs0 border-2 group flex items-center justify-center" onclick="start()" href="{{ route('editLogo') }}">
+                                        <i class="fa-solid fa-camera sm:group-hover:text-b6 text-white"></i>
+    
+                                        <div class="absolute top-10 shadow-md bg-white bg-opacity-90 rounded-md p-2 hidden w-fit group-hover:block">
+                                            <p class="text-b6 text-xs0 whitespace-nowrap">
+                                                CHANGE SCHOOL LOGO
+                                            </p>
+                                        </div>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 
@@ -140,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="w-full rounded-2xl shadow-sm bg-white flex flex-wrap sm:flex-nowrap gap-3 p-4 xl:w-tabw">
+            <div class="w-full rounded-2xl shadow-md bg-white flex flex-wrap sm:flex-nowrap gap-3 p-4 2xl:w-tabw">
                 {{-- <div class="w-full">
                     <div class="p-2 px-3 w-full border-l-4 border-l-b6 border border-gray-300 rounded-md">
                         <p class="sm:text-lg text-sm">

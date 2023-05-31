@@ -16,7 +16,7 @@
 
             {{-- <div class="m-3 flex items-center h-fit">
                 <div class="pr-2">
-                    <Link class="whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" confirm="GENERATE SCHEDULE" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" href="{{ route('generate.create') }}">
+                    <Link class="whitespace-nowrap squared-btn green-btn text-xs0 border group flex items-center justify-center" confirm="GENERATE SCHEDULE" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" href="{{ route('generate.create') }}">
                         <div class="mr-2 flex items-center justify-center">
                             <i class="fa-solid fa-clock text-white group-hover:text-green-500"></i>
                         </div>
@@ -26,8 +26,8 @@
             </div> --}}
         </div>
 
-        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
-            <div class="w-full h-full flex flex-wrap justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3 items-center">
+            <div class="w-full h-full flex flex-wrap justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table  class="w-full h-full mobtable" :for="$Prof_sched" striped>
                         @cell('action', $Prof_sched)

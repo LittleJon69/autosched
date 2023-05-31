@@ -207,7 +207,7 @@
                         </button>
                     </x-splade-form> --}}
 
-                    <Link class="text-xs text-center flex items-center justify-center gap-3" href="{{ route('coor.logout') }}" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                    <Link class="text-xs text-center flex items-center justify-center gap-3" href="{{ route('coor.logout') }}" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" method="POST">
                         <div class="prof h-full flex items-center justify-center bg-b4 p-6">
                             <i class="fa-solid fa-arrow-right-from-bracket text-white text-sm"></i>
                         </div>

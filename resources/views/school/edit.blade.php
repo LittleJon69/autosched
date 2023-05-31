@@ -3,9 +3,9 @@
         <nav class="w-full hidden sm:flex justify-between items-center p-3 transition-all ease-in-out nav absolute top-0">
             <div class="flex items-center">
                 <div class="pr-3 border-r border-gray-300">
-                    <Link class="flex items-center justify-center gap-3 blue-btn squared-btn border-2" href="{{ route('school.index') }}">
-                        <i class="text-sm fa-solid fa-calendar-days"></i>
-                        <p class="text-xs text-center">SCHOOL PROFILE</p>
+                    <Link class="text-xs0 flex items-center justify-center gap-3 blue-btn squared-btn border-2" href="{{ route('school.index') }}">
+                        <i class=" fa-solid fa-school"></i>
+                        <p class="text-center">SCHOOL PROFILE</p>
                     </Link>
                 </div>
     
@@ -19,11 +19,11 @@
     
     <div class="sm:p-20 sm:w-tabw w-full sm:h-fit h-full flex flex-wrap">
         <x-splade-modal class="rounded-xl p-0 modal blue-btn-x" max-width="4xl">
-            <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full">
+            <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-full flex flex-col">
                 <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
-                    <Link class="flex items-center justify-center gap-3" href="{{ route('school.index') }}">
-                        <i class="text-sm fa-solid fa-school"></i>
-                        <p class="text-xs text-center">School Profile</p>
+                    <Link class="text-xs0 flex items-center justify-center gap-2" href="{{ route('school.index') }}">
+                        <i class=" fa-solid fa-school"></i>
+                        <p class="text-center">SCHOOL PROFILE</p>
                     </Link>
                 </div>
         
@@ -56,7 +56,7 @@
                             <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                                 <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">SCHOOL ADDRESS DETAILS</p>
             
-                                <div class="lg:grid grid-cols-3 flex flex-wrap gap-3 items-center">
+                                <div class="md:grid grid-cols-3 flex flex-wrap gap-3 items-center">
                                     <div class="relative h-full w-full">
                                         <x-splade-select class="drop-down blue-inpt" placeholder="Select your Region" id="regionCode" name="regionCode" remote-url="https://psgc.gitlab.io/api/regions/" option-label="name" option-value="code" :label="__('Region')" />
                                     </div>
@@ -79,7 +79,7 @@
                             <div class="relative border-gray-200 border-solid border rounded-md p-6 input-cntnr">
                                 <p class="sm:text-base text-sm bg-white absolute -top-3 left-3 px-1">SCHOOL CONTACT DETAILS</p>
             
-                                <div class="lg:grid grid-cols-2 flex flex-wrap gap-3 items-center">
+                                <div class="md:grid grid-cols-2 flex flex-wrap gap-3 items-center">
                                     <div class="relative h-full w-full">
                                         <x-splade-input onkeyup="validate(2, 'num', 'true', 8, 16)" class="input blue-inpt" id="contactNumber" type="tel" name="contactNumber" :label="__('Contact Number')" />
                                         <p class="message mt-1"></p>

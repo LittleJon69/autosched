@@ -7312,24 +7312,31 @@
             }
             }
         </style>
+
+        <style>
+            .bg-blue-100 {
+                --tw-bg-opacity: 1 !important;
+                background-color: rgb(219 234 254 / var(--tw-bg-opacity)) !important;
+            }
+        </style>
     </head>
 
-    <body class="bg-blue-100">
-        <div class="w-full h-full flex items-center justify-center flex-wrap sm:p-5 bg-blue-100">
-            <div class="sm:w-96 w-full h-fit flex items-center justify-center flex-col">
-                <div class="shadow-md sm:rounded-xl relative w-full sm:w-96 h-fit bg-white">
+    <body class="bg-blue-100 w-full h-full flex items-center justify-center flex-wrap">
+        <div class="sm:w-96 h-full flex items-center justify-center flex-wrap sm:p-5 bg-blue-100">
+            <div class="w-full h-fit flex items-center justify-center flex-col">
+                <div class="shadow-md sm:rounded-xl relative w-full h-fit bg-white">
                     <div class="flex gap-2 items-center justify-center pt-4 flex-wrap">
                         <div class="background-image w-11 h-11" style="background-image: url('{{ asset('image/logo-main.png') }}');">
             
                         </div>
-                        <p class="sm:text-lg text-sm">
+                        <p class=" text-sm">
                             AUTO - SCHED
                         </p>
                     </div>
             
                     <div class="pt-4 flex items-center flex-wrap w-full">
                         <div class="bg-b6 w-full p-3 flex items-center justify-center flex-wrap flex-col">
-                            <p class="text-white text-sm sm:text-lg font-normal uppercase text-center">Welcome</p>
+                            <p class="text-white text-sm font-normal uppercase text-center">Welcome</p>
                             <p class="text-white text-xs font-normal uppercase text-center">
                                 {{-- {{ $coorFName }} {{ $coorLName }} --}}
                             </p>

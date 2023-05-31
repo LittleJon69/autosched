@@ -15,8 +15,8 @@
             </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
-            <div class="w-full h-full flex flex-wrap justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3 items-center">
+            <div class="w-full h-full flex flex-wrap justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="h-full w-full flex items-center justify-center">
                     <div class="h-full w-full flex items-center flex-wrap justify-center p-2 gap-3">
                

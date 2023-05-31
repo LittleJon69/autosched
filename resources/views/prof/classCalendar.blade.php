@@ -61,8 +61,8 @@
             </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex justify-center p-3">
-            <div class="w-full h-full flex justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex justify-center p-3 items-center">
+            <div class="w-full h-full flex justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table class="w-full h-full mobtable" :for="$Prof_sched" striped>
                         {{-- @cell('action', $Prof_sched)

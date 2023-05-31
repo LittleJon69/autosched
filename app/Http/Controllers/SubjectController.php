@@ -280,7 +280,8 @@ class SubjectController extends Controller
 
     public function downloadSampleFile(){
 
-        $myFile = public_path("excel/sample.xlsx");
+        $myFile = public_path("excel/Import_Subjects_FIle.xlsx");
+        
         return response()->download($myFile);
  
     }

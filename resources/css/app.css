@@ -49,7 +49,7 @@ font-family: 'Varela Round', sans-serif; */
 }
 
 nav.flex.items-center.justify-between.px-4.sm\:px-0.py-3 {
-    padding: 0.75rem 0px 0px 0px !important;
+    padding: 0 !important;
 }
 
 p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center {
@@ -72,6 +72,8 @@ p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center {
     width: 100%;
     overflow: auto;
     justify-content: center;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
 }
 
 .mobtable > div:nth-last-child(1) {
@@ -79,6 +81,8 @@ p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center {
     width: 100%;
     overflow: auto;
     justify-content: center;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
 }
 
 .mobtable .shadow-sm.relative.border.border-gray-200.sm\:rounded-md.sm\:overflow-hidden {
@@ -92,7 +96,7 @@ p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center {
 .mobtable .py-2.align-middle.inline-block.min-w-full.sm\:px-px {
     height: 100%;
     width: 100%;
-    padding-top: 0.75rem !important;
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
 
@@ -104,6 +108,10 @@ p.text-gray-700.px-6.py-12.font-medium.text-sm.text-center {
 .mobtable {
     display: flex;
     flex-direction: column;
+}
+
+.mobtable.table-card {
+    gap: 0.75rem;
 }
 
 .input p {
@@ -279,7 +287,7 @@ html, body {
     @apply shadow-md sticky top-0 bg-white border-b border-gray-300 z-20;
 }
 
-.leftlabel input {
+.leftlabel .flatpickr-input {
     padding-left: 70px;
 }
 
@@ -398,7 +406,7 @@ button.filepond--file-action-button.filepond--action-remove-item {
     color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.input .block {
+.input label.block {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -446,19 +454,19 @@ input, select {
 }
 
 .squared-btn {
-    @apply transition-all ease-in-out rounded-md text-white p-2 px-4;
+    @apply transition-all ease-in-out rounded-md text-white p-2 px-4 whitespace-nowrap;
 }
 
 .squared-btn-i button {
-    @apply transition-all ease-in-out rounded-md text-white p-2 px-4 border-2;
+    @apply transition-all ease-in-out rounded-md text-white p-2 px-4 border-2 whitespace-nowrap;
 }
 
 .rounded-btn {
-    @apply transition-all ease-in-out rounded-full text-white p-3 px-14;
+    @apply transition-all ease-in-out rounded-full text-white p-3 px-14 whitespace-nowrap;
 }
 
 .rounded-btn-i button {
-    @apply transition-all ease-in-out rounded-full text-white p-3 px-14 border-2;
+    @apply transition-all ease-in-out rounded-full text-white p-3 px-14 border-2 whitespace-nowrap;
 }
 
 .squared-btn-i button span, .rounded-btn-i button span{
@@ -595,6 +603,26 @@ input, select {
     text-shadow: -1px 0 #CAF0F8, 0 1px #CAF0F8, 1px 0 #CAF0F8, 0 -1px #CAF0F8;
 }
 
+.squared-btn.blue-btn .side-icon-btn {
+    text-shadow: -1px 0 #0096C7, 0 1px #0096C7, 1px 0 #0096C7, 0 -1px #0096C7;
+}
+
+.squared-btn.green-btn .side-icon-btn {
+    text-shadow: -1px 0 #22c55e, 0 1px #22c55e, 1px 0 #22c55e, 0 -1px #22c55e;
+}
+
+.side-icon-btn-dflt {
+    text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+}
+
+.squared-btn.blue-btn:hover .side-icon-btn {
+    text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+}
+
+.squared-btn.green-btn:hover .side-icon-btn {
+    text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+}
+
 .schedopen {
     @apply h-48 bg-b5;
 }
@@ -715,7 +743,7 @@ input::-webkit-inner-spin-button {
 }
 
 .mt-5.sm\:mt-4.sm\:flex button {
-    @apply h-full w-full flex items-center justify-center text-xs uppercase;
+    @apply h-full w-full flex items-center justify-center text-xs0 uppercase;
 }
 
 .mt-5.sm\:mt-4.sm\:flex button:nth-child(1) {
@@ -1049,5 +1077,21 @@ select {
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-6xl > div,
     .fixed.inset-0.z-40.overflow-y-auto.p-4 .w-full.sm\:max-w-7xl > div {
         display: block;
+    }
+
+    .sched-link .sub-sched:hover .side-icon {
+        text-shadow: -1px 0 #CAF0F8, 0 1px #CAF0F8, 1px 0 #CAF0F8, 0 -1px #CAF0F8;
+    }
+
+    .sub-sched:hover .side-icon {
+        text-shadow: -1px 0 #48CAE4, 0 1px #48CAE4, 1px 0 #48CAE4, 0 -1px #48CAE4;
+    }
+
+    .squared-btn.blue-btn:hover .side-icon-btn {
+        text-shadow: -1px 0 #0096C7, 0 1px #0096C7, 1px 0 #0096C7, 0 -1px #0096C7;
+    }
+
+    .squared-btn.green-btn:hover .side-icon-btn {
+        text-shadow: -1px 0 #22c55e, 0 1px #22c55e, 1px 0 #22c55e, 0 -1px #22c55e;
     }
 }

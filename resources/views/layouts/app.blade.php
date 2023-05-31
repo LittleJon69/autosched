@@ -12,7 +12,7 @@
         </div>
 
         <div class="sm:block hidden">
-            <Link class="flex items-center">
+            <Link class="text-xs0 flex items-center">
                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 mr-2">
                 <p class="text-sm text-white">AUTO - SCHED</p>
             </Link>
@@ -54,19 +54,19 @@
                             <x-slot name="content">
                                 <x-dropdown-link onclick="start()" href="profileCoor">
                                     <div class="flex items-center gap-2 uppercase whitespace-nowrap">
-                                        <i class="fa-solid fa-user-pen text-xs"></i> Update Your Profile
+                                        <i class="fa-solid fa-user-pen "></i> Update Your Profile
                                     </div>
                                 </x-dropdown-link>
         
                                 <x-dropdown-link onclick="start()" :href="route('update-password-administrator')">
                                     <div class="flex items-center gap-2 uppercase whitespace-nowrap">
-                                        <i class="fa-solid fa-lock text-xs"></i> Change Your Password
+                                        <i class="fa-solid fa-lock "></i> Change Your Password
                                     </div>
                                 </x-dropdown-link>
         
-                                <x-dropdown-link onclick="start()" :href="route('logout')" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                                <x-dropdown-link onclick="start()" :href="route('logout')" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" method="POST">
                                     <div class="flex items-center gap-2 uppercase whitespace-nowrap">
-                                        <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i> Log Out
+                                        <i class="fa-solid fa-arrow-right-from-bracket "></i> Log Out
                                     </div>
                                 </x-dropdown-link>
                             </x-slot>

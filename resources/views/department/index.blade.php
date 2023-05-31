@@ -14,7 +14,7 @@
                 </div>                
             </div>
 
-            <div class="m-3 flex items-center h-fit sm:hidden">
+            <div class="m-3 flex items-center h-fit">
                 <Link class="whitespace-nowrap squared-btn blue-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('department.create') }}">
                     <div class="mr-2 flex items-center justify-center">
                         <i class=" mr-xs fa-solid fa-plus text-xs1 sm:group-hover:text-b6 text-white"></i>
@@ -25,7 +25,7 @@
                 </Link>
             </div>
 
-            <div class="m-3 sm:flex items-center h-fit hidden">
+            {{-- <div class="m-3 sm:flex items-center h-fit hidden">
                 <Link modal class="whitespace-nowrap squared-btn blue-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('department.create') }}">
                     <div class="mr-2 flex items-center justify-center">
                         <i class=" mr-xs fa-solid fa-plus text-xs1 sm:group-hover:text-b6 text-white"></i>
@@ -34,11 +34,11 @@
 
                     ADD DEPARTMENT
                 </Link>
-            </div>
+            </div> --}}
         </div>
 
-        <div class="overflow-auto h-full w-full flex justify-center p-3">
-            <div class="h-full w-full flex justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex justify-center p-3 items-center">
+            <div class="h-full w-full flex justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table class="w-full h-full mobtable" :for="$departments" striped>
                         @cell('deptCode', $dept)
@@ -68,7 +68,7 @@
                                     </div>
                                 </Link>
 
-                                <Link modal onclick="start()" href="{{ route('department.edit', $dept->id) }}" class="sm:flex hidden group squared-btn green-btn border">
+                                <Link onclick="start()" href="{{ route('department.edit', $dept->id) }}" class="sm:flex hidden group squared-btn green-btn border">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-pen-to-square text-white sm:group-hover:text-green-500"></i>
     
@@ -80,7 +80,7 @@
                                     </div>
                                 </Link>
                 
-                                <Link class="group squared-btn red-btn border" confirm="DELETE DEPARTMENT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" href="{{ route('department.destroy', $dept->id) }}" method="DELETE">
+                                <Link class="group squared-btn red-btn border" confirm="DELETE DEPARTMENT" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" href="{{ route('department.destroy', $dept->id) }}" method="DELETE">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-trash text-white sm:group-hover:text-red-500"></i>
     

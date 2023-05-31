@@ -11,7 +11,7 @@
                 </div>
             </Link>
         
-            <div class="flex text-xs items-center gap-4">
+            <div class="flex text-xs0 items-center gap-4">
                 <Link modal href="{{ route('login') }}" class="squared-btn blue-btn border-2 transition-all ease-in-out">LOG IN</Link>
             </div>
         </nav>
@@ -27,11 +27,11 @@
             </div> 
 
             <div class="flex flex-col titi items-center justify-center w-100">
-                <p class="whitespace-nowrap text-3xl sm:text-6xl text-center xl:text-left w-full mb-6 sm:mb-3">AUTO - SCHED</p>
-                <p class="text-sm sm:text-xl text-center w-full xl:text-justify">Create your school schedules with ease with the help of Auto - Sched, a web app that helps you to create school schedules way faster and conflict-free.</p>
+                <p class="whitespace-nowrap text-3xl sm:text-6xl text-center 2xl:text-left w-full mb-6 sm:mb-3">AUTO - SCHED</p>
+                <p class="text-sm sm:text-xl text-center w-full 2xl:text-justify">Create your school schedules with ease with the help of Auto - Sched, a web app that helps you to create school schedules way faster and conflict-free.</p>
             </div>
 
-            <div class="sm:hidden px-5 w-full flex text-xs items-center justify-center flex-wrap mt-6 sm:mt-0">
+            <div class="text-xs0 sm:hidden px-5 w-full flex items-center justify-center flex-wrap mt-6 sm:mt-0">
                 <Link href="{{ route('login') }}" class="rounded-btn blue-btn border-2 text-center text-b6 m-4 mx-6 transition-all ease-in-out">LOG IN</Link>
             </div>
         </div>

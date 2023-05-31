@@ -154,44 +154,6 @@
                 </x-splade-data>
             </div>
 
-            <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('previous-prof-schedules')" :active="request()->routeIs('previous-prof-schedules')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
-                    <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
-                        <i class="fa-solid fa-user-tie text-sm sm:group-hover:text-white"></i>
-                    </span>
-
-                    <p class="p-2 mr-3 my-2 h-8 whitespace-nowrap flex items-center text-xs sm:group-hover:text-white">
-                        PREVIOUS PROFESSOR SCHEDULES
-                    </p>
-                </div>
-            </x-sidebar-link>
-
-            <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('previous-rooms-schedules')" :active="request()->routeIs('previous-rooms-schedules')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
-                    <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
-                        <i class="fa-solid fa-user-tie text-sm sm:group-hover:text-white"></i>
-                    </span>
-
-                    <p class="p-2 mr-3 my-2 h-8 whitespace-nowrap flex items-center text-xs sm:group-hover:text-white">
-                        PREVIOUS ROOM SCHEDULES
-                    </p>
-                </div>
-            </x-sidebar-link>
-
-            <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('previous-classess-schedules')" :active="request()->routeIs('previous-classess-schedules')">
-                <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
-                    <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
-                        <i class="fa-solid fa-user-tie text-sm sm:group-hover:text-white"></i>
-                    </span>
-
-                    <p class="p-2 mr-3 my-2 h-8 whitespace-nowrap flex items-center text-xs sm:group-hover:text-white">
-                        PREVIOUS CLASS SCHEDULES
-                    </p>
-                </div>
-            </x-sidebar-link>
-
-            
-
             <x-sidebar-link class="sm:w-full w-11/12" v-bind:class="{ tabnameclose: toggled, tabnameopen: !toggled }" :href="route('school.index')" :active="request()->routeIs('school.index')">
                 <div v-bind:class="{ tablinkclose: toggled, tablinkopen: !toggled }" class="transition-all ease-in-out tablink cursor-pointer flex items-center rounded-r-3xl group sm:hover:bg-b4 w-full">
                     <span class="p-2 mx-3 my-2 h-8 w-8 flex justify-center items-center">
@@ -241,7 +203,7 @@
                         </p>
                     </div>
 
-                    <Link class="text-xs text-center flex items-center justify-center gap-3" href="{{ route('logout') }}" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                    <Link class="text-xs text-center flex items-center justify-center gap-3" href="{{ route('logout') }}" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" method="POST">
                         <div class="prof h-full flex items-center justify-center bg-b4 p-6">
                             <i class="fa-solid fa-arrow-right-from-bracket text-white text-sm"></i>
                         </div>

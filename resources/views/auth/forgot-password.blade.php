@@ -13,9 +13,9 @@
     <div class="sm:p-20 sm:max-w-lg w-full sm:h-fit h-full flex flex-wrap">
         <div class="bg-white sm:rounded-xl relative sm:shadow-md w-full h-fit">
             <div class="sm:hidden flex items-start p-5 h-fit transition-all ease-in-out navback">
-                <Link class="flex items-center justify-center gap-3" href="{{ route('login') }}">
-                    <i class="text-sm fa-solid fa-arrow-left"></i>
-                    <p class="text-xs text-center">Back</p>
+                <Link class="text-xs0 flex items-center justify-center gap-2" href="{{ route('login') }}">
+                    <i class=" fa-solid fa-arrow-left"></i>
+                    <p class="text-center">BACK</p>
                 </Link>
             </div>
 
@@ -54,7 +54,7 @@
                         
                         <div class="flex items-center w-full sm:justify-between mt-8">
                             <Link class="hidden sm:block text-blc1 text-xs mr-2 transition-all ease-in-out hover:text-b6" href="{{ route('login') }}">
-                                Go Back to Log In Form.
+                                Go BACK to Log In Form.
                             </Link>
 
                             <div class="squared-btn-i red-btn-i w-full flex flex-col sm:items-end">

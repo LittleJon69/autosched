@@ -12,7 +12,7 @@
         </div>
 
         <div class="sm:block hidden">
-            <Link class="flex items-center">
+            <Link class="text-xs0 flex items-center">
                 <img src="{{ asset('image/logo-main.png') }}" alt="auto-sched-logo" class="w-11 mr-2">
                 <p class="text-sm text-white">AUTO - SCHED</p>
             </Link>
@@ -76,7 +76,7 @@
                                     </div>
                                 </x-dropdown-link>
         
-                                <x-dropdown-link onclick="start()" :href="route('prof.logout')" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" method="POST">
+                                <x-dropdown-link onclick="start()" :href="route('prof.logout')" confirm="LOG OUT" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" method="POST">
                                     <div class="flex items-center gap-2 uppercase whitespace-nowrap">
                                         <i class="fa-solid fa-arrow-right-from-bracket text-xs"></i> Log Out
                                     </div>

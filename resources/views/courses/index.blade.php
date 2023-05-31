@@ -37,8 +37,8 @@
             </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex justify-center p-3">
-            <div class="h-full w-full flex justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex justify-center p-3 items-center">
+            <div class="h-full w-full flex justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table class="w-full h-full mobtable" :for="$courses" striped>
                         @cell('courseName', $course)
@@ -93,7 +93,7 @@
                                     </div>
                                 </Link>
                 
-                                <Link class="group squared-btn red-btn border" confirm="DELETE COURSE" confirm-text="Are You Sure?" confirm-button="Yes" cancel-button="Cancel" href="{{ route('courses.destroy', $course->id) }}" method="DELETE">
+                                <Link class="group squared-btn red-btn border" confirm="DELETE COURSE" confirm-text="Are You Sure?" confirm-button="Confirm" cancel-button="Cancel" href="{{ route('courses.destroy', $course->id) }}" method="DELETE">
                                     <div class="h-full w-full relative">
                                         <i class="fa-solid fa-trash text-white sm:group-hover:text-red-500"></i>
     

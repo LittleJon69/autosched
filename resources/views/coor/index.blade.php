@@ -15,8 +15,8 @@
             </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex justify-center p-3">
-            <div class="h-full w-full flex justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex justify-center p-3 items-center">
+            <div class="h-full w-full flex justify-center 2xl:w-tabw 2xl:h-fit">
                 <div class="w-full h-full">
                     <x-splade-table class="w-full h-full mobtable" :for="$subjects" striped>
                         @cell('subTitle', $subject)
@@ -61,7 +61,7 @@
 
                                         <div class="absolute bottom-9 -right-4 shadow-md bg-white bg-opacity-70 rounded-md p-2 hidden w-fit group-hover:block">
                                             <p class="text-b6 text-xs">
-                                                ADD COURSE TO THIS SUBJECT
+                                                ADD CLASS TO THIS SUBJECT
                                             </p>
                                         </div>
                                     </div>

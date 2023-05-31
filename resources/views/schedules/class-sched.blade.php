@@ -7,16 +7,33 @@
 
     <!-- Content -->
     <div class="w-full h-full flex flex-col overflow-auto">
-        <div class="title-btn flex w-full justify-between items-center overflow-x-auto overflow-y-hidden">
+        <div class="title-btn flex w-full justify-between items-center border-b border-b-b6 overflow-x-auto overflow-y-hidden">
             <div class="sm:flex hidden h-full">
                 <div class="h-full w-fit rounded-br-3xl bg-b7 flex justify-center items-center shadow-md p-5">
                     <p class="whitespace-nowrap text-xl px-3 text-white tracking-widest">CLASS SCHEDULES</p> 
                 </div>                
             </div>
+
+            <div class="m-3 flex items-center h-fit">
+                <div>
+                    <Link class="whitespace-nowrap squared-btn blue-btn text-xs0 border group flex items-center justify-center" onclick="start()" href="{{ route('previous-classess-schedules') }}">
+                        <div class="mr-2 flex items-center justify-center">
+                            <i class="mr-xs fa-solid fa-backward text-xs1 sm:group-hover:text-b6 text-white"></i>
+                            
+                            <span class="flex justify-center items-center relative">
+                                <i class="fa-solid fa-calendar-day sm:group-hover:text-b6"></i>
+                                <i class="absolute -bottom-1 -right-1 side-icon-btn fa-solid fa-users text-xs2 sm:group-hover:text-b6"></i>
+                            </span>
+                        </div>
+    
+                        PREVIOUS CLASS SCHEDULES
+                    </Link>
+                </div>
+            </div>
         </div>
 
-        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3">
-            <div class="w-full h-full flex flex-wrap justify-center xl:w-tabw">
+        <div class="overflow-auto h-full w-full flex flex-wrap justify-center p-3 items-center">
+            <div class="w-full h-full flex flex-wrap justify-center 2xl:w-tabw 2xl:h-fit">
                 <x-splade-table class="w-full h-full mobtable" :for="$Stud_sched" striped>
                     @cell('studCourse', $Stud_sched)
                         <div class="td" data-title="Course">
